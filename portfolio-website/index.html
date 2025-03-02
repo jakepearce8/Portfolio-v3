@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jake Pearce</title>
+  <!-- Include Tailwind CSS from CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Define Manrope font faces */
+    @font-face {
+      font-family: 'Manrope';
+      src: url('Fonts/Manrope-ExtraLight.ttf') format('truetype');
+      font-weight: 200;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Manrope';
+      src: url('Fonts/Manrope-Light.ttf') format('truetype');
+      font-weight: 300;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Manrope';
+      src: url('Fonts/Manrope-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Manrope';
+      src: url('Fonts/Manrope-Medium.ttf') format('truetype');
+      font-weight: 500;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Manrope';
+      src: url('Fonts/Manrope-SemiBold.ttf') format('truetype');
+      font-weight: 600;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Manrope';
+      src: url('Fonts/Manrope-Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Manrope';
+      src: url('Fonts/Manrope-ExtraBold.ttf') format('truetype');
+      font-weight: 800;
+      font-style: normal;
+    }
+
+    /* Define Besley Regular font face */
+    @font-face {
+      font-family: 'Besley';
+      src: url('Fonts/Besley-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    /* Apply Manrope globally */
+    body {
+      font-family: 'Manrope', sans-serif;
+    }
+
+    /* Fluid hero text: scales between 30px and 42px */
+    .fluid-hero-text {
+      font-size: clamp(30px, 2vw + 1rem, 42px);
+    }
+
+    /* Custom class for 13pt text */
+    .pt13 {
+      font-size: 13pt;
+    }
+  </style>
+</head>
+<body class="bg-[#f9f9f9] text-gray-900">
+  <!-- Header: Fixed at top, reactive background with 98% opacity and blur -->
+  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md" style="background-color: rgba(249,249,249,0.86);">
+    <div class="flex justify-between items-center w-full">
+      <!-- Site Title -->
+      <h1 class="pt13 font-medium" style="margin-top: 18pt; margin-left: 20pt;">Jake Pearce</h1>
+      
+      <!-- Desktop Nav (hidden on mobile) -->
+      <nav class="hidden lg:flex" style="margin-top: 18pt; margin-right: 20pt;">
+        <ul class="flex space-x-14">
+          <li>
+            <a href="#work" class="pt13 font-medium hover:text-blue-500">Work</a>
+          </li>
+          <li>
+            <a href="#visual-feed" class="pt13 font-medium hover:text-blue-500">Visual feed</a>
+          </li>
+          <li>
+            <a href="#contact" class="pt13 font-medium hover:text-blue-500">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Hamburger Button (shown on mobile, hidden on lg) -->
+      <button
+        id="mobileMenuBtn"
+        class="pt13 font-medium hover:text-blue-500 flex lg:hidden text-5xl"
+        style="margin-top: 18pt; margin-right: 20pt;"
+        aria-label="Open Menu"
+      >
+        =
+      </button>
+    </div>
+    <!-- Horizontal line: 10pt below the text baseline -->
+    <div style="margin-top: 18pt;">
+      <div style="height: 1pt; background-color: #ededed;"></div>
+    </div>
+  </header>
+
+  <!-- Fullscreen Mobile Nav Overlay (hidden by default) -->
+  <div
+    id="mobileNavOverlay"
+    class="fixed inset-0 z-50 hidden backdrop-blur-md flex flex-col items-start p-8"
+    style="background-color: rgba(249,249,249,0.86);"
+    aria-hidden="true"
+  >
+    <!-- The “X” button, same position as hamburger -->
+    <button
+      id="closeMenuBtn"
+      class="absolute text-5xl"
+      style="top: 0; margin-top: 18pt; margin-right: 25pt; right: 0;"
+      aria-label="Close Menu"
+    >
+      &times;
+    </button>
+    
+    <!-- Mobile nav options: left-justified, large text, max 60% screen width -->
+    <ul class="mt-40 space-y-12 text-5xl font-normal max-w-[60vw]">
+      <li><a href="#work" class="hover:text-blue-500">Work</a></li>
+      <li><a href="#visual-feed" class="hover:text-blue-500">Visual feed</a></li>
+      <li><a href="#contact" class="hover:text-blue-500">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Add top padding to the body content so it doesn't hide under the fixed header -->
+  <div class="pt-44">
+    <!-- Hero Section: max-width container + margin-bottom for spacing -->
+    <section class="hero bg-[#f9f9f9] h-96 flex items-center mb-6">
+      <div class="mx-auto w-full max-w-[1600px] px-5">
+        <!-- Responsive width: full width on small screens, 2/3 on large -->
+        <div class="w-full lg:w-2/3 fluid-hero-text font-medium text-black text-left leading-snug">
+          <p>Jake is a Graphic Designer with over a year of professional experience, bringing a fresh visual approach to branding, social media, and digital marketing.</p>
+          <p class="mt-10" style="color: #999999;">Driven by a passion for creating meaningful connections between brands and audiences.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Section: max-width container -->
+    <section id="work" class="mx-auto w-full max-w-[1600px] py-14 px-5 bg-[#f9f9f9]">
+      <!-- First Project Group (Original Layout: 2 small images on left, large image on right) -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Left Column: 2 squares stacked -->
+        <div class="lg:grid lg:grid-rows-2 gap-8">
+          <!-- Project Card 1 (Top Left) -->
+          <div class="bg-[#f9f9f9] rounded-lg">
+            <img 
+              src="images/Untitled-03.jpg" 
+              alt="Ryka Project" 
+              class="rounded-lg w-full object-cover aspect-[512/469]" 
+            />
+            <div class="pt-4 pr-4 pb-4 pl-0">
+              <h3 class="text-base font-bold">Ryka</h3>
+              <p class="mt-2 text-gray-600">
+                Empowering women in tech with every curve and counter
+              </p>
+            </div>
+          </div>
+  
+          <!-- Project Card 2 (Bottom Left) -->
+          <div class="bg-[#f9f9f9] rounded-lg mt-8 lg:mt-0">
+            <img 
+              src="images/Untitled-01.jpg" 
+              alt="Live Traffic App" 
+              class="rounded-lg w-full object-cover aspect-[512/469]" 
+            />
+            <div class="pt-4 pr-4 pb-4 pl-0">
+              <h3 class="text-base font-bold">Live Traffic App</h3>
+              <p class="mt-2 text-gray-600">
+                Life-saving alerts for every commuter
+              </p>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Right Column: Large image spanning 2 columns on lg -->
+        <div class="lg:col-span-2 bg-[#f9f9f9] rounded-lg">
+          <img 
+            src="images/Untitled-02.jpg" 
+            alt="Team Global Express Project" 
+            class="rounded-lg w-full object-cover aspect-[1056/1068]" 
+          />
+          <div class="pt-4 pr-4 pb-4 pl-0">
+            <h3 class="text-base font-bold">Team Global Express</h3>
+            <p class="mt-2 text-gray-600">
+              Rebranded TGE, rejuvenated team • AGDA Awards Finalist 2024
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mirrored Project Group -->
+      <!-- Project Group 2: Large image on left, 2 small images on right -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-10">
+        <!-- Left Column: Large image spanning 2 columns on lg -->
+        <div class="lg:col-span-2 bg-[#f9f9f9] rounded-lg">
+          <img 
+            src="images/Untitled-04.jpg" 
+            alt="Project 5 Large" 
+            class="rounded-lg w-full object-cover aspect-[1056/1068]" 
+          />
+          <div class="pt-4 pr-4 pb-4 pl-0">
+            <h3 class="text-base font-bold">Project Title 5</h3>
+            <p class="mt-2 text-gray-600">
+              Description for project 5.
+            </p>
+          </div>
+        </div>
+        <!-- Right Column: 2 small images stacked -->
+        <div class="lg:grid lg:grid-rows-2 gap-8">
+          <!-- Project Card 5A -->
+          <div class="bg-[#f9f9f9] rounded-lg">
+            <img 
+              src="images/Untitled-03.jpg" 
+              alt="Project 5A" 
+              class="rounded-lg w-full object-cover aspect-[512/469]" 
+            />
+            <div class="pt-4 pr-4 pb-4 pl-0">
+              <h3 class="text-base font-bold">Project Title 5A</h3>
+              <p class="mt-2 text-gray-600">
+                Description for project 5A.
+              </p>
+            </div>
+          </div>
+          <!-- Project Card 5B -->
+          <div class="bg-[#f9f9f9] rounded-lg">
+            <img 
+              src="images/Untitled-01.jpg" 
+              alt="Project 5B" 
+              class="rounded-lg w-full object-cover aspect-[512/469]" 
+            />
+            <div class="pt-4 pr-4 pb-4 pl-0">
+              <h3 class="text-base font-bold">Project Title 5B</h3>
+              <p class="mt-2 text-gray-600">
+                Description for project 5B.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer: max-width container -->
+    <footer class="bg-[#f9f9f9] py-4">
+      <div class="mx-auto w-full max-w-[1600px] text-center text-gray-600">
+        &copy; Jake Pearce 2025
+      </div>
+    </footer>
+  </div>
+
+  <!-- Minimal JavaScript to toggle mobile nav -->
+  <script>
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+    const closeMenuBtn = document.getElementById('closeMenuBtn');
+
+    // Open overlay on hamburger click
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileNavOverlay.classList.remove('hidden');
+      mobileNavOverlay.setAttribute('aria-hidden', 'false');
+      // Change hamburger to 'X'
+      mobileMenuBtn.textContent = '×';
+    });
+
+    // Close overlay on 'X' click
+    closeMenuBtn.addEventListener('click', () => {
+      mobileNavOverlay.classList.add('hidden');
+      mobileNavOverlay.setAttribute('aria-hidden', 'true');
+      // Change 'X' back to '='
+      mobileMenuBtn.textContent = '=';
+    });
+  </script>
+</body>
+</html>
