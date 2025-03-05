@@ -88,7 +88,7 @@
     .fluid-hero-text {
       font-family: 'DMSans', sans-serif;
       font-weight: 500;
-      font-size: clamp(28px, 2vw + 1rem, 45px);
+      font-size: clamp(28px, 2vw + 1rem, 48px);
     }
     
     /* Fluid professional timeline text now uses DMSans-Medium */
@@ -196,12 +196,20 @@
     }
     
     .separator-container {
-      width: 100%;
+      width: 300%;
+      transform: translateX(-50%);
+      left: 50%;
       padding: 0 28px;
     }
     .separator {
       border-top: 1px solid rgb(214,214,214);
       margin-top: 3.4rem;
+      margin-bottom: 3.6rem;
+      
+    }
+    .separator2 {
+      border-top: 0px solid rgb(214,214,214);
+      margin-top: 5em;
       margin-bottom: 5rem;
     }
   </style>
@@ -233,24 +241,26 @@
   </div>
   
   <!-- Main Content -->
-  <div class="pt-44">
+  <!-- Use px-8 on mobile and lg:px-26 on desktop -->
+  <div class="pt-44 px-8 lg:px-26">
     <!-- Hero Section -->
     <section class="hero fade-in bg-[#f9f9f9] h-90 flex items-center mb-12">
-      <div class="mx-auto w-full max-w-[1500px] px-24">
+      <div class="mx-auto w-full max-w-[1500px]">
         <div class="w-full lg:w-2/3 fluid-hero-text font-medium text-black text-left leading-snug">
           <p>Jake is an independent creative, focused on building meaningful brands through design.</p>
         </div>
       </div>
     </section>
     
-    <!-- Work Section (unchanged) -->
-    <section id="work" class="mx-auto w-full max-w-[1500px] py-14 px-24 bg-[#f9f9f9]">
+    <!-- Work Section -->
+    <section id="work" class="mx-auto w-full max-w-[1500px] py-14 bg-[#f9f9f9]">
       <!-- Desktop Version: First Project Group -->
       <div class="hidden lg:flex gap-8 project-container">
         <div class="flex flex-col justify-between gap-8 w-1/3">
           <!-- Project Card 1 -->
           <div class="project bg-[#f9f9f9] rounded-lg flex flex-col flex-1 gap-y-3 fade-in">
             <div class="relative flex-grow">
+              <!-- Desktop image: no aspect ratio override -->
               <img src="images/$MMT.jpg" alt="Ryka Project" class="rounded-3xl w-full h-full object-cover" />
               <div class="project-title">$MMT</div>
             </div>
@@ -261,6 +271,7 @@
           <!-- Project Card 2 -->
           <div class="project bg-[#f9f9f9] rounded-lg flex flex-col flex-1 gap-y-3 fade-in">
             <div class="relative flex-grow">
+              <!-- Desktop image: no aspect ratio override -->
               <img src="images/braves-retail-outlet3.jpg" alt="Live Traffic App" class="rounded-3xl w-full h-full object-cover" />
               <div class="project-title">BRAVES CRICKET</div>
             </div>
@@ -272,6 +283,7 @@
         <!-- Right Column: Large Image -->
         <div class="project w-2/3 bg-[#f9f9f9] rounded-lg flex flex-col flex-1 gap-y-3 fade-in">
           <div class="relative flex-grow" style="flex: 2;">
+            <!-- Desktop image: no aspect ratio override -->
             <img src="images/post-16.png" alt="Team Global Express Project" class="rounded-3xl w-full h-full object-cover" />
             <div class="project-title">ERIMA</div>
           </div>
@@ -285,6 +297,7 @@
       <div class="hidden lg:flex gap-8 mt-10 project-container">
         <div class="project w-2/3 bg-[#f9f9f9] rounded-lg flex flex-col flex-1 gap-y-3 fade-in">
           <div class="relative flex-grow" style="flex: 2;">
+            <!-- Desktop image: no aspect ratio override -->
             <img src="images/Besteam-Partnerships-Rockdale-v2.jpg" alt="Project 5 Large" class="rounded-3xl w-full h-full object-cover" />
             <div class="project-title">BESTREAM</div>
           </div>
@@ -296,6 +309,7 @@
           <!-- Project Card 5A -->
           <div class="project bg-[#f9f9f9] rounded-lg flex flex-col flex-1 gap-y-3 fade-in">
             <div class="relative flex-grow">
+              <!-- Desktop image: no aspect ratio override -->
               <img src="images/bmplgo.jpg" alt="Project 5A" class="rounded-3xl w-full h-full object-cover" />
               <div class="project-title">BMP SPORTS</div>
             </div>
@@ -306,6 +320,7 @@
           <!-- Project Card 5B -->
           <div class="project bg-[#f9f9f9] rounded-lg flex flex-col flex-1 gap-y-3 fade-in">
             <div class="relative flex-grow">
+              <!-- Desktop image: no aspect ratio override -->
               <img src="images/new-md-pattern.jpg" alt="Project 5B" class="rounded-3xl w-full h-full object-cover" />
               <div class="project-title">MICRODOSE</div>
             </div>
@@ -321,7 +336,8 @@
         <div>
           <div class="project bg-[#f9f9f9] rounded-lg fade-in">
             <div class="relative">
-              <img src="images/Untitled-03.jpg" alt="Ryka Project" class="rounded-3xl w-full object-cover aspect-[441/300]" />
+              <!-- Mobile image: forced aspect ratio 5:6 -->
+              <img src="images/Untitled-03.jpg" alt="Ryka Project" class="rounded-3xl w-full object-cover aspect-[5/6]" />
               <div class="project-title">$MMT</div>
             </div>
             <div class="pt-4 pr-4 pb-4 pl-0">
@@ -330,7 +346,7 @@
           </div>
           <div class="project bg-[#f9f9f9] rounded-lg mt-8 fade-in">
             <div class="relative">
-              <img src="images/Untitled-01.jpg" alt="Live Traffic App" class="rounded-3xl w-full object-cover aspect-[441/300]" />
+              <img src="images/Untitled-01.jpg" alt="Live Traffic App" class="rounded-3xl w-full object-cover aspect-[5/6]" />
               <div class="project-title">BRAVES CRICKET</div>
             </div>
             <div class="pt-4 pr-4 pb-4 pl-0">
@@ -339,7 +355,7 @@
           </div>
           <div class="project bg-[#f9f9f9] rounded-lg mt-8 fade-in">
             <div class="relative">
-              <img src="images/Untitled-02.jpg" alt="Team Global Express Project" class="rounded-3xl w-full object-cover" />
+              <img src="images/Untitled-02.jpg" alt="Team Global Express Project" class="rounded-3xl w-full object-cover aspect-[5/6]" />
               <div class="project-title">ERIMA</div>
             </div>
             <div class="pt-4 pr-4 pb-4 pl-0">
@@ -351,7 +367,7 @@
         <div class="mt-0">
           <div class="project bg-[#f9f9f9] rounded-lg mt-0 fade-in">
             <div class="relative">
-              <img src="images/Untitled-04.jpg" alt="Project 5 Large" class="rounded-3xl w-full object-cover aspect-[441/300]" />
+              <img src="images/Untitled-04.jpg" alt="Project 5 Large" class="rounded-3xl w-full object-cover aspect-[5/6]" />
               <div class="project-title">STREAM OFF</div>
             </div>
             <div class="pt-4 pr-4 pb-4 pl-0">
@@ -360,7 +376,7 @@
           </div>
           <div class="project bg-[#f9f9f9] rounded-lg mt-8 fade-in">
             <div class="relative">
-              <img src="images/Untitled-03.jpg" alt="Project 5A" class="rounded-3xl w-full object-cover aspect-[441/300]" />
+              <img src="images/Untitled-03.jpg" alt="Project 5A" class="rounded-3xl w-full object-cover aspect-[5/6]" />
               <div class="project-title">BMP SPORTS</div>
             </div>
             <div class="pt-4 pr-4 pb-4 pl-0">
@@ -369,7 +385,7 @@
           </div>
           <div class="project bg-[#f9f9f9] rounded-lg mt-8 fade-in">
             <div class="relative">
-              <img src="images/Untitled-01.jpg" alt="Project 5B" class="rounded-3xl w-full object-cover aspect-[441/300]" />
+              <img src="images/Untitled-01.jpg" alt="Project 5B" class="rounded-3xl w-full object-cover aspect-[5/6]" />
               <div class="project-title">MICRODOSE</div>
             </div>
             <div class="pt-4 pr-4 pb-4 pl-0">
@@ -384,8 +400,8 @@
       <div class="separator"></div>
     </div>
     
-    <!-- Experience Section -->
-<section id="experience" class="mx-auto w-full max-w-[1500px] py-4 px-24 bg-[#f9f9f9]">
+<!-- Experience Section -->
+<section id="experience" class="mx-auto w-full max-w-[1500px] py-14 px-2.5 lg:px-26 bg-[#f9f9f9]">
   <div class="fade-in">
     <div class="flex flex-col lg:flex-row items-start">
       <!-- Left Column: Image (1/3 width) with rounded corners -->
@@ -398,46 +414,37 @@
           Jake is a Graphic Designer with over a year of professional experience, bringing a fresh visual approach to branding, social media, and digital marketing.
         </h2>
         <div class="mt-20">
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 text-lg leading-snug">
-          <!-- Left Column: Experience Items -->
-          <div>
-            <h3 class="mt-6 font-semibold">Experience</h3>
-            <div class="mt-10">
-              <p class="mt-2 font-semibold">Independent Freelance — Graphic Designer (2024-Present)</p>
-              <p class="mt-0.5">
-                Led digital experiences and branding projects, redesigning platforms and creating distinctive brand identities for start-ups.
-              </p>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 text-lg leading-snug">
+            <!-- Left Column: Experience Items -->
+            <div>
+              <h3 class="mt-6 font-semibold">Experience</h3>
+              <div class="mt-10">
+                <p class="mt-2 font-semibold">Independent Freelance — Graphic Designer (2024-Present)</p>
+                <p class="mt-0.5">
+                  Led digital experiences and branding projects, redesigning platforms and creating distinctive brand identities for start-ups.
+                </p>
+              </div>
+              <div class="mt-10">
+                <p class="mt-2 font-semibold">Dancing Seahorse — Junior Graphic Designer (2023)</p>
+                <p class="mt-0.5">
+                  Developed cohesive visual identities, digital assets, and marketing collateral for flagship brands.
+                </p>
+                <p class="mt-24">© Jake Pearce 2025</p>
+              </div>
             </div>
-            <div class="mt-10">
-              <p class="mt-2 font-semibold">Dancing Seahorse — Junior Graphic Designer (2023)</p>
-              <p class="mt-0.5">
-                Developed cohesive visual identities, digital assets, and marketing collateral for flagship brands like BMP Sports, Braves Cricket, and Stream Live.
-              
-              
+            <!-- Right Column: Education -->
+            <div>
+              <h3 class="text-lg mt-6 font-semibold">Education</h3>
+              <div class="mt-9">
+                <p class="mt-2 font-semibold">Diploma of Graphic Design (2024)</p>
+                <p class="mt-0.5">Royal Melbourne Institute of Technology</p>
+              </div>
             </div>
-          </div>
-          <!-- Right Column: Education -->
-          <div>
-            <h3 class="text-lg mt-6 font-semibold">Education</h3>
-            <div class="mt-9">
-              <p class="mt-2 font-semibold">Diploma of Graphic Design (2024)</p>
-            <p class="mt-0.5">Royal Melbourne Institute of Technology</p>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-    
-    <!-- Footer -->
-    <footer class="bg-[#f9f9f9] py-4 fade-in">
-      <div class="mx-auto w-full max-w-[1600px] text-center text-black">
-        &copy; JAKE PEARCE 2025
-      </div>
-    </footer>
-  </div>
   
   <!-- Minimal JavaScript -->
   <script>
