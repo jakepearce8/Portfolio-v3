@@ -81,7 +81,19 @@
       overflow-x: hidden;
       background-color: #F9F9F9;
    }
-    
+   #project-tooltip {
+  position: fixed;
+  pointer-events: none;
+  background-color: #2B2B2D;
+  color: #F9F9F9;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11pt;
+  z-index: 1000;
+  display: none;
+  white-space: nowrap;
+}
+
     
     /* Statement text styling */
     .fluid-statement-text {
@@ -93,15 +105,21 @@
     }
     
     /* Herotext styling */
-    .fluid-hero-text {
-      font-family: 'Geist', sans-serif;
-      object-position: bottom;
-      font-weight: 400;
-      color:#2B2B2D;
-      font-size: 30pt;
-      letter-spacing: -0.015em;
-      line-height: 1.2;
-    }
+.fluid-hero-text {
+  font-family: 'Geist', sans-serif;
+  object-position: bottom;
+  font-weight: 400;
+  color: #2B2B2D;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  font-size: clamp(18pt, 5vw, 30pt);
+}
+
+
+
+
+
+    
         
     /* Separator styling */
     .separator-text {
@@ -187,6 +205,10 @@
       box-sizing: content-box;
     }
     .nav-button:hover {
+      color: #D3D3D3;
+    }
+
+    .header-title:hover {
       color: #D3D3D3;
     }
     
@@ -301,11 +323,17 @@
   <!-- Header (added fade-in class) -->
   <header class="fade-in">
     <div class="flex justify-between items-center w-full backdrop-blur-md" id="navContainer">
-      <h1 class="header-title ml-3">Jake Pearce</h1>
+      <!-- Header title linking to index.html -->
+      <a href="index.html" class="header-title md:ml-3 -ml-1">
+        Jake Pearce
+      </a>
+      <!-- Navigation -->
       <nav class="header-nav desktop-flex" style="margin: 9pt;">
         <ul class="flex space-x-1 mr-2">
-          <li><a href="#work" class="nav-button">Work</a></li>
-          <li><a href="#visual-feed" class="nav-button">Visual feed</a></li>
+          <!-- "Work" linking to work.html -->
+          <li><a href="work.html" class="nav-button">Work</a></li>
+          <!-- "Visual feed" linking to visual-feed.html -->
+          <li><a href="visual-feed.html" class="nav-button">Visual feed</a></li>
           <li><a href="#contact" class="nav-button">Contact</a></li>
         </ul>
       </nav>
@@ -315,7 +343,7 @@
   
   <!-- Mobile Nav Overlay -->
   <div id="mobileNavOverlay" class="fade-in fixed inset-0 z-50 hidden flex flex-col items-start p-8" style="background-color: #F9F9F9;" aria-hidden="true">
-    <button id="closeMenuBtn" class="absolute text-5xl" style="top: 0; margin: 16pt; right: 0;" aria-label="Close Menu">&times;</button>
+    <button id="closeMenuBtn" class="absolute text-5xl" style="top: 0 margin: 16pt; right: 0;" aria-label="Close Menu">&times;</button>
     <ul class="mt-40 space-y-12">
       <li><a href="#work" class="nav-button">Work</a></li>
       <li><a href="#visual-feed" class="nav-button">Visual feed</a></li>
@@ -323,26 +351,54 @@
     </ul>
   </div>
 
-  <!-- Hero Section -->
-  <div class="max-w-[1920px] mx-auto min-h-[530px] relative z-40 w-full px-8 fluid-hero-text bg-[#F9F9F9] fade-in">
-    <div class="absolute bottom-3 left-0 font-regular p-8">
-      <p>
-        Hey! <br>
-        I'm Jake Pearce, Graphic Designer and<br>
-        Digital Artist from Melbourne, Australia.
+
+
+<section
+  id="hero"
+  class="max-w-[1920px] mx-auto w-full px-4 md:px-8 py-12 md:mt-24 lg:mt-24 bg-[#F9F9F9] fade-in"
+>
+  <div class="flex flex-col-reverse md:flex-row md:items-end gap-8">
+    <!-- Text -->
+    <div class="w-full md:w-1/2 lg:w-2/3">
+      <p
+        class="fluid-hero-text
+               text-[clamp(20pt,5vw,22pt)]
+               md:text-[clamp(14pt,5vw,24pt)]
+               lg:text-[clamp(18pt,5vw,30pt)]"
+      >
+        Hey!<br>
+        I’m Jake Pearce, Graphic Designer<br class="hidden lg:block">
+        and Artist from Melbourne, Australia.
       </p>
     </div>
-    <img src="images/me-1-04.jpg" alt="Hero Image" class="absolute bottom-[53px] right-[31px] w-[270px] h-auto rounded-md">
+
+    <!-- Image with mobile-only top margin -->
+    <div class="w-full md:w-1/2 lg:w-1/3 flex justify-start md:justify-end mt-16 md:mt-0">
+      <img
+        src="images/me-1-05.jpg"
+        alt="Hero Image"
+        class="w-[280px] max-w-full md:w-64 lg:w-64 h-auto rounded-md object-cover"
+      />
+    </div>
   </div>
+</section>
+
+
+
+
+
+
+
+
   
   <!-- Separator for Recent Projects -->
-  <div class="max-w-[1920px] mx-auto px-8 z-20 bg-[#F9F9F9] fade-in">
+  <div class="max-w-[1920px] mx-auto px-4 md:px-8 z-20 bg-[#F9F9F9] fade-in">
     <hr class="w-full border-[#DCDCE2]" />
     <h3 class="mt-4 mb-12 separator-text">Recent Projects</h3>
   </div>
   
   <!-- Work Section: Recent Projects -->
-  <section id="work" class="max-w-[1920px] mx-auto z-40 w-full px-8 bg-[#F9F9F9] fade-in">
+  <section id="work" class="max-w-[1920px] mx-auto z-40 w-full px-4 md:px-8 bg-[#F9F9F9] fade-in">
     <div class="projects-grid-2">
       <!-- Top Right Small Project: Erima Australia -->
       <div class="project bg-[#F9F9F9] rounded-md flex flex-col fade-in">
@@ -367,50 +423,73 @@
       <!-- Large Project (Left): Braves Cricket -->
       <div class="project bg-[#F9F9F9] rounded-md flex flex-col fade-in">
         <div class="project-image-container">
-          <img src="images/players-(Project-Thumbnails).jpg" alt="Braves Cricket" class="w-full h-full object-cover" />
+          <a href="braves-cricket.html" class="block">
+            <img src="images/players-(Project-Thumbnails).jpg" alt="Braves Cricket" class="w-full h-full object-cover" />
+          </a>
         </div>
         <div class="mt-4 flex flex-col items-start">
-          <div class="project-title">Braves Cricket</div>
-          <div class="project-description" style="font-family: 'Geist', sans-serif">Visual Identity</div>
+          <a href="braves-cricket.html" class="project-title block">
+            Braves Cricket
+          </a>
+          <a href="braves-cricket.html" class="project-description block" style="font-family: 'Geist', sans-serif">
+            Brand Identity | Sports Apparel Design
+          </a>
         </div>
+      </div>
+      
+        </div>
+      </a>
+      
       </div>
     </div>
   </section>
 
   <!-- Separator -->
-  <div class="max-w-[1920px] mx-auto px-8 mt-16 mb-6 z-20 bg-[#F9F9F9] fade-in">
+  <div class="max-w-[1920px] mx-auto px-4 md:px-8 mt-16 mb-6 z-20 bg-[#F9F9F9] fade-in">
     <hr class="w-full border-[#D3D3D3]" />
   </div>
 
-  <!-- Statement Section -->
-  <section id="experience-and-left" class="max-w-[1920px] mx-auto w-full py-8 lg:py-14 px-8 bg-[#F9F9F9] fade-in">
-    <div class="flex flex-col lg:flex-row gap-8 items-start">
-      <!-- Left Column -->
-      <div class="flex flex-col items-right lg:w-1/3">
-        <div class="w-[220px] h-[220px] bg-gray-300 rounded-md"></div>
-        <div class="mt-4 text-left">
-          <h2 class="project-Title">Darrell Novaro</h2>
-          <p class="project-description">Managing Director</p>
-          <p class="project-description">Renaissance Sport Australia</p>
-        </div>
-      </div>
-      <!-- Right Column -->
-      <div class="lg:w-2/3">
-        <p class="fluid-timeline-text mt-[-10px]">
-          “Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent ”
-        </p>
+<!-- Statement Section -->
+<section
+  id="experience-and-left"
+  class="max-w-[1920px] mx-auto w-full py-8 lg:py-14 px-4 md:px-8 bg-[#F9F9F9] fade-in"
+>
+  <div class="flex flex-col lg:flex-row gap-8 items-start">
+    <!-- LEFT column: put it below on mobile (order-2), back to first on lg (order-1) -->
+    <div class="flex flex-col items-right lg:w-1/3 order-2 lg:order-1">
+      <div class="w-[220px] h-[220px] bg-gray-300 rounded-md"></div>
+      <div class="mt-4 text-left">
+        <h2 class="project-Title">Darrell Novaro</h2>
+        <p class="project-description">Managing Director</p>
+        <p class="project-description">Renaissance Sport Australia</p>
       </div>
     </div>
-  </section>
+
+    <!-- RIGHT column: above on mobile (order-1), second on lg (order-2) -->
+    <div class="lg:w-2/3 order-1 lg:order-2 ">
+      <p
+        class="fluid-timeline-text
+               text-[clamp(18pt,5vw,22pt)]
+               md:text-[clamp(14pt,4vw,22pt)]
+               lg:text-[clamp(18pt,5vw,30pt)]
+               mt-[-10px]"
+      >
+        “Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent”
+      </p>
+    </div>
+  </div>
+</section>
+
+
   
   <!-- Separator for Personal Projects -->
-  <div class="max-w-[1920px] mx-auto px-8 mt-2 z-20 bg-[#F9F9F9] fade-in">
+  <div class="max-w-[1920px] mx-auto px-4 md:px-8 mt-2 z-20 bg-[#F9F9F9] fade-in">
     <hr class="w-full border-[#D3D3D3]" />
     <h3 class="mt-4 mb-12 separator-text">Personal Projects</h3>
   </div>
 
   <!-- Work Section: Personal Projects -->
-  <section id="work" class="max-w-[1920px] mx-auto z-40 w-full px-8 bg-[#F9F9F9] fade-in">
+  <section id="work" class="max-w-[1920px] mx-auto z-40 w-full px-4 md:px-8 bg-[#F9F9F9] fade-in">
     <div class="projects-grid">
       <!-- Top Left Small Project: Stackd -->
       <div class="project bg-[#F9F9F9] rounded-md flex flex-col fade-in">
@@ -448,7 +527,7 @@
   <!-- Footer -->
   <footer
     id="contact"
-    class="relative max-w-full mx-auto bg-[#336d50] text-[#FAFAFA] mt-32 px-9 font-[400]"
+    class="relative max-w-full mx-auto bg-[#336d50] text-[#FAFAFA] mt-32 px-4 md:px-9 font-[400]"
     style="font-family: 'Geist', sans-serif;"
   >
     <!-- Top row: 25px from top -->
@@ -476,19 +555,26 @@
         </div>
       </div>
 
-      <!-- Email & phone, 25px from bottom, in 40pt -->
-      <div class="absolute bottom-[144px] right-0 text-[38px] leading-tight text-right">
-        <a
-          href="mailto:hello@jakepearce.com.au"
-          class="block transition-colors duration-200 hover:text-[#b3cec0]"
-          style="text-decoration: none;"
-        >
-          hello@jakepearce.com.au
-        </a>
-        <span class="transition-colors duration-200 ">+61 422 911 799</span>
-      </div>
-    </div>
-  </footer>
+<!-- Email & phone -->
+<div
+  class="absolute bottom-[120px] md:bottom-[144px] md:right-0
+         text-[28px] md:text-[38px]
+         leading-tight md:text-right"
+>
+  <a
+    href="mailto:hello@jakepearce.com.au"
+    class="block transition-colors duration-200 hover:text-[#b3cec0]"
+    style="text-decoration: none;"
+  >
+    hello@jakepearce.com.au
+  </a>
+  <span class="transition-colors duration-200">
+    +61 422 911 799
+  </span>
+</div>
+
+
+  <div id="project-tooltip"></div>
 
   <!-- Scripts -->
   <!-- Scroll-to-bottom for Contact links -->
@@ -499,10 +585,35 @@
         window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
       });
     });
-  </script>
+
+    const tooltip = document.getElementById("project-tooltip");
+
+document.querySelectorAll(".project-image-container").forEach(container => {
+  container.addEventListener("mouseenter", () => {
+    const anchor = container.querySelector("a");
+    let tooltipText = "Coming Soon"; // Default text for non-clickable assets
+    if (anchor && anchor.getAttribute("href") === "braves-cricket.html") {
+      tooltipText = "View Project";
+    }
+    tooltip.textContent = tooltipText;
+    tooltip.style.display = "block";
+  });
+  
+  container.addEventListener("mousemove", (e) => {
+    tooltip.style.top = (e.clientY + 15) + "px";
+    tooltip.style.left = (e.clientX + 15) + "px";
+  });
+  
+  container.addEventListener("mouseleave", () => {
+    tooltip.style.display = "none";
+  });
+});
+
+
+
   
   <!-- Mobile nav toggle -->
-  <script>
+
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileNavOverlay = document.getElementById('mobileNavOverlay');
     const closeMenuBtn = document.getElementById('closeMenuBtn');
@@ -536,6 +647,7 @@
         observer.observe(el);
       });
     });
+    
   </script>
   
   <!-- For each project image container, inject the alt image behind the original -->
@@ -597,6 +709,17 @@
     });
   });
 </script>
+<script>
+  // Smooth‐scroll to top when "Work" is clicked
+  document.querySelector('a.nav-button[href="work.html"]').addEventListener('click', function(e) {
+    e.preventDefault();               // stop the normal navigation
+    window.scrollTo({ 
+      top: 0, 
+      behavior: 'smooth'              // smooth animation
+    });
+  });
+</script>
+
 
 </body>
 </html>

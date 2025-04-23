@@ -80,14 +80,13 @@
       font-family: 'Geist', sans-serif;
       overflow-x: hidden;
       background-color: #F9F9F9;
-   }
-    
+    }
     
     /* Statement text styling */
     .fluid-statement-text {
       font-family: 'Geist', sans-serif;
       font-weight: 400;
-      font-size: clamp(32px, 3vw + 1rem, 36x);
+      font-size: clamp(32px, 3vw + 1rem, 36px);
       letter-spacing: -0.04em;
       line-height: 1.2;
     }
@@ -97,7 +96,7 @@
       font-family: 'Geist', sans-serif;
       object-position: bottom;
       font-weight: 400;
-      color:#2B2B2D;
+      color: #2B2B2D;
       font-size: 30pt;
       letter-spacing: -0.015em;
       line-height: 1.2;
@@ -106,18 +105,29 @@
     /* Separator styling */
     .separator-text {
       font-family: 'Geist', sans-serif;
+      /* Default paragraphs remain 400 */
       font-weight: 400;
       font-size: 12.5pt;
-      color:#2B2B2D;
+      color: #2B2B2D;
       letter-spacing: 0.01em;
       text-align: left;
+    }
+    /* Make heading elements using separator-text semibold */
+    h1.separator-text,
+    h2.separator-text,
+    h3.separator-text,
+    h4.separator-text,
+    h5.separator-text,
+    h6.separator-text,
+    span.separator-text.heading {
+      font-weight: 600 !important;
     }
     
     /* Fluid timeline text styling */
     .fluid-timeline-text {
       font-family: 'Geist', sans-serif;
       font-weight: 400;
-      color:#2B2B2D;
+      color: #2B2B2D;
       font-size: 32px;
       letter-spacing: -0.025em;
       line-height: 1.3;
@@ -135,7 +145,7 @@
       font-family: 'Geist', sans-serif;
       font-weight: 400;
       line-height: 1.1;
-      color:#2B2B2D;
+      color: #2B2B2D;
       font-size: 12.5pt;
       letter-spacing: 0.01em;
       text-align: left;
@@ -178,7 +188,7 @@
       letter-spacing: 0;
       padding: 7.5pt 16pt 7.4pt 16pt;
       background-color: transparent;
-      color:#2B2B2D;
+      color: #2B2B2D;
       text-decoration: none;
       border: none;
       border-radius: 0;
@@ -189,7 +199,9 @@
     .nav-button:hover {
       color: #D3D3D3;
     }
-    
+    .header-title:hover {
+      color: #D3D3D3;
+    }
     
     /* Projects container styling */
     .project {
@@ -204,11 +216,8 @@
       transition: opacity 0.5s ease;
       border-radius: inherit;
     }
-    
-    /* Ensure consistent project image sizes */
     .project-image-container {
       position: relative;
-      aspect-ratio: 16 / 10;
       width: 100%;
       overflow: hidden;
       border-radius: inherit;
@@ -294,18 +303,23 @@
     @media (max-width: 650px) {
       .header-nav { display: none !important; }
     }
-    
   </style>
 </head>
 <body>
   <!-- Header (added fade-in class) -->
   <header class="fade-in">
     <div class="flex justify-between items-center w-full backdrop-blur-md" id="navContainer">
-      <h1 class="header-title ml-3">Jake Pearce</h1>
+      <!-- Header title linking to index.html -->
+      <a href="index.html" class="header-title ml-3">
+        Jake Pearce
+      </a>
+      <!-- Navigation -->
       <nav class="header-nav desktop-flex" style="margin: 9pt;">
         <ul class="flex space-x-1 mr-2">
-          <li><a href="#work" class="nav-button">Work</a></li>
-          <li><a href="#visual-feed" class="nav-button">Visual feed</a></li>
+          <!-- "Work" linking to work.html -->
+          <li><a href="index.html" class="nav-button">Work</a></li>
+          <!-- "Visual feed" linking to visual-feed.html -->
+          <li><a href="visual-feed.html" class="nav-button">Visual feed</a></li>
           <li><a href="#contact" class="nav-button">Contact</a></li>
         </ul>
       </nav>
@@ -323,77 +337,135 @@
     </ul>
   </div>
 
-  
-  <!-- Project Hero Image -->
-  <section id="project-hero" class="max-w-[1920px] mx-auto w-full px-8 mt-14 fade-in">
-    <img src="images/braves-1.jpg" alt="Project Header" class="w-full h-auto rounded-md" style="max-width: 2601px; max-height: 1600px;">
-  </section>
-  
-  <!-- Project Title -->
-  <section id="project-title" class="max-w-[1920px] mx-auto w-full px-8 mt-8 fade-in">
-    <h1 class="text-[32pt]" style="font-family: 'Geist', sans-serif; font-weight: 400;">Braves Cricket: T10 Legends</h1>
-  </section>
-  
-  <!-- Project Info: Two Columns -->
-  <section id="project-info" class="max-w-[1920px] mx-auto w-full px-8 mt-8 fade-in">
-    <div class="flex flex-col md:flex-row md:space-x-8">
-      <!-- Left Column: Lorem Ipsum -->
-      <div class="md:w-1/2 text-[12.5pt]" style="font-family: 'Geist', sans-serif;">
-        <p>
-            With 112 million subscribers on YouTube, MrBeast (a.k.a. Jimmy Donaldson) is one of the most influential content creators in the world. Donaldson’s management team, Night Media, continually leans on Enlisted Design to develop bespoke branding and packaging for the company’s portfolio of creators, most recently launching Feastables—a brand that reinvents the snacking experience for Gen-Z consumers. Upon release, 4 million Feastables MrBeast Bars were sold in the first 90 days. And each week an estimated 200K+ fly off the shelves across America.
+  <!-- Combined Project Title, Description, and Info Section -->
+  <section id="project-info" class="max-w-[1920px] mx-auto w-full md:px-9 px-4 mt-28 md:mt-48 fade-in">
+    <div class="flex flex-col md:flex-row md:space-x-8 items-start">
+      <!-- Left Column: Title and Description -->
+      <div class="md:w-1/2" style="font-family: 'Geist', sans-serif;">
+        <h1 class="fluid-hero-text mb-12 md:mb-5">
+          Braves Cricket: A Multinational Franchise Competing in Global T10 Leagues
+        </h1>
+        <p class="separator-text  mb-5 md:mb-28 mt-5">
+          Braves Cricket underwent a major transformation after a change in ownership in 2022. The franchise rebranded and expanded into multiple international T10 leagues, including the Abu Dhabi T10 and Zim Afro T10. With a strategic focus on digital engagement, Braves Cricket has become the leading social media presence in the Abu Dhabi T10, outperforming long-established teams in both followers and engagement.
         </p>
       </div>
       <!-- Right Column: Services and Industry -->
-      <div class="md:w-1/2 text-left text-[12.5pt]" style="font-family: 'Geist', sans-serif;">
+      <div class="text-[12.5pt] mb-20 md:mb-5 mt-9 md:mt-0" style="font-family: 'Geist', sans-serif;">
         <p>
-          SERVICES<br>
-          Branding | Packaging Design
+          <span class="separator-text heading">Services</span><br>
+          <span class="separator-text ">Brand Identity | Sports Apparel Design</span>
         </p>
-        <br>
-        <p>
-          INDUSTRY<br>
-          Food &amp; Beverage
+        <div class="mt-4">
+          <p>
+            <span class="separator-text heading">Industry</span><br>
+            <span class="separator-text ">Sports & Entertainment</span>
+          </p>
+        </div>
+        <div class="mt-4">
+          <p>
+            <span class="separator-text heading">Logo Design</span><br>
+            <span class="separator-text ">Corban Keating</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Gallery: First Two Side-by-Side, Rest Stacked -->
+  <section id="project-gallery" class="max-w-[1920px] mx-auto w-full md:px-9 px-4 fade-in">
+    <div class="space-y-5">
+      <!-- Stacked Vertically -->
+      <div class="project-image-container aspect-[1/1] sm:aspect-auto overflow-hidden">
+        <img src="images/braves-4.jpg" alt="Gallery Image 3" class="rounded-md object-cover w-full h-full" />
+      </div>
+    </div>
+  </section>
+
+  <section id="project-info" class="max-w-[1920px] mx-auto w-full md:px-9 px-4 mt-12 md:mt-36 fade-in">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Text Column (occupies 1/3 columns) -->
+      <div class="md:col-span-1" style="font-family: 'Geist', sans-serif;">
+        <h1 class="separator-text">
+          Production-Ready Apparel Templates
+        </h1>
+        <p class="separator-text mt-5">
+          Detailed on-field kits, training gear, and merchandise are designed for Braves Cricket, using manufacturer templates to ensure accurate, print‑ready files for Abu Dhabi and Zim Afro T10 teams.
         </p>
+      </div>
+      <!-- Image Column (occupies 2/3 columns) -->
+      <div class="md:col-span-2">
+        <div class="space-y-5">
+          <div class="flex flex-col lg:flex-row gap-9">
+            <div class="project-image-container flex-1">
+              <img src="images/braves-5.jpg" alt="Gallery Image 1" class="rounded-md w-full" />
+            </div>
+            <div class="project-image-container flex-1">
+              <img src="images/braves-1.jpg" alt="Gallery Image 2" class="rounded-md w-full" />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
   
-  <!-- Project Gallery: 3 Vertically Stacked Images (16:10) -->
-  <section id="project-gallery" class="max-w-[1920px] mx-auto w-full px-8 mt-8 fade-in">
-    <div class="grid grid-cols-1 gap-8">
-      <div class="project-image-container">
-        <img src="images/braves-2.jpg" alt="Gallery Image 1" class="rounded-md" />
+  <div class="w-full lg:w-2/3 fade-in sm:aspect-auto overflow-hidden">
+    <img src="images/braves-14.jpg" alt="Gallery Image 3" class="rounded-md object-cover w-full h-full mt-14 sm:mt-20" />
+  </div>
+
+  <section id="project-info" class="max-w-[1920px] mx-auto w-full md:px-9 px-4 mt-12 lg:mt-28 fade-in">
+    <div class="project-image-container aspect-[1/1] sm:aspect-auto overflow-hidden">
+      <img src="images/braves-2.jpg" alt="Gallery Image 3" class="rounded-md object-cover w-full h-full" />
+    </div>
+  </section>
+  <section id="project-info" class="max-w-[1920px] mx-auto w-full md:px-9 px-4 mt-4 md:mt-36 fade-in">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Image Column (occupies 2/3 columns) -->
+      <div class="md:col-span-2">
+        <div class="space-y-5">
+          <div class="flex flex-col lg:flex-row gap-9">
+            <div class="project-image-container flex-1">
+              <img src="images/braves-11.jpg" alt="Gallery Image 1" class="rounded-md w-full" />
+            </div>
+            <div class="project-image-container flex-1">
+              <img src="images/braves-13.jpg" alt="Gallery Image 2" class="rounded-md w-full" />
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="project-image-container">
-        <img src="images/braves-3.jpg" alt="Gallery Image 2" class="rounded-md" />
-      </div>
-      <div class="project-image-container">
-        <img src="images/gallery3.jpg" alt="Gallery Image 3" class="rounded-md" />
+      <!-- Text Column (occupies 1/3 columns) -->
+      <div class="md:col-span-1" style="font-family: 'Geist', sans-serif;">
+        <h1 class="separator-text">
+          Results
+        </h1>
+        <p class="separator-text mt-5">
+          Braves Cricket led the Abu Dhabi T10 in social media engagement and featured prominently during the 2023 Zimbabwe T10, 
+          which reached over 400 million global viewers. The branding helped position Braves as a standout franchise during the league’s rapid international expansion.
+        </p>
       </div>
     </div>
   </section>
-  
+
   <!-- Footer -->
-  <footer id="contact" class="relative max-w-full mx-auto bg-black text-[#F9F9F9] mt-32 px-9 font-[400]" style="font-family: 'Geist', sans-serif;">
-    <div class="pt-[15px] flex justify-between items-center text-[12.5pt] text-[#9E9E9E]">
+  <footer id="contact" class="relative max-w-full mx-auto bg-[#336d50] text-[#FAFAFA] mt-32 px-9 font-[400]" style="font-family: 'Geist', sans-serif;">
+    <div class="pt-[15px] flex justify-between items-center text-[12.5pt] text-[#FAFAFA]">
       <div class="flex space-x-8">
         <span>© 2025</span>
-        <a href="privacy-policy.html" class="transition-colors duration-200 hover:text-[#F9F9F9]">Privacy Policy</a>
+        <a href="privacy-policy.html" class="transition-colors duration-200 hover:text-[#b3cec0]">Privacy Policy</a>
       </div>
-      <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" class="border border-[#9E9E9E] mt-2 rounded-full w-11 h-11 flex items-center justify-center text-[#9E9E9E] transition-colors duration-200 hover:bg-[#F9F9F9] hover:text-black" aria-label="Scroll to top">
+      <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" class="border border-[#FAFAFA] mt-2 rounded-full w-11 h-11 flex items-center justify-center text-[#FAFAFA] transition-colors duration-200 hover:bg-[#F9F9F9] hover:text-black" aria-label="Scroll to top">
         ↑
       </button>
     </div>
     <div class="relative w-full h-[700px]">
       <div class="absolute bottom-[225px] w-full left-0">
-        <hr class="w-full border-[#3F3E3D] border-b-1" />
+        <hr class="border-[#FAFAFA] border-b-1" />
         <div class="text-[12.5pt] mt-4">Contact</div>
       </div>
       <div class="absolute bottom-[144px] right-0 text-[38px] leading-tight text-right">
-        <a href="mailto:hello@jakepearce.com.au" class="block transition-colors duration-200 hover:text-[#9E9E9E]" style="text-decoration: none;">
+        <a href="mailto:hello@jakepearce.com.au" class="block transition-colors duration-200 hover:text-[#b3cec0]" style="text-decoration: none;">
           hello@jakepearce.com.au
         </a>
-        <span class="transition-colors duration-200 hover:text-[#9E9E9E]">+61 422 911 799</span>
+        <span class="transition-colors duration-200">+61 422 911 799</span>
       </div>
     </div>
   </footer>
@@ -428,7 +500,7 @@
     document.addEventListener("DOMContentLoaded", function() {
       const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
-          if(entry.isIntersecting) {
+          if (entry.isIntersecting) {
             entry.target.style.opacity = "1";
             entry.target.style.transform = "translateY(0)";
             obs.unobserve(entry.target);
@@ -440,8 +512,6 @@
         observer.observe(el);
       });
     });
-    
-    
   </script>
 </body>
 </html>

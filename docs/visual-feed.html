@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Privacy Policy — Jake Pearce</title>
+  <title>Visual Feed — Jake Pearce</title>
   <!-- Include Tailwind CSS from CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -80,13 +80,26 @@
       font-family: 'Geist', sans-serif;
       overflow-x: hidden;
       background-color: #F9F9F9;
-    }
+   }
+   #project-tooltip {
+  position: fixed;
+  pointer-events: none;
+  background-color: #2B2B2D;
+  color: #F9F9F9;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11pt;
+  z-index: 1000;
+  display: none;
+  white-space: nowrap;
+}
+
     
     /* Statement text styling */
     .fluid-statement-text {
       font-family: 'Geist', sans-serif;
       font-weight: 400;
-      font-size: clamp(32px, 3vw + 1rem, 36px);
+      font-size: clamp(32px, 3vw + 1rem, 36x);
       letter-spacing: -0.04em;
       line-height: 1.2;
     }
@@ -96,7 +109,7 @@
       font-family: 'Geist', sans-serif;
       object-position: bottom;
       font-weight: 400;
-      color: #2B2B2D;
+      color:#2B2B2D;
       font-size: 30pt;
       letter-spacing: -0.015em;
       line-height: 1.2;
@@ -107,20 +120,16 @@
       font-family: 'Geist', sans-serif;
       font-weight: 400;
       font-size: 12.5pt;
-      color: #2B2B2D;
+      color:#2B2B2D;
       letter-spacing: 0.01em;
       text-align: left;
-    }
-    /* Make h2 separator text semibold */
-    h2.separator-text {
-      font-weight: 600;
     }
     
     /* Fluid timeline text styling */
     .fluid-timeline-text {
       font-family: 'Geist', sans-serif;
       font-weight: 400;
-      color: #2B2B2D;
+      color:#2B2B2D;
       font-size: 32px;
       letter-spacing: -0.025em;
       line-height: 1.3;
@@ -138,7 +147,7 @@
       font-family: 'Geist', sans-serif;
       font-weight: 400;
       line-height: 1.1;
-      color: #2B2B2D;
+      color:#2B2B2D;
       font-size: 12.5pt;
       letter-spacing: 0.01em;
       text-align: left;
@@ -181,7 +190,7 @@
       letter-spacing: 0;
       padding: 7.5pt 16pt 7.4pt 16pt;
       background-color: transparent;
-      color: #2B2B2D;
+      color:#2B2B2D;
       text-decoration: none;
       border: none;
       border-radius: 0;
@@ -192,9 +201,11 @@
     .nav-button:hover {
       color: #D3D3D3;
     }
+
     .header-title:hover {
       color: #D3D3D3;
     }
+    
     
     /* Projects container styling */
     .project {
@@ -209,15 +220,16 @@
       transition: opacity 0.5s ease;
       border-radius: inherit;
     }
+    
+    /* Ensure consistent project image sizes */
     .project-image-container {
       position: relative;
+      aspect-ratio: 16 / 10;
       width: 100%;
       overflow: hidden;
       border-radius: inherit;
     }
-    .project-image-container:hover {
-      cursor: pointer;
-    }
+
     
     /* Projects grid */
     .projects-grid {
@@ -296,6 +308,7 @@
     @media (max-width: 650px) {
       .header-nav { display: none !important; }
     }
+    
   </style>
 </head>
 <body>
@@ -303,11 +316,15 @@
   <header class="fade-in">
     <div class="flex justify-between items-center w-full backdrop-blur-md" id="navContainer">
       <!-- Header title linking to index.html -->
-      <a href="index.html" class="header-title ml-3">Jake Pearce</a>
+      <a href="index.html" class="header-title ml-3">
+        Jake Pearce
+      </a>
       <!-- Navigation -->
       <nav class="header-nav desktop-flex" style="margin: 9pt;">
         <ul class="flex space-x-1 mr-2">
+          <!-- "Work" linking to work.html -->
           <li><a href="index.html" class="nav-button">Work</a></li>
+          <!-- "Visual feed" linking to visual-feed.html -->
           <li><a href="visual-feed.html" class="nav-button">Visual feed</a></li>
           <li><a href="#contact" class="nav-button">Contact</a></li>
         </ul>
@@ -317,97 +334,98 @@
   </header>
   
   <!-- Mobile Nav Overlay -->
-  <div id="mobileNavOverlay" class="fade-in fixed inset-0 z-50 hidden flex flex-col items-start p-8" style="background-color: #f9f9f9db;" aria-hidden="true">
+  <div id="mobileNavOverlay" class="fade-in fixed inset-0 z-50 hidden flex flex-col items-start p-8" style="background-color: #F9F9F9;" aria-hidden="true">
     <button id="closeMenuBtn" class="absolute text-5xl" style="top: 0; margin: 16pt; right: 0;" aria-label="Close Menu">&times;</button>
     <ul class="mt-40 space-y-12">
-      <li><a href="index.html" class="nav-button">Work</a></li>
+      <li><a href="#work" class="nav-button">Work</a></li>
       <li><a href="#visual-feed" class="nav-button">Visual feed</a></li>
       <li><a href="#contact" class="nav-button">Contact</a></li>
     </ul>
   </div>
-  
-  <section id="project-info" class="max-w-[1920px] mx-auto w-full md:px-9 px-4 mt-28 md:mt-48 fade-in">
-    <!-- Intro Header (Full Width) -->
-    <div class="mb-12" style="font-family: 'Geist', sans-serif;">
-      <h1 class="fluid-hero-text mb-5">Privacy Policy</h1>
-      <p class="separator-text mb-4">Effective Date: 20/02/2025</p>
-      <p class="separator-text mb-4">
-        This Privacy Policy describes how Jake Pearce ("we", "us", or "our") collects, uses, and discloses your personal information in accordance with the Australian Privacy Principles (APPs) contained in the Privacy Act 1988 (Cth). This policy applies to our website and any related services.
+
+  <!-- Hero Section -->
+  <div class="max-w-[1920px] mx-auto min-h-[360px] relative z-40 w-full px-8 fluid-hero-text bg-[#F9F9F9] fade-in">
+    <div class="absolute bottom-3 left-0 font-regular p-8">
+      <p>
+        Visual explorations from<br class="hidden md:block">
+        projects past and present.
       </p>
     </div>
+  </div>
   
-    <!-- Numbered Policy Sections in Two Columns -->
-    <div class="grid grid-cols-1 md:grid-cols-2 md:gap-20" style="font-family: 'Geist', sans-serif;">
-      <!-- Left Column: Sections 1-4 -->
-      <div>
-        <h2 class="separator-text  mb-2">1. Information We Collect</h2>
-        <p class="separator-text mb-4">
-          We may collect personal information that you voluntarily provide when you contact us, subscribe to our newsletter, or use our services. This may include your name, email address, phone number, and any other information you choose to provide.
-        </p>
+  <!-- Separator for Recent Projects -->
+  <div class="max-w-[1920px] mx-auto px-8 z-20 bg-[#F9F9F9] fade-in">
+    <hr class="w-full border-[#DCDCE2]" />
+    <h3 class="mt-4 mb-12 separator-text"></h3>
+  </div>
   
-        <h2 class="separator-text mt-10 mb-2">2. How We Use Your Information</h2>
-        <p class="separator-text mb-2">
-          We use your personal information for the following purposes:
-        </p>
-        <ul class="separator-text list-disc list-inside mb-4">
-          <li>To communicate with you regarding your inquiries or feedback.</li>
-          <li>To provide you with updates and information about our services.</li>
-          <li>To improve our website and overall services.</li>
-        </ul>
+
+  <!-- Masonry Grid CSS -->
+<style>
+    .masonry {
+      column-count: 3;
+      column-gap: 2rem;
+    }
+    @media (max-width: 1024px) {
+      .masonry {
+        column-count: 2;
+      }
+    }
+    @media (max-width: 768px) {
+      .masonry {
+        column-count: 1;
+      }
+    }
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 2rem;
+    }
+  </style>
   
-        <h2 class="separator-text mt-10 mb-2">3. How We Protect Your Information</h2>
-        <p class="separator-text mb-4">
-          We implement reasonable security measures to protect your personal information from unauthorized access, disclosure, alteration, or destruction. However, no method of transmission over the Internet or electronic storage is 100% secure.
-        </p>
-  
-        <h2 class="separator-text mt-10 mb-2">4. Cookies and Tracking Technologies</h2>
-        <p class="separator-text mb-4">
-          We may use cookies and similar tracking technologies to enhance your experience on our website. You can control the use of cookies through your browser settings.
-        </p>
+  <!-- Work Section: Projects -->
+  <section id="work" class="max-w-[1920px] mx-auto z-40 w-full px-8 bg-[#F9F9F9] fade-in">
+    <div class="masonry">
+      <div class="masonry-item">
+        <img src="images/Snazzy-yellow.png" alt="Erima Australia" class="w-full h-full object-cover" />
       </div>
-  
-      <!-- Right Column: Sections 5-9 -->
-      <div class="text-[12.5pt]">
-        <h2 class="separator-text  mb-2">5. Disclosure to Third Parties</h2>
-        <p class="separator-text mb-4">
-          We do not sell or rent your personal information to third parties. We may share your information with trusted service providers who assist us in operating our website, as required by law, or with your consent.
-        </p>
-  
-        <h2 class="separator-text mt-10 mb-2">6. International Data Transfers</h2>
-        <p class="separator-text mb-4">
-          If we transfer your information outside of Australia, we will ensure that it is protected in accordance with this Privacy Policy and relevant data protection laws.
-        </p>
-  
-        <h2 class="separator-text mt-10 mb-2">7. Your Rights</h2>
-        <p class="separator-text mb-4">
-          You have the right to access, correct, or delete your personal information. If you have any questions or concerns about our privacy practices, please contact us using the details provided below.
-        </p>
-  
-        <h2 class="separator-text mt-10 mb-2">8. Changes to This Privacy Policy</h2>
-        <p class="separator-text mb-4">
-          We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated effective date.
-        </p>
-  
-        <h2 class="separator-text mt-10 mb-2">9. Contact Us</h2>
-        <p class="separator-text mb-2">
-          If you have any questions or concerns about this Privacy Policy, please contact us at:
-        </p>
-        <p class="separator-text mb-4">
-          <a href="mailto:hello@jakepearce.com.au" class="text-blue-600 hover:underline">hello@jakepearce.com.au</a>
-        </p>
+
+      <div class="masonry-item">
+        <img src="images/day-trip.jpg" alt="Stackd" class="w-full h-full object-cover" />
       </div>
+      <div class="masonry-item">
+        <img src="images/jake-logo-black.jpg" alt="Bread Clips" class="w-full h-full object-cover" />
+      </div>
+      <div class="masonry-item">
+        <img src="images/crossridge.png" alt="Bread Clips" class="w-full h-full object-cover" />
+      </div>
+      <div class="masonry-item">
+        <img src="images/abstract.png" alt="Bread Clips" class="w-full h-full object-cover" />
+      </div>
+      <div class="masonry-item">
+        <img src="images/microdose-shirt.jpg" alt="Bread Clips" class="w-full h-full object-cover" />
+      </div>
+      <div class="masonry-item">
+        <img src="images/moss-poster.jpg" alt="Bread Clips" class="w-full h-full object-cover" />
+      </div>
+      <div class="masonry-item">
+        <img src="images/clay.jpg" alt="Bread Clips" class="w-full h-full object-cover" />
+      </div>
+
     </div>
   </section>
   
-  
-  
+   
   <!-- Footer -->
-  <footer id="contact" class="w-full bg-[#336d50] text-[#FAFAFA] mt-32 px-9 font-[400]" style="font-family: 'Geist', sans-serif;">
+  <footer
+    id="contact"
+    class="relative max-w-full mx-auto bg-[#336d50] text-[#FAFAFA] mt-32 px-9 font-[400]"
+    style="font-family: 'Geist', sans-serif;"
+  >
     <!-- Top row: 25px from top -->
     <div class="pt-[15px] flex justify-between items-center text-[12.5pt] text-[#FAFAFA]">
       <div class="flex space-x-8">
         <span>© 2025</span>
-        <a href="privacy-policy.html" class="transition-colors duration-200 hover:text-[#b3cec0]">Privacy Policy</a>
+        <a href="privacy-policy.html" class="transition-colors duration-200 hover:text-[#b3cec0] ">Privacy Policy</a>
       </div>
       <button
         onclick="window.scrollTo({ top: 0, behavior: 'smooth' });"
@@ -417,7 +435,7 @@
         ↑
       </button>
     </div>
-  
+
     <!-- Main footer area with fixed height to position separator & text -->
     <div class="relative w-full h-[700px]">
       <!-- Separator 350px from bottom; "Contact" below it -->
@@ -427,7 +445,7 @@
           Contact
         </div>
       </div>
-  
+
       <!-- Email & phone, 25px from bottom, in 40pt -->
       <div class="absolute bottom-[144px] right-0 text-[38px] leading-tight text-right">
         <a
@@ -437,22 +455,52 @@
         >
           hello@jakepearce.com.au
         </a>
-        <span class="transition-colors duration-200">+61 422 911 799</span>
+        <span class="transition-colors duration-200 ">+61 422 911 799</span>
       </div>
     </div>
   </footer>
-  
+
+  <div id="project-tooltip"></div>
+
   <!-- Scripts -->
-  <script>
-    // Scroll-to-bottom for Contact links
-    document.querySelectorAll('a[href="#contact"]').forEach(link => {
-      link.addEventListener('click', event => {
-        event.preventDefault();
-        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-      });
+<!-- Scroll-to-bottom for Contact links -->
+<script>
+  document.querySelectorAll('a[href="#contact"]').forEach(link => {
+    link.addEventListener('click', event => {
+      event.preventDefault();
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
     });
+  });
+
+  const tooltip = document.getElementById("project-tooltip");
+
+document.querySelectorAll(".project-image-container").forEach(container => {
+container.addEventListener("mouseenter", () => {
+  const anchor = container.querySelector("a");
+  let tooltipText = "Coming Soon"; // Default text for non-clickable assets
+  if (anchor && anchor.getAttribute("href") === "braves-cricket.html") {
+    tooltipText = "View Project";
+  }
+  tooltip.textContent = tooltipText;
+  tooltip.style.display = "block";
+});
+
+container.addEventListener("mousemove", (e) => {
+  tooltip.style.top = (e.clientY + 15) + "px";
+  tooltip.style.left = (e.clientX + 15) + "px";
+});
+
+container.addEventListener("mouseleave", () => {
+  tooltip.style.display = "none";
+});
+});
+   
+
+
+
   
-    // Mobile nav toggle
+  <!-- Mobile nav toggle -->
+
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileNavOverlay = document.getElementById('mobileNavOverlay');
     const closeMenuBtn = document.getElementById('closeMenuBtn');
@@ -467,8 +515,10 @@
       mobileNavOverlay.setAttribute('aria-hidden', 'true');
       mobileMenuBtn.textContent = '=';
     });
-    
-    // Intersection Observer for fade-in effect
+  </script>
+  
+  <!-- Intersection Observer for fade-in effect -->
+  <script>
     document.addEventListener("DOMContentLoaded", function() {
       const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
@@ -484,6 +534,59 @@
         observer.observe(el);
       });
     });
+    
   </script>
+  
+<script>
+
+
+  document.querySelectorAll('.project-image-container').forEach(container => {
+    const originalImg = container.querySelector('img');
+    const originalSrc = originalImg.src;
+    const dotIndex = originalSrc.lastIndexOf('.');
+    if (dotIndex === -1) return; // No extension found, exit.
+    
+    const base = originalSrc.slice(0, dotIndex);
+    const ext = originalSrc.slice(dotIndex).toLowerCase();
+    let altSrcCandidates = [];
+    
+    // For jpg/jpeg, try gif and png alt versions first.
+    if (ext === '.jpg' || ext === '.jpeg') {
+      altSrcCandidates = [base + '-alt.gif', base + '-alt.png', base + '-alt' + ext];
+    } else {
+      // For other extensions, use the same extension.
+      altSrcCandidates = [base + '-alt' + ext];
+    }
+    
+    const altImg = document.createElement('img');
+    altImg.alt = originalImg.alt + ' alt';
+    altImg.className = originalImg.className;
+    altImg.style.position = 'absolute';
+    altImg.style.top = '0';
+    altImg.style.left = '0';
+    altImg.style.width = '100%';
+    altImg.style.height = '100%';
+    altImg.style.objectFit = 'cover';
+    altImg.style.zIndex = '1';
+    
+    container.style.position = 'relative';
+    container.appendChild(altImg);
+    
+    originalImg.style.position = 'relative';
+    originalImg.style.zIndex = '2';
+    originalImg.style.transition = 'opacity 0.4s ease';
+    
+    // Try loading the candidate alt images in order.
+    tryAltSrc(altImg, altSrcCandidates);
+    
+    container.addEventListener('mouseenter', () => {
+      originalImg.style.opacity = '0';
+    });
+    container.addEventListener('mouseleave', () => {
+      originalImg.style.opacity = '1';
+    });
+  });
+</script>
+
 </body>
 </html>
