@@ -31,15 +31,8 @@
 body {
   letter-spacing: -0.005em;
 }
-    #project-tooltip {
-      position: fixed; pointer-events: none;
-      background-color: #2B2B2D; color: #F9F9F9;
-      padding: 4px 8px; border-radius: 4px;
-      font-size: 11pt; z-index: 1000;
-      display: none; white-space: nowrap;
-    }
-    /* ===== Header & Toggle ===== */
-    header {
+     /* ===== Header & Toggle ===== */
+     header {
       position: fixed; top: 0; left: 0; right: 0;
       z-index: 50; background-color: #F9F9F9;
       display: flex; align-items: center; justify-content: space-between;
@@ -74,7 +67,7 @@ body {
 .hamburger-icon span {
   position: absolute;
   left: 0;
-  top: 50%;
+  top: 40%;
   width: 100%;
   height: 2px;
   background-color: #2B2B2D;
@@ -120,6 +113,13 @@ body {
       animation: slideUp 0.4s ease-out both;
     }
     /* ===== Typography & components ===== */
+    .fluid-statement-text {
+      font-family: 'Liter', sans-serif;
+      font-weight: 400;
+      font-size: clamp(32px, 3vw + 1rem, 36px);
+      letter-spacing: -0.015em;
+      line-height: 1.2;
+    }
     .hero-text {
       font-family: 'Liter', sans-serif;
       object-position: bottom;
@@ -170,12 +170,6 @@ body {
       transform-origin: center;
       overflow: hidden;
     }
-    .project img {
-      width:100%; height:100%;
-      object-fit:cover;
-      transition: opacity 0.5s ease;
-      border-radius: inherit;
-    }
     
     .masonry {
       column-count: 3;
@@ -198,7 +192,7 @@ body {
 
     .email-phone {
   /* default (mobile) */
-  font-size: 20.5pt;
+  font-size: 20pt;
 }
 @media (min-width: 650px) {
   /* desktop (or whatever px you prefer) */
@@ -271,7 +265,7 @@ body.nav-open {
     filter: invert(1);
   }
 }
-</style>
+  </style>
 </head>
 <body>
   <main>
@@ -393,193 +387,216 @@ aria-hidden="true">
   <div class="h-4 md:h-16"></div>
 </main>
    
-  <footer
-  id="contact"
-  class="w-full bg-[#336d50] text-[#FAFAFA] mt-20 md:mt-32 px-4 md:px-10 font-[400]"
-  style="font-family: 'Liter', sans-serif;">
-  <!-- Top bar -->
-  <div class="flex justify-between items-center !text-[12pt] md:!text-[13pt]">
-    <!-- © + Privacy: stacked on mobile, row on md+ -->
-    <div class="flex flex-col !text-[#b3cec0] space-y-1 md:flex-row md:space-x-8 md:space-y-0">
-      <span>© 2025</span>
-      <a href="privacy-policy.html"
-         class="transition-colors text-#b3cec0 duration-200 hover:text-[#FAFAFA]">
-        Privacy Policy
-      </a>
-    </div>
-    <!-- Up-arrow -->
-    <button
-      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
-      class="border border-[#b3cec0] border-1 !text-[#b3cec0] rounded-full md:w-11 md:h-11 w-10 h-10 flex items-center justify-center
-             transition-colors duration-200 hover:bg-[#F9F9F9]  hover:!text-[#336d50]"
-      aria-label="Scroll to top"
-    >↑</button>
-  </div>
-  <!-- Main footer area: variable height -->
-  <div class="relative w-full h-[390px] md:h-[700px]">
-    <!-- Separator + “Contact” label -->
-    <div class="absolute bottom-[190px] md:bottom-[225px] w-full left-0">
-      <hr class="border-[#b3cec0] border-b-1" />
-      <div class="md:text-[13pt] !text-[12pt] mt-[12px]">Contact</div>
-    </div>
-    <!-- Email & phone: always stacked -->
-    <div
-      class="absolute
-             bottom-[95px] md:bottom-[136px]   /* vertical position */   
-             left-0 md:left-auto md:right-0   /* left on mobile, right on md+ */
-             flex flex-col md:-space-y-[7px] -space-y-[0px]          /* stack with gap */
-             w-full md:w-auto                 /* full width on mobile, auto on md+ */
-             
-             md:!text-[38px]     /* font-size switch */
-             text-left md:text-right          /* left-align on mobile, right-align on md+ */
-             items-start md:items-end         /* flex alignment */">
-      <a href="mailto:hello@jakepearce.com.au"
-         class="email-phone transition-colors duration-200 hover:text-[#b3cec0]">
-        hello@jakepearce.com.au
-      </a>
-      <span class="email-phone transition-colors duration-200">
-        +61 422 911 799
-      </span>
-    </div>
-  </div>
-  <div class="mobile-social">
-    <a href="https://instagram.com/jake.r.pearce"
-       target="_blank" rel="noopener noreferrer">
-      <img src="images/instagram-black.svg" alt="Instagram" class="w-7 h-7"/>
-    </a>
-    <a href="https://behance.net/jake.r.pearce"
-       target="_blank" rel="noopener noreferrer">
-      <img src="images/behance.svg" alt="Behance" class="w-7 h-7"/>
+<footer
+id="contact"
+class="w-full bg-[#336d50] text-[#FAFAFA] mt-20 md:mt-32 px-4 md:px-10 font-[400]"
+style="font-family: 'Liter', sans-serif;">
+<!-- Top bar -->
+<div class="flex justify-between items-center !text-[12pt] md:!text-[13pt]">
+  <!-- © + Privacy: stacked on mobile, row on md+ -->
+  <div class="flex flex-col !text-[#b3cec0] space-y-2 md:flex-row md:space-x-8 md:space-y-0">
+    <span>© 2025</span>
+    <a href="privacy-policy.html"
+       class="transition-colors text-#b3cec0 duration-200 hover:text-[#FAFAFA]">
+      Privacy Policy
     </a>
   </div>
+  <!-- Up-arrow -->
+  <button
+    onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    class="border border-[#b3cec0] border-1 !text-[#b3cec0] rounded-full md:w-11 md:h-11 w-10 h-10 flex items-center justify-center
+           transition-colors duration-200 hover:bg-[#F9F9F9]  hover:!text-[#336d50]"
+    aria-label="Scroll to top"
+  >↑</button>
+</div>
+<!-- Main footer area: variable height -->
+<div class="relative w-full h-[410px] md:h-[700px]">
+  <!-- Separator + “Contact” label -->
+  <div class="absolute bottom-[200px] md:bottom-[225px] w-full left-0">
+    <hr class="border-[#b3cec0] border-b-1" />
+    <div class="md:text-[13pt] !text-[12pt] mt-[12px]">Contact</div>
+  </div>
+  <!-- Email & phone: always stacked -->
+  <div
+    class="absolute
+           bottom-[95px] md:bottom-[136px]   /* vertical position */   
+           left-0 md:left-auto md:right-0   /* left on mobile, right on md+ */
+           flex flex-col md:-space-y-[7px] -space-y-[0px]          /* stack with gap */
+           w-full md:w-auto                 /* full width on mobile, auto on md+ */
+           md:!text-[38px]    /* font-size switch */
+           text-left md:text-right          /* left-align on mobile, right-align on md+ */
+           items-start md:items-end         /* flex alignment */">
+    <a href="mailto:hello@jakepearce.com.au"
+       class="email-phone transition-colors duration-200 hover:text-[#b3cec0]">
+      hello@jakepearce.com.au
+    </a>
+    <span class="email-phone transition-colors duration-200">
+      +61 422 911 799
+    </span>
+  </div>
+</div>
+<div class="mobile-social">
+  <a href="https://instagram.com/jake.r.pearce"
+     target="_blank" rel="noopener noreferrer">
+    <img src="images/instagram-black.svg" alt="Instagram" class="w-7 h-7"/>
+  </a>
+  <a href="https://behance.net/jake.r.pearce"
+     target="_blank" rel="noopener noreferrer">
+    <img src="images/behance.svg" alt="Behance" class="w-7 h-7"/>
+  </a>
+</div>
 </footer>
-  <!-- ===== Scripts ===== -->
-  <script>
-    // Scroll-to-bottom for Contact links
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('a[href="#contact"]').forEach(link => {
-        link.addEventListener('click', e => {
-          e.preventDefault();
-          window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-        });
+<!-- ===== Scripts ===== -->
+<script>
+  // Scroll-to-bottom for Contact links
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('a[href="#contact"]').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
       });
     });
-    // Tooltip for project images
-    document.addEventListener('DOMContentLoaded', () => {
+  });
+  // Tooltip for project images
+  document.addEventListener('DOMContentLoaded', () => {
+    const tooltip = document.createElement('div');
+    tooltip.id = 'project-tooltip';
+    document.body.appendChild(tooltip);
+    document.querySelectorAll(".project-image-container").forEach(container => {
+      container.addEventListener("mouseenter", () => {
+        const anchor = container.querySelector("a");
+        tooltip.textContent = anchor ? "View Project" : "Coming Soon";
+        tooltip.style.display = "block";
+      });
+      container.addEventListener("mousemove", e => {
+        tooltip.style.top = e.clientY + 15 + "px";
+        tooltip.style.left = e.clientX + 15 + "px";
+      });
+      container.addEventListener("mouseleave", () => {
+        tooltip.style.display = "none";
+      });
+    });
+  });
+  document.addEventListener('DOMContentLoaded', () => {
+const MOBILE_BREAKPOINT = 650;
+
+function swapImages() {
+  const isMobile = window.innerWidth <= MOBILE_BREAKPOINT;
+  document.querySelectorAll('.project-image-container img').forEach(img => {
+    const src = img.getAttribute('src');
+    const dot = src.lastIndexOf('.');
+    if (dot === -1) return;
+
+    const base = src.slice(0, dot);
+    const ext  = src.slice(dot);
+    const mobileSrc = `${base}-mobile${ext}`;
+
+    // only swap if on mobile and not already swapped
+    if (isMobile && !src.endsWith(`-mobile${ext}`)) {
+      img.src = mobileSrc;
+    }
+    // optional: swap back on desktop
+    else if (!isMobile && src.endsWith(`-mobile${ext}`)) {
+      img.src = `${base.replace(/-mobile$/, '')}${ext}`;
+    }
+  });
+}
+
+// initial swap
+swapImages();
+// also update on resize
+window.addEventListener('resize', swapImages);
+});
+  // Mobile menu toggle with improved hamburger icon
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('mobileMenuBtn');
+    const icon = btn.querySelector('.hamburger-icon');
+    const overlay = document.getElementById('mobileNavOverlay');
+    let isOpen = false;
+    // Initialize tooltip if it wasn't created above
+    if (!document.getElementById('project-tooltip')) {
       const tooltip = document.createElement('div');
       tooltip.id = 'project-tooltip';
       document.body.appendChild(tooltip);
-      document.querySelectorAll(".project-image-container").forEach(container => {
-        container.addEventListener("mouseenter", () => {
-          const anchor = container.querySelector("a");
-          tooltip.textContent = anchor ? "View Project" : "Coming Soon";
-          tooltip.style.display = "block";
-        });
-        container.addEventListener("mousemove", e => {
-          tooltip.style.top = e.clientY + 15 + "px";
-          tooltip.style.left = e.clientX + 15 + "px";
-        });
-        container.addEventListener("mouseleave", () => {
-          tooltip.style.display = "none";
-        });
-      });
-    });
-    // Mobile menu toggle with improved hamburger icon
-    document.addEventListener('DOMContentLoaded', () => {
-      const btn = document.getElementById('mobileMenuBtn');
-      const icon = btn.querySelector('.hamburger-icon');
-      const overlay = document.getElementById('mobileNavOverlay');
-      let isOpen = false;
-      // Initialize tooltip if it wasn't created above
-      if (!document.getElementById('project-tooltip')) {
-        const tooltip = document.createElement('div');
-        tooltip.id = 'project-tooltip';
-        document.body.appendChild(tooltip);
+    }
+    btn.addEventListener('click', () => {
+      isOpen = !isOpen;
+      if (isOpen) {
+        // Open menu
+        
+        overlay.style.display = 'flex';
+        setTimeout(() => {
+          overlay.classList.add('visible');
+        }, 10);
+        icon.classList.add('open');
+        document.body.classList.add('nav-open');
+      } else {
+        // Close menu
+        overlay.classList.remove('visible');
+        setTimeout(() => {
+          overlay.style.display = 'none';
+        }, 400); // Match transition duration
+        icon.classList.remove('open');
+        document.body.classList.remove('nav-open');
       }
-      btn.addEventListener('click', () => {
-        isOpen = !isOpen;
-        if (isOpen) {
-          // Open menu
-          
-          overlay.style.display = 'flex';
-          setTimeout(() => {
-            overlay.classList.add('visible');
-          }, 10);
-          icon.classList.add('open');
-          document.body.classList.add('nav-open');
-        } else {
-          // Close menu
-          overlay.classList.remove('visible');
-          setTimeout(() => {
-            overlay.style.display = 'none';
-          }, 400); // Match transition duration
-          icon.classList.remove('open');
-          document.body.classList.remove('nav-open');
+    });
+  });
+  // Intersection Observer for fade-in
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "translateY(0)";
+          observer.unobserve(entry.target);
         }
       });
-    });
-    document.addEventListener("DOMContentLoaded", () => {
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = "1";
-        entry.target.style.transform = "translateY(0)";
-        obs.unobserve(entry.target);
-      }
-    });
-  }, {
-    root: null,
-    rootMargin: "0px 0px -150px 0px",
-    threshold: 0.1
+    }, {
+      root: null,
+  rootMargin: "0px 0px -150px 0px",
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   });
-
-  document.querySelectorAll('.fade-in').forEach(el => {
-    // initialize hidden
-    el.style.opacity = 0;
-    el.style.transform = "translateY(10px)";
-    observer.observe(el);
-  });
-});
-    // Alt-image injection
-    document.addEventListener("DOMContentLoaded", () => {
-      function tryAltSrc(img, candidates) {
-        if (!candidates.length) return;
-        img.src = candidates.shift();
-        img.onerror = () => tryAltSrc(img, candidates);}
-      document.querySelectorAll('.project-image-container').forEach(container => {
-        const img = container.querySelector('img');
-        if (!img) return;
-        const src = img.src;
-        const dot = src.lastIndexOf('.');
-        if (dot === -1) return;
-        const base = src.slice(0, dot), ext = src.slice(dot);
-        const alts = (ext.match(/jpe?g/i) ? [base+'-alt.gif', base+'-alt.png', base+'-alt'+ext] : [base+'-alt'+ext]);
-        const altImg = document.createElement('img');
-        altImg.alt = img.alt + ' alt';
-        altImg.className = img.className;
-        Object.assign(altImg.style, {
-          position:'absolute', top:0, left:0, width:'100%', height:'100%', objectFit:'cover', zIndex:1
-        });
-        container.style.position = 'relative';
-        container.appendChild(altImg);
-        img.style.position = 'relative'; 
-        img.style.zIndex = 2; 
-        img.style.transition = 'opacity 0.4s ease';
-        tryAltSrc(altImg, alts);
-        container.addEventListener('mouseenter', () => img.style.opacity = 0);
-        container.addEventListener('mouseleave', () => img.style.opacity = 1);
+  // Alt-image injection
+  document.addEventListener("DOMContentLoaded", () => {
+    function tryAltSrc(img, candidates) {
+      if (!candidates.length) return;
+      img.src = candidates.shift();
+      img.onerror = () => tryAltSrc(img, candidates);}
+    document.querySelectorAll('.project-image-container').forEach(container => {
+      const img = container.querySelector('img');
+      if (!img) return;
+      const src = img.src;
+      const dot = src.lastIndexOf('.');
+      if (dot === -1) return;
+      const base = src.slice(0, dot), ext = src.slice(dot);
+      const alts = (ext.match(/jpe?g/i) ? [base+'-alt.gif', base+'-alt.png', base+'-alt'+ext] : [base+'-alt'+ext]);
+      const altImg = document.createElement('img');
+      altImg.alt = img.alt + ' alt';
+      altImg.className = img.className;
+      Object.assign(altImg.style, {
+        position:'absolute', top:0, left:0, width:'100%', height:'100%', objectFit:'cover', zIndex:1
       });
+      container.style.position = 'relative';
+      container.appendChild(altImg);
+      img.style.position = 'relative'; 
+      img.style.zIndex = 2; 
+      img.style.transition = 'opacity 0.4s ease';
+      tryAltSrc(altImg, alts);
+      container.addEventListener('mouseenter', () => img.style.opacity = 0);
+      container.addEventListener('mouseleave', () => img.style.opacity = 1);
     });
-    // Smooth-scroll for Work link
-    document.addEventListener("DOMContentLoaded", () => {
-      const workLink = document.querySelector('a.nav-button[href="index.html"]');
-      if (workLink && window.location.pathname.endsWith('index.html')) {
-        workLink.addEventListener('click', e => {
-          e.preventDefault();
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-      }
-    });
-  </script>
+  });
+  // Smooth-scroll for Work link
+  document.addEventListener("DOMContentLoaded", () => {
+    const workLink = document.querySelector('a.nav-button[href="index.html"]');
+    if (workLink && window.location.pathname.endsWith('index.html')) {
+      workLink.addEventListener('click', e => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+  });
+</script>
 </body>
 </html>
