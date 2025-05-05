@@ -347,14 +347,14 @@ body.nav-open {
   <header class="fade-in">
     <div id="navContainer" class="flex justify-between items-center w-full backdrop-blur-md py-0 md:py-0 px-4 md:px-2">
       <!-- Header Title -->
-      <a href="index.html" class="header-title -ml-[11px] !text-[18pt] md:!text-[13pt] md:ml-[22px]">
+      <a href="/" class="header-title -ml-[11px] !text-[18pt] md:!text-[13pt] md:ml-[22px]">
         Jake Pearce
       </a>
       <!-- Desktop Nav (hidden on mobile) -->
       <nav class="header-nav hidden md:flex" style="margin: 9pt;">
         <ul class="flex space-x-10 mr-3">
-          <li><a href="index.html" class="nav-button transition-colors duration-200">Work</a></li>
-          <li><a href="visual-feed.html" class="nav-button transition-colors duration-200">Visual feed</a></li>
+          <li><a href="/" class="nav-button transition-colors duration-200">Work</a></li>
+          <li><a href="visual-feed" class="nav-button transition-colors duration-200">Visual feed</a></li>
           <li><a href="#contact" class="nav-button transition-colors duration-200">Contact</a></li>
         </ul>
       </nav>
@@ -375,8 +375,8 @@ aria-hidden="true">
 
 <!-- center section: Work & Visual feed -->
 <div class="flex-1 flex flex-col justify-center space-y-3">
-<a href="index.html"       class="nav-button !text-[28pt] md:!text-[13pt]">Work</a>
-<a href="visual-feed.html" class="nav-button !text-[28pt] md:!text-[13pt]">Visual feed</a>
+<a href="/"       class="nav-button !text-[28pt] md:!text-[13pt]">Work</a>
+<a href="visual-feed" class="nav-button !text-[28pt] md:!text-[13pt]">Visual feed</a>
 </div>
 
 <!-- bottom section, pinned 25px above bottom -->
@@ -468,7 +468,7 @@ aria-hidden="true">
     <!-- © + Privacy: stacked on mobile, row on md+ -->
     <div class="flex flex-col !text-[#b3cec0] space-y-2 md:flex-row md:space-x-8 md:space-y-0">
       <span>© 2025</span>
-      <a href="privacy-policy.html"
+      <a href="privacy-policy"
          class="transition-colors text-#b3cec0 duration-200 hover:text-[#FAFAFA]">
         Privacy Policy
       </a>
@@ -679,8 +679,8 @@ aria-hidden="true">
 });
     // Smooth-scroll for Work link
     document.addEventListener("DOMContentLoaded", () => {
-      const workLink = document.querySelector('a.nav-button[href="index.html"]');
-      if (workLink && window.location.pathname.endsWith('index.html')) {
+      const workLink = document.querySelector('a.nav-button[href="/"]');
+      if (workLink && window.location.pathname.endsWith('/')) {
         workLink.addEventListener('click', e => {
           e.preventDefault();
           window.scrollTo({ top: 0, behavior: 'smooth' });
