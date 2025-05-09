@@ -30,7 +30,7 @@
       overflow-x: hidden;
       color: #141414;
       background-color: #F9F9F9;
-      letter-spacing: -0.025em;
+      letter-spacing: -0.015em;
       line-height: 1.22;
     }
     /* ===== Typography & components ===== */
@@ -39,15 +39,17 @@
   font-weight: 370;
   color: #141414;
   background-color: #F9F9F9;
-  line-height: 1.5;
+  line-height: 1.6;
+  letter-spacing: -0.015em;
   word-spacing: 0.02em;
     }
     .body-bold {
   font-family: 'Geist', sans-serif;
-  font-weight: 460;
+  font-weight: 490;
   color: #141414;
   background-color: #F9F9F9;
   line-height: 1.22;
+  letter-spacing: -0.015em;
   word-spacing: 0.00em;
     }
 .hero-text {
@@ -55,6 +57,15 @@
   font-variation-settings: 'wght' 370;
   color: #141414;
   line-height: 1.25;
+  letter-spacing: -0.015em;
+  word-spacing: -0.01em;
+}
+.year {
+  font-family: 'Geist', sans-serif;
+  font-variation-settings: 'wght' 370;
+  color: #878787;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
   word-spacing: -0.01em;
 }
 
@@ -64,16 +75,47 @@
   color: #141414;
   font-size: 32px;
   line-height: 1.25;
+  letter-spacing: -0.015em;
   word-spacing: 0.00em;
 }
 
 /* ===== Header & Toggle ===== */
 header {
-      position: fixed; top: 0; left: 0; right: 0;
-      z-index: 50; background-color: #F9F9F9;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 6pt;
-    }
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  background-color: #F9F9F9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6pt;
+  padding-top: 15pt;
+  padding-bottom: 15pt;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 0.5px;
+  padding: 0.3pt;
+  background-color: #e4e4e9;
+  pointer-events: none;
+}
+
+/* Desktop (≥768px): tighter padding */
+@media (min-width: 768px) {
+  header {
+    padding: 1pt;
+  }
+}
+
+
+
+
+
  
     #project-tooltip {
       position: fixed; pointer-events: none;
@@ -85,10 +127,10 @@ header {
     
     /* Hide hamburger by default, show only on mobile ≤650px */
     #mobileMenuBtn {
-      font-size: 2rem;
+      font-size: 10px;
       background: transparent; border: none;
       cursor: pointer; touch-action: manipulation;
-      line-height: 1; padding: 0; margin: 0;
+      line-height: 1; padding: 0; margin: 0;  padding-right: 8pt;
       width: 40px; height: 40px;
       display: none;
       align-items: center; justify-content: center;
@@ -111,8 +153,8 @@ html {
   position: absolute;
   left: 0;
   top: 40%;
-  width: 100%;
-  height: 2px;
+  width: 130%;
+  height: 2.5px;
   background-color: #2B2B2D;
   transform-origin: center center;
   transition: transform 0.3s ease;
@@ -141,7 +183,7 @@ html {
       opacity: 1; transform: translateY(0);
     }
     .nav-button {
-      font-size: 14pt; color: #2B2B2D; text-decoration: none; letter-spacing: -0.005em;
+      font-size: 13pt; color: #2B2B2D; text-decoration: none; letter-spacing: -0.015em;
     }
     .nav-button:hover {
       color: #D3D3D3;
@@ -294,7 +336,7 @@ body.nav-open {
     display: flex;
     justify-content: left;
     gap: 12px;
-    margin-top: -64px;      /* push to bottom */
+    margin-top: -66px;      /* push to bottom */
     margin-bottom: 40px;   /* 25px above bottom */
   }
 }
@@ -306,21 +348,23 @@ body.nav-open {
 }
 
   </style>
+  <link rel="icon" href="images/logo-04.svg" type="image/svg+xml">
 </head>
 <body>
   <main>
   <!-- Project tooltip -->
   <div id="project-tooltip"></div>
   <!-- ===== Header & Toggle ===== -->
-  <header class="fade-in">
+  <header class="fade-in fixed top-0 left-0 right-0 z-50 bg-[#f8f8f8]">
     <div id="navContainer" class="flex justify-between items-center w-full backdrop-blur-md py-0 md:py-0 px-4 md:px-2">
       <!-- Header Title -->
-      <a href="/" class="header-title -ml-[11px] !text-[18pt] md:!text-[14pt] md:ml-[22px]">
+      <a href="/" class="header-title -ml-[8px] !text-[18pt] md:!text-[13pt] md:ml-[26px]">
         Jake Pearce
       </a>
-      <!-- Desktop Nav (hidden on mobile) -->
+  
+      <!-- Desktop Nav -->
       <nav class="header-nav hidden md:flex" style="margin: 9pt;">
-        <ul class="flex space-x-10 mr-3">
+        <ul class="flex space-x-10 mr-4">
           <li><a href="/" class="nav-button transition-colors duration-200">Work</a></li>
           <li><a href="visual-feed" class="nav-button transition-colors duration-200">Visual feed</a></li>
           <li><a href="#contact" class="nav-button transition-colors duration-200">Contact</a></li>
@@ -343,18 +387,18 @@ aria-hidden="true">
 
 <!-- center section: Work & Visual feed -->
 <div class="flex-1 flex flex-col justify-center space-y-3">
-<a href="/"       class="nav-button !text-[28pt] md:!text-[14pt]">Work</a>
-<a href="visual-feed" class="nav-button !text-[28pt] md:!text-[14pt]">Visual feed</a>
+<a href="/"       class="nav-button !text-[28pt] md:!text-[13pt]">Work</a>
+<a href="visual-feed" class="nav-button !text-[28pt] md:!text-[13pt]">Visual feed</a>
 </div>
 
 <!-- bottom section, pinned 25px above bottom -->
 <div class="flex flex-col items-start mb-[35px] space-y-3">
-<a class="nav-button !text-[14pt]  text-[#8e8e8e]">Contact</a>
+<a class="nav-button !text-[13pt]  text-[#8e8e8e]">Contact</a>
 <a href="mailto:hello@jakepearce.com.au"
-  class="nav-button !text-[14pt] md:!text-[14pt]">
+  class="nav-button !text-[13pt] md:!text-[13pt]">
  hello@jakepearce.com.au
 </a>
-<span class="nav-button !text-[14pt]  !-mt-0">
+<span class="nav-button !text-[13pt]  !-mt-0">
  +61 422 911 799
 </span>
 
@@ -373,41 +417,46 @@ aria-hidden="true">
 </div>
   </div>
   <!-- Combined Project Title, Description, and Info Section -->
-  <section id="project-info" class="max-w-[1920px] mx-auto w-full md:px-9 px-4 mt-28 md:mt-32 fade-in">
+  <section id="project-info" class="max-w-[1920px] mx-auto w-full md:px-9 px-4 mt-32 md:mt-24 fade-in">
     <div class="flex flex-col md:flex-row md:space-x-8 items-start">
       <!-- Left Column: Title and Description -->
-      <div class="md:w-1/2  md:-mt-0 -mt-6">
-        <h1 class="hero-text !text-[26pt] md:!text-[22pt] lg:!text-[30pt] mb-10 md:mb-5 md:mr-8">
-          Braves Cricket: A Multinational Franchise Competing in Global T10 Leagues
+      <div class="md:w-1/2 -mt-2 md:-mt-0">
+        <h1 class="hero-text  !text-[24pt] md:!text-[24pt] lg:!text-[30pt] mb-10 md:mb-5 md:mr-8">
+          Braves Cricket needed a bold, high-impact visual system to stand out in global T10 leagues and unify their presence across teams, platforms, and continents.
         </h1>
-        <p class=" body text-[14pt]   mb-10  md:mb-16 mt-5 md:mr-8">
-          Braves Cricket underwent a major transformation after a change in ownership in 2022. The franchise rebranded and expanded into multiple international T10 leagues, including the Abu Dhabi T10 and Zim Afro T10. With a strategic focus on digital engagement, Braves Cricket has become the leading social media presence in the Abu Dhabi T10, outperforming long-established teams in both followers and engagement.
-        </p>
+        <p class="body text-[13pt] mb-10 md:mb-16 mt-9 md:mr-8">
+          Following a change in ownership, the franchise was preparing for major international exposure. My role focused on bringing the new brand to life through uniforms, a team bus wrap, and social media graphics that delivered consistency and energy across every touchpoint.        </p>
       </div>
-      <!-- Right Column: Services and Industry -->
-      <div class="text-[12.5pt] mb-20 md:mb-5 space-y-[20px]">
-        <!-- Services -->
+      <!-- Right Column -->
+      <div class=" mb-20 md:mb-0 space-y-[28px]">
+        
+        <!-- Client -->
         <div>
           <p>
-            <span class="body-bold text-[14pt]  md:ml-10">Services</span><br>
-            <span class="body text-[14pt]  md:ml-10 block mt-0.5">Brand Identity | Sports Apparel Design</span>
+            <span class="body-bold text-[13pt]  md:ml-10">Client</span><br>
+            <span class="body text-[13pt]  md:ml-10 block mt-0.5">Braves Cricket</span>
           </p>
         </div>
-      
-        <!-- Industry -->
+        <!-- Team -->
         <div>
           <p>
-            <span class="body-bold text-[14pt] md:ml-10">Industry</span><br>
-            <span class="body text-[14pt] md:ml-10 block mt-0.5">Sports & Entertainment</span>
+            <span class="body-bold text-[13pt]  md:ml-10">Team</span><br>
+            <span class="body text-[13pt]  md:ml-10 block mt-0.5">Corban Keating, DD</span>
+            <span class="body text-[13pt]  md:ml-10 block mt-0.5">Jake Pearce, GD</span>
           </p>
         </div>
-      
-        <!-- Logo Design -->
+        <!-- Deliverables -->
         <div>
           <p>
-            <span class="body-bold text-[14pt]  md:ml-10">Logo Design</span><br>
-            <span class="body text-[14pt]  md:ml-10 block mt-0.5">Corban Keating</span>
+            <span class="body-bold text-[13pt]  md:ml-10">What I delivered</span><br>
+            <span class="body text-[13pt]  md:ml-10 block mt-[3px]">Uniform Design</span>
+            <span class="body text-[13pt]  md:ml-10 block mt-[3px]">Bus Wrap</span>
+            <span class="body text-[13pt]  md:ml-10 block mt-[3px]">Social Media Graphics</span>
           </p>
+        </div>
+        
+      
+        
         </div>
       </div>
     </div>
@@ -427,10 +476,10 @@ aria-hidden="true">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <!-- Text Column (occupies 1/3 columns) -->
       <div class="order-last md:order-first md:col-span-1" style="font-family: 'Geist', sans-serif;">
-        <h1 class="body-bold text-[14pt]  mt-6 md:mt-0">
+        <h1 class="body-bold text-[13pt]  mt-6 md:mt-0">
           Production-Ready Apparel Templates
         </h1>
-        <p class="body text-[14pt]  mt-5 ">
+        <p class="body text-[13pt]  mt-5 ">
           Detailed on-field kits, training gear, and merchandise are designed for Braves Cricket, using manufacturer templates to ensure accurate, print‑ready files for Abu Dhabi and Zim Afro T10 teams.
         </p>
       </div>
@@ -476,10 +525,10 @@ aria-hidden="true">
       </div>
       <!-- Text Column (occupies 1/3 columns) -->
       <div class="md:col-span-1" style="font-family: 'Geist', sans-serif; ">
-        <h1 class="body-bold text-[14pt]  md:mt-0 mt-5">
+        <h1 class="body-bold text-[13pt]  md:mt-0 mt-5">
           Results
         </h1>
-        <p class="body text-[14pt]  mt-5">
+        <p class="body text-[13pt]  mt-5">
           Braves Cricket led the Abu Dhabi T10 in social media engagement and featured prominently during the 2023 Zimbabwe T10, 
           which reached over 400 million global viewers. The branding helped position Braves as a standout franchise during the league’s rapid international expansion.
         </p>
@@ -493,7 +542,7 @@ aria-hidden="true">
   class="w-full bg-[#336d50] text-[#FAFAFA] mt-20 md:mt-32 px-4 md:px-10 font-[400]"
   style="font-family: 'Liter', sans-serif;">
   <!-- Top bar -->
-  <div class="flex justify-between items-center !text-[14pt] md:!text-[14pt]">
+  <div class="flex justify-between items-center !text-[13pt] md:!text-[13pt]">
     <!-- © + Privacy: stacked on mobile, row on md+ -->
     <div class="flex flex-col !text-[#b3cec0] space-y-2 md:flex-row md:space-x-8 md:space-y-0">
       <span>© 2025</span>
@@ -515,7 +564,7 @@ aria-hidden="true">
     <!-- Separator + “Contact” label -->
     <div class="absolute bottom-[180px] md:bottom-[225px] w-full left-0">
       <hr class="border-[#b3cec0] border-b-1" />
-      <div class="!text-[14pt] mt-[12px]">Contact</div>
+      <div class="!text-[13pt] mt-[12px]">Contact</div>
     </div>
     <!-- Email & phone: always stacked -->
     <div

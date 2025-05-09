@@ -51,7 +51,7 @@
       overflow-x: hidden;
       color: #141414;
       background-color: #F9F9F9;
-      letter-spacing: -0.025em;
+      letter-spacing: -0.015em;
       line-height: 1.22;
       
     }
@@ -62,7 +62,7 @@
   overflow-x: hidden;
   color: #141414;
   background-color: #F9F9F9;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.015em;
   line-height: 1.22;
   word-spacing: 0.00em;
     }
@@ -70,7 +70,7 @@
   font-family: 'Geist', sans-serif;
   font-variation-settings: 'wght' 370;
   color: #141414;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.015em;
   line-height: 1.2;
   word-spacing: -0.01em;
 }
@@ -80,18 +80,43 @@
   font-variation-settings: 'wght' 370;
   color: #141414;
   font-size: 32px;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.015em;
   line-height: 1.25;
   word-spacing: 0.00em;
 }
 
 /* ===== Header & Toggle ===== */
 header {
-      position: fixed; top: 0; left: 0; right: 0;
-      z-index: 50; background-color: #F9F9F9;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 6pt;
-    }
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  background-color: #F9F9F9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6pt;
+  padding-top: 15pt;
+  padding-bottom: 15pt;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 0.5px;
+  padding: 0.3pt;
+  background-color: #e4e4e9;
+  pointer-events: none;
+}
+
+/* Desktop (≥768px): tighter padding */
+@media (min-width: 768px) {
+  header {
+    padding: 1pt;
+  }
+}
     
     #project-tooltip {
       position: fixed; pointer-events: none;
@@ -103,10 +128,10 @@ header {
     
     /* Hide hamburger by default, show only on mobile ≤650px */
     #mobileMenuBtn {
-      font-size: 2rem;
+      font-size: 10px;
       background: transparent; border: none;
       cursor: pointer; touch-action: manipulation;
-      line-height: 1; padding: 0; margin: 0;
+      line-height: 1; padding: 0; margin: 0;  padding-right: 8pt;
       width: 40px; height: 40px;
       display: none;
       align-items: center; justify-content: center;
@@ -125,12 +150,20 @@ header {
 html {
   background-color: #F9F9F9; /* same as main */
 }
+.hamburger-icon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+html {
+  background-color: #F9F9F9; /* same as main */
+}
 .hamburger-icon span {
   position: absolute;
   left: 0;
   top: 40%;
-  width: 100%;
-  height: 2px;
+  width: 130%;
+  height: 2.5px;
   background-color: #2B2B2D;
   transform-origin: center center;
   transition: transform 0.3s ease;
@@ -159,7 +192,7 @@ html {
       opacity: 1; transform: translateY(0);
     }
     .nav-button {
-      font-size: 14pt; color: #2B2B2D; text-decoration: none; letter-spacing: -0.005em;
+      font-size: 13pt; color: #2B2B2D; text-decoration: none; letter-spacing: -0.015em;
     }
     .nav-button:hover {
       color: #D3D3D3;
@@ -325,7 +358,7 @@ body.nav-open {
     display: flex;
     justify-content: left;
     gap: 12px;
-    margin-top: -64px;      /* push to bottom */
+    margin-top: -66px;      /* push to bottom */
     margin-bottom: 40px;   /* 25px above bottom */
   }
 }
@@ -337,21 +370,23 @@ body.nav-open {
 }
 
   </style>
+  <link rel="icon" href="images/logo-04.svg" type="image/svg+xml">
 </head>
 <body>
   <main>
   <!-- Project tooltip -->
   <div id="project-tooltip"></div>
   <!-- ===== Header & Toggle ===== -->
-  <header class="fade-in">
+  <header class="fade-in fixed top-0 left-0 right-0 z-50 bg-[#f8f8f8]">
     <div id="navContainer" class="flex justify-between items-center w-full backdrop-blur-md py-0 md:py-0 px-4 md:px-2">
       <!-- Header Title -->
-      <a href="/" class="header-title -ml-[11px] !text-[18pt] md:!text-[14pt] md:ml-[22px]">
+      <a href="/" class="header-title -ml-[8px] !text-[18pt] md:!text-[13pt] md:ml-[26px]">
         Jake Pearce
       </a>
-      <!-- Desktop Nav (hidden on mobile) -->
+  
+      <!-- Desktop Nav -->
       <nav class="header-nav hidden md:flex" style="margin: 9pt;">
-        <ul class="flex space-x-10 mr-3">
+        <ul class="flex space-x-10 mr-4">
           <li><a href="/" class="nav-button transition-colors duration-200">Work</a></li>
           <li><a href="visual-feed" class="nav-button transition-colors duration-200">Visual feed</a></li>
           <li><a href="#contact" class="nav-button transition-colors duration-200">Contact</a></li>
