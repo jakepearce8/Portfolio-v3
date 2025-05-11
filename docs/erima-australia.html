@@ -4,514 +4,714 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Braves Cricket — Jake Pearce</title>
-  <!-- Include Tailwind CSS from CDN -->
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    /* ===== Font faces ===== */
     @font-face {
-      font-family: 'Geist';
-      src: url('Fonts/Geist-Regular.ttf') format('truetype');
-      font-weight: 400;
-      font-style: normal;
+      font-family: 'Liter';
+      src: url('Fonts/Liter-Regular.ttf') format('truetype');
+      font-weight: 400; font-style: normal;
     }
     @font-face {
-      font-family: 'Geist';
-      src: url('Fonts/Geist-Medium.ttf') format('truetype');
-      font-weight: 500;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: 'Geist';
-      src: url('Fonts/Geist-SemiBold.ttf') format('truetype');
-      font-weight: 600;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: 'Geist';
-      src: url('Fonts/Geist-Thin.ttf') format('truetype');
-      font-weight: 100;
-      font-style: normal;
-    }
-    /* Define Manrope font faces */
-    @font-face {
-      font-family: 'Manrope';
-      src: url('Fonts/Manrope-ExtraLight.ttf') format('truetype');
-      font-weight: 200;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: 'Manrope';
-      src: url('Fonts/Manrope-Light.ttf') format('truetype');
-      font-weight: 300;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: 'Manrope';
-      src: url('Fonts/Manrope-Regular.ttf') format('truetype');
-      font-weight: 400;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: 'Manrope';
-      src: url('Fonts/Manrope-Medium.ttf') format('truetype');
-      font-weight: 500;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: 'Manrope';
-      src: url('Fonts/Manrope-SemiBold.ttf') format('truetype');
-      font-weight: 600;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: 'Manrope';
-      src: url('Fonts/Manrope-Bold.ttf') format('truetype');
-      font-weight: 700;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: 'Manrope';
-      src: url('Fonts/Manrope-ExtraBold.ttf') format('truetype');
-      font-weight: 800;
-      font-style: normal;
-    }
-    
-    /* Global styles */
+  font-family: 'Geist';
+  src: url('Fonts/Geist[wght].woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+* {
+  font-synthesis: none;
+}
+    /* ===== Global ===== */
     body {
       font-family: 'Geist', sans-serif;
+      font-weight: 370;
       overflow-x: hidden;
+      color: #141414;
       background-color: #F9F9F9;
-    }
-    
-    /* Statement text styling */
-    .fluid-statement-text {
-      font-family: 'Geist', sans-serif;
-      font-weight: 400;
-      font-size: clamp(32px, 3vw + 1rem, 36px);
-      letter-spacing: -0.04em;
-      line-height: 1.2;
-    }
-    
-    /* Herotext styling */
-    .fluid-hero-text {
-      font-family: 'Geist', sans-serif;
-      object-position: bottom;
-      font-weight: 400;
-      color: #2B2B2D;
-      font-size: 30pt;
       letter-spacing: -0.015em;
-      line-height: 1.2;
+      line-height: 1.22;
     }
-        
-    /* Separator styling */
-    .separator-text {
-      font-family: 'Geist', sans-serif;
-      /* Default paragraphs remain 400 */
-      font-weight: 400;
-      font-size: 12.5pt;
-      color: #2B2B2D;
-      letter-spacing: 0.01em;
-      text-align: left;
+    /* ===== Typography & components ===== */
+    .body {
+  font-family: 'Geist', sans-serif;
+  font-weight: 370;
+  color: #141414;
+  background-color: #F9F9F9;
+  line-height: 1.6;
+  letter-spacing: -0.015em;
+  word-spacing: 0.02em;
     }
-    /* Make heading elements using separator-text semibold */
-    h1.separator-text,
-    h2.separator-text,
-    h3.separator-text,
-    h4.separator-text,
-    h5.separator-text,
-    h6.separator-text,
-    span.separator-text.heading {
-      font-weight: 600 !important;
+    .body-bold {
+  font-family: 'Geist', sans-serif;
+  font-weight: 490;
+  color: #141414;
+  background-color: #F9F9F9;
+  line-height: 1.22;
+  letter-spacing: -0.015em;
+  word-spacing: 0.00em;
+    }
+.hero-text {
+  font-family: 'Geist', sans-serif;
+  font-variation-settings: 'wght' 370;
+  color: #141414;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  word-spacing: -0.01em;
+}
+.year {
+  font-family: 'Geist', sans-serif;
+  font-variation-settings: 'wght' 370;
+  color: #878787;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  word-spacing: -0.01em;
+}
+
+.fluid-timeline-text {
+  font-family: 'Geist', sans-serif;
+  font-variation-settings: 'wght' 370;
+  color: #141414;
+  font-size: 32px;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  word-spacing: 0.00em;
+}
+
+/* ===== Header & Toggle ===== */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  background-color: #F9F9F9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6pt;
+  padding-top: 15pt;
+  padding-bottom: 15pt;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 0.5px;
+  padding: 0.3pt;
+  background-color: #e4e4e9;
+  pointer-events: none;
+}
+
+/* Desktop (≥768px): tighter padding */
+@media (min-width: 768px) {
+  header {
+    padding: 1pt;
+  }
+}
+
+
+
+
+
+ 
+    #project-tooltip {
+      position: fixed; pointer-events: none;
+      background-color: #2B2B2D; color: #F9F9F9;
+      padding: 4px 8px; border-radius: 4px;
+      font-size: 11pt; z-index: 1000;
+      display: none; white-space: nowrap;
     }
     
-    /* Fluid timeline text styling */
-    .fluid-timeline-text {
-      font-family: 'Geist', sans-serif;
-      font-weight: 400;
-      color: #2B2B2D;
-      font-size: 32px;
-      letter-spacing: -0.025em;
-      line-height: 1.3;
+    /* Hide hamburger by default, show only on mobile ≤650px */
+    #mobileMenuBtn {
+      font-size: 10px;
+      background: transparent; border: none;
+      cursor: pointer; touch-action: manipulation;
+      line-height: 1; padding: 0; margin: 0;  padding-right: 8pt;
+      width: 40px; height: 40px;
+      display: none;
+      align-items: center; justify-content: center;
+      z-index: 51;
+    }
+    @media (max-width: 650px) {
+      #mobileMenuBtn {
+        display: flex;
+      }
+    }
+    .hamburger-icon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+html {
+  background-color: #F9F9F9; /* same as main */}
+.hamburger-icon span {
+  position: absolute;
+  left: 0;
+  top: 40%;
+  width: 130%;
+  height: 2.5px;
+  background-color: #2B2B2D;
+  transform-origin: center center;
+  transition: transform 0.3s ease;
+}
+.hamburger-icon span:nth-child(1) {
+  transform: translateY(-5px);
+}
+.hamburger-icon span:nth-child(2) {
+  transform: translateY(5px);
+}
+.hamburger-icon.open span:nth-child(1) {
+  transform: rotate(45deg);
+}
+.hamburger-icon.open span:nth-child(2) {
+  transform: rotate(-45deg);
+}
+    /* ===== Mobile Nav Overlay ===== */
+    #mobileNavOverlay {
+      position: fixed; top: 56px; left: 0; right: 0; bottom: 0;
+      z-index: 40; background-color: #F9F9F9;
+      display: none; flex-direction: column;
+      padding: 1rem; opacity: 0; transform: translateY(-10px);
+      transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    }
+    #mobileNavOverlay.visible {
+      opacity: 1; transform: translateY(0);
+    }
+    .nav-button {
+      font-size: 13pt; color: #2B2B2D; text-decoration: none; letter-spacing: -0.015em;
+    }
+    .nav-button:hover {
+      color: #D3D3D3;
+    }
+    /* ===== Mobile slide-up animation ===== */
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .mobile-anim {
+      animation: slideUp 0.4s ease-out both;
     }
     
-    /* Fade-in effect - initial state */
     .fade-in {
       opacity: 0;
       transform: translateY(10px);
       transition: opacity 0.4s ease-out, transform 0.4s ease-out;
     }
     
-    /* Project title styling */
-    .project-title {
-      font-family: 'Geist', sans-serif;
-      font-weight: 400;
-      line-height: 1.1;
-      color: #2B2B2D;
-      font-size: 12.5pt;
-      letter-spacing: 0.01em;
-      text-align: left;
-    }
-    
-    /* Project description styling */
-    :root {
-      --project-description-size: 11.5pt;
-      --project-description-line-height: 1.50;
-      --project-description-color: #7A7A7A;
-      --project-description-font: 'Manrope', sans-serif;
-      --project-description-letter-spacing: 0.01em;
-    }
-    .project-description {
-      font-size: var(--project-description-size);
-      line-height: var(--project-description-line-height);
-      font-family: var(--project-description-font);
-      color: var(--project-description-color);
-      letter-spacing: var(--project-description-letter-spacing);
-      font-weight: 400;
-      margin: 0;
-    }
-    
-    /* Header styling */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 50;
-      background-color: #F9F9F9;
-      transition: background-color 0.2s ease;
-      overflow: visible;
-      font-size: 16pt;
-    }
-    .header-title, .nav-button {
-      font-family: 'Geist', sans-serif;
-      font-size: 12.5pt !important;
-      line-height: 1.2;
-      letter-spacing: 0;
-      padding: 7.5pt 16pt 7.4pt 16pt;
-      background-color: transparent;
-      color: #2B2B2D;
-      text-decoration: none;
-      border: none;
-      border-radius: 0;
-      transition: color 0.2s ease;
-      cursor: pointer;
-      box-sizing: content-box;
-    }
-    .nav-button:hover {
-      color: #D3D3D3;
-    }
-    .header-title:hover {
-      color: #D3D3D3;
-    }
-    
-    /* Projects container styling */
     .project {
       position: relative;
       transform-origin: center;
       overflow: hidden;
     }
-    .project img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: opacity 0.5s ease;
-      border-radius: inherit;
-    }
-    .project-image-container {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-      border-radius: inherit;
-    }
+
+
     .project-image-container:hover {
-      cursor: pointer;
-    }
-    
-    /* Projects grid */
+      cursor: default;
+}
     .projects-grid {
       display: grid;
       grid-template-columns: 1fr;
-      row-gap: 60px;
-      column-gap: 32px;
+      row-gap: 48px;
+      column-gap: 28px;
     }
- 
     @media (min-width: 992px) {
       .projects-grid {
         grid-template-columns: 1fr 2fr;
         grid-template-rows: auto auto;
       }
       .projects-grid > .project:nth-child(1) {
-        grid-column: 1;
-        grid-row: 1;
+        grid-column: 1; grid-row: 1;
       }
       .projects-grid > .project:nth-child(2) {
-        grid-column: 1;
-        grid-row: 2;
+        grid-column: 1; grid-row: 2;
       }
       .projects-grid > .project:nth-child(3) {
-        grid-column: 2;
-        grid-row: 1 / span 2;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
+        grid-column: 2; grid-row: 1 / span 2;
+        display: flex; flex-direction: column; height:100%;
       }
       .projects-grid > .project:nth-child(3) .project-image-container {
-        flex-grow: 1;
-        overflow: hidden;
+        flex-grow:1; overflow:hidden;
       }
     }
-
-    /* Projects grid 2 */
     .projects-grid-2 {
       display: grid;
       grid-template-columns: 1fr;
-      row-gap: 60px;
-      column-gap: 32px;
+      row-gap: 48px;
+      column-gap: 28px;
     }
-    
     @media (min-width: 992px) {
       .projects-grid-2 {
         grid-template-columns: 2fr 1fr;
         grid-template-rows: auto auto;
       }
       .projects-grid-2 > .project:nth-child(3) {
-        grid-column: 1;
-        grid-row: 1 / span 2;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
+        grid-column: 1; grid-row: 1 / span 2;
+        display: flex; flex-direction: column; height:100%;
       }
       .projects-grid-2 > .project:nth-child(1) {
-        grid-column: 2;
-        grid-row: 1;
+        grid-column: 2; grid-row:1;
       }
       .projects-grid-2 > .project:nth-child(2) {
-        grid-column: 2;
-        grid-row: 2;
+        grid-column: 2; grid-row:2;
       }
       .projects-grid-2 > .project:nth-child(3) .project-image-container {
-        flex-grow: 1;
-        overflow: hidden;
+        flex-grow:1; overflow:hidden;
       }
     }
-    
-    /* Mobile header/nav adjustments */
     @media (min-width: 651px) {
-      .desktop { display: block !important; }
-      .desktop-flex { display: flex !important; }
-      .mobile { display: none !important; }
+      .desktop     { display: block !important; }
+      .desktop-flex{ display: flex  !important; }
+      .mobile      { display: none  !important; }
     }
     @media (max-width: 650px) {
-      .header-nav { display: none !important; }
-    }
+      .header-nav  { display: none !important; }
+      }
+    
+    .email-phone {
+  /* default (mobile) */
+  font-size: 20pt;
+}
+@media (min-width: 650px) {
+  /* desktop (or whatever px you prefer) */
+  .email-phone {
+    font-size: 38px;
+  }
+}
+main {
+  position: relative;
+  z-index: 2;
+  background: #F9F9F9;
+  margin-bottom: 66.666vh; /* Always match 2/3 of viewport height */
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 66.666vh; /* 2/3 of viewport height */
+  z-index: 1;
+  background: #336d50;
+  color: #FAFAFA;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px;
+}
+/* 3) For mobile, use shorter footer */
+@media (max-width: 650px) {
+  main {
+    margin-bottom: 450px;
+  }
+  footer {
+    height: 450px;
+  }
+}
+footer button[aria-label="Scroll to top"] {
+  font-family: Geist;
+}
+/* Prevent background scroll when mobile nav is open */
+body.nav-open {
+  overflow: hidden !important;
+}
+#mobileMenuBtn {
+  margin-right: -12px;
+}
+/* mobile-only social icons in footer */
+.mobile-social {
+  display: none;
+}
+@media (max-width: 650px) {
+  footer {
+    /* ensure footer is flex-column */
+    display: flex;
+    flex-direction: column;
+  }
+  .mobile-social {
+    display: flex;
+    justify-content: left;
+    gap: 12px;
+    margin-top: -66px;      /* push to bottom */
+    margin-bottom: 40px;   /* 25px above bottom */
+  }
+}
+@media (max-width: 650px) {
+  .mobile-social img {
+    /* invert black ↔ white */
+    filter: invert(1);
+  }
+}
+
   </style>
+  <link rel="icon" href="images/logo-04.svg" type="image/svg+xml">
 </head>
 <body>
-  <!-- Header (added fade-in class) -->
-  <header class="fade-in">
-    <div class="flex justify-between items-center w-full backdrop-blur-md" id="navContainer">
-      <!-- Header title linking to index.html -->
-      <a href="index.html" class="header-title ml-3">
+  <main>
+  <!-- Project tooltip -->
+  <div id="project-tooltip"></div>
+  <!-- ===== Header & Toggle ===== -->
+  <header class="fade-in fixed top-0 left-0 right-0 z-50 bg-[#f8f8f8]">
+    <div id="navContainer" class="flex justify-between items-center w-full backdrop-blur-md py-0 md:py-0 px-4 md:px-2">
+      <!-- Header Title -->
+      <a href="/" class="header-title -ml-[8px] !text-[18pt] md:!text-[13pt] md:ml-[26px]">
         Jake Pearce
       </a>
-      <!-- Navigation -->
-      <nav class="header-nav desktop-flex" style="margin: 9pt;">
-        <ul class="flex space-x-1 mr-2">
-          <!-- "Work" linking to work.html -->
-          <li><a href="work.html" class="nav-button">Work</a></li>
-          <!-- "Visual feed" linking to visual-feed.html -->
-          <li><a href="visual-feed.html" class="nav-button">Visual feed</a></li>
-          <li><a href="#contact" class="nav-button">Contact</a></li>
+  
+      <!-- Desktop Nav -->
+      <nav class="header-nav hidden md:flex" style="margin: 9pt;">
+        <ul class="flex space-x-10 mr-4">
+          <li><a href="/" class="nav-button transition-colors duration-200">Work</a></li>
+          <li><a href="visual-feed" class="nav-button transition-colors duration-200">Visual feed</a></li>
+          <li><a href="#contact" class="nav-button transition-colors duration-200">Contact</a></li>
         </ul>
       </nav>
-      <button id="mobileMenuBtn" class="mobile pt13 font-medium flex text-5xl" style="margin: 16pt;" aria-label="Open Menu">=</button>
-    </div>
-  </header>
-  
-  <!-- Mobile Nav Overlay -->
-  <div id="mobileNavOverlay" class="fade-in fixed inset-0 z-50 hidden flex flex-col items-start p-8" style="background-color: #F9F9F9;" aria-hidden="true">
-    <button id="closeMenuBtn" class="absolute text-5xl" style="top: 0; margin: 16pt; right: 0;" aria-label="Close Menu">&times;</button>
-    <ul class="mt-40 space-y-12">
-      <li><a href="#work" class="nav-button">Work</a></li>
-      <li><a href="#visual-feed" class="nav-button">Visual feed</a></li>
-      <li><a href="#contact" class="nav-button">Contact</a></li>
-    </ul>
-  </div>
-
-  <!-- Combined Project Title, Description, and Info Section -->
-  <section id="project-info" class="max-w-[1920px] mx-auto w-full md:px-9 px-4 mt-28 md:mt-48 fade-in">
-    <div class="flex flex-col md:flex-row md:space-x-8 items-start">
-      <!-- Left Column: Title and Description -->
-      <div class="md:w-1/2" style="font-family: 'Geist', sans-serif;">
-        <h1 class="fluid-hero-text mb-12 md:mb-5">
-          Braves Cricket: A Multinational Franchise Competing in Global T10 Leagues
-        </h1>
-        <p class="separator-text  mb-5 md:mb-28 mt-5">
-          Braves Cricket underwent a major transformation after a change in ownership in 2022. The franchise rebranded and expanded into multiple international T10 leagues, including the Abu Dhabi T10 and Zim Afro T10. With a strategic focus on digital engagement, Braves Cricket has become the leading social media presence in the Abu Dhabi T10, outperforming long-established teams in both followers and engagement.
-        </p>
-      </div>
-      <!-- Right Column: Services and Industry -->
-      <div class="text-[12.5pt] mb-20 md:mb-5 mt-9 md:mt-0" style="font-family: 'Geist', sans-serif;">
-        <p>
-          <span class="separator-text heading">Services</span><br>
-          <span class="separator-text ">Brand Identity | Sports Apparel Design</span>
-        </p>
-        <div class="mt-4">
-          <p>
-            <span class="separator-text heading">Industry</span><br>
-            <span class="separator-text ">Sports & Entertainment</span>
-          </p>
+      <!-- Mobile Menu Button (now hidden except ≤650px) -->
+      <button id="mobileMenuBtn" aria-label="Open Menu">
+        <div class="hamburger-icon">
+          <span></span>
+          <span></span>
         </div>
-        <div class="mt-4">
-          <p>
-            <span class="separator-text heading">Logo Design</span><br>
-            <span class="separator-text ">Corban Keating</span>
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Project Gallery: First Two Side-by-Side, Rest Stacked -->
-  <section id="project-gallery" class="max-w-[1920px] mx-auto w-full md:px-9 px-4 fade-in">
-    <div class="space-y-5">
-      <!-- Stacked Vertically -->
-      <div class="project-image-container aspect-[1/1] sm:aspect-auto overflow-hidden">
-        <img src="images/braves-4.jpg" alt="Gallery Image 3" class="rounded-md object-cover w-full h-full" />
-      </div>
-    </div>
-  </section>
-
-  <section id="project-info" class="max-w-[1920px] mx-auto w-full md:px-9 px-4 mt-12 md:mt-36 fade-in">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- Text Column (occupies 1/3 columns) -->
-      <div class="md:col-span-1" style="font-family: 'Geist', sans-serif;">
-        <h1 class="separator-text">
-          Production-Ready Apparel Templates
-        </h1>
-        <p class="separator-text mt-5">
-          Detailed on-field kits, training gear, and merchandise are designed for Braves Cricket, using manufacturer templates to ensure accurate, print‑ready files for Abu Dhabi and Zim Afro T10 teams.
-        </p>
-      </div>
-      <!-- Image Column (occupies 2/3 columns) -->
-      <div class="md:col-span-2">
-        <div class="space-y-5">
-          <div class="flex flex-col lg:flex-row gap-9">
-            <div class="project-image-container flex-1">
-              <img src="images/braves-5.jpg" alt="Gallery Image 1" class="rounded-md w-full" />
-            </div>
-            <div class="project-image-container flex-1">
-              <img src="images/braves-1.jpg" alt="Gallery Image 2" class="rounded-md w-full" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <div class="w-full lg:w-2/3 fade-in sm:aspect-auto overflow-hidden">
-    <img src="images/braves-14.jpg" alt="Gallery Image 3" class="rounded-md object-cover w-full h-full mt-14 sm:mt-20" />
-  </div>
-
-  <section id="project-info" class="max-w-[1920px] mx-auto w-full md:px-9 px-4 mt-12 lg:mt-28 fade-in">
-    <div class="project-image-container aspect-[1/1] sm:aspect-auto overflow-hidden">
-      <img src="images/braves-2.jpg" alt="Gallery Image 3" class="rounded-md object-cover w-full h-full" />
-    </div>
-  </section>
-  <section id="project-info" class="max-w-[1920px] mx-auto w-full md:px-9 px-4 mt-4 md:mt-36 fade-in">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- Image Column (occupies 2/3 columns) -->
-      <div class="md:col-span-2">
-        <div class="space-y-5">
-          <div class="flex flex-col lg:flex-row gap-9">
-            <div class="project-image-container flex-1">
-              <img src="images/braves-11.jpg" alt="Gallery Image 1" class="rounded-md w-full" />
-            </div>
-            <div class="project-image-container flex-1">
-              <img src="images/braves-13.jpg" alt="Gallery Image 2" class="rounded-md w-full" />
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Text Column (occupies 1/3 columns) -->
-      <div class="md:col-span-1" style="font-family: 'Geist', sans-serif;">
-        <h1 class="separator-text">
-          Results
-        </h1>
-        <p class="separator-text mt-5">
-          Braves Cricket led the Abu Dhabi T10 in social media engagement and featured prominently during the 2023 Zimbabwe T10, 
-          which reached over 400 million global viewers. The branding helped position Braves as a standout franchise during the league’s rapid international expansion.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer id="contact" class="relative max-w-full mx-auto bg-[#336d50] text-[#FAFAFA] mt-32 px-9 font-[400]" style="font-family: 'Geist', sans-serif;">
-    <div class="pt-[15px] flex justify-between items-center text-[12.5pt] text-[#FAFAFA]">
-      <div class="flex space-x-8">
-        <span>© 2025</span>
-        <a href="privacy-policy.html" class="transition-colors duration-200 hover:text-[#b3cec0]">Privacy Policy</a>
-      </div>
-      <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" class="border border-[#FAFAFA] mt-2 rounded-full w-11 h-11 flex items-center justify-center text-[#FAFAFA] transition-colors duration-200 hover:bg-[#F9F9F9] hover:text-black" aria-label="Scroll to top">
-        ↑
       </button>
     </div>
-    <div class="relative w-full h-[700px]">
-      <div class="absolute bottom-[225px] w-full left-0">
-        <hr class="border-[#FAFAFA] border-b-1" />
-        <div class="text-[12.5pt] mt-4">Contact</div>
-      </div>
-      <div class="absolute bottom-[144px] right-0 text-[38px] leading-tight text-right">
-        <a href="mailto:hello@jakepearce.com.au" class="block transition-colors duration-200 hover:text-[#b3cec0]" style="text-decoration: none;">
-          hello@jakepearce.com.au
-        </a>
-        <span class="transition-colors duration-200">+61 422 911 799</span>
+  </header>
+  <!-- ===== Mobile Overlay ===== -->
+<div id="mobileNavOverlay"
+class="fixed inset-0 z-40 bg-[#F9F9F9] flex flex-col px-4 md:px-10
+       opacity-0 -translate-y-2 transition-opacity transition-transform duration-400"
+aria-hidden="true">
+
+<!-- center section: Work & Visual feed -->
+<div class="flex-1 flex flex-col justify-center space-y-3">
+<a href="/"       class="nav-button !text-[28pt] md:!text-[13pt]">Work</a>
+<a href="visual-feed" class="nav-button !text-[28pt] md:!text-[13pt]">Visual feed</a>
+</div>
+
+<!-- bottom section, pinned 25px above bottom -->
+<div class="flex flex-col items-start mb-[35px] space-y-3">
+<a class="nav-button !text-[13pt]  text-[#8e8e8e]">Contact</a>
+<a href="mailto:hello@jakepearce.com.au"
+  class="nav-button !text-[13pt] md:!text-[13pt]">
+ hello@jakepearce.com.au
+</a>
+<span class="nav-button !text-[13pt]  !-mt-0">
+ +61 422 911 799
+</span>
+
+<!-- social icons side-by-side -->
+<div class="flex items-center space-x-3">
+ <a href="https://instagram.com/jake.r.pearce"
+    target="_blank" rel="noopener noreferrer">
+   <img src="images/instagram-black.svg" alt="Instagram" class="w-7 h-7"/>
+ </a>
+ <a href="https://behance.net/jake.r.pearce"
+    target="_blank" rel="noopener noreferrer">
+   <img src="images/behance.svg" alt="Behance" class="w-7 h-7"/>
+ </a>
+</div>
+</div>
+</div>
+  </div>
+  <!-- Combined Project Title, Description, and Info Section -->
+  <section id="project-info" class="max-w-[1920px] mx-auto w-full md:px-20 px-4 mt-32 md:mt-28 fade-in">
+    <div class="flex flex-col md:flex-row md:space-x-8 items-start">
+      <!-- Left Column: Title and Description -->
+      <div class="md:w-1/2 -mt-2 md:-mt-0">
+        <h1 class="hero-text  !text-[24pt] md:!text-[24pt] lg:!text-[30pt] mb-10 md:mb-5 md:mr-8">
+          Erima Australia needed a localised brand presence to support their entry into the Australian sportswear market.        </h1>
+        <p class="body text-[13pt] mb-10 md:mb-20 mt-9 md:mr-8">
+          With a heritage of high-performance German apparel, the brand sought to connect with clubs and communities across the country. I was brought on to create social content and promotional graphics that introduced Erima’s legacy to new audiences with clarity and energy.      </div>
+      <!-- Right Column -->
+      <div class=" mb-20 md:mb-0 space-y-[28px]">
+        
+        <!-- Client -->
+        <div>
+          <p>
+            <span class="body-bold text-[13pt]  md:ml-10">Client</span><br>
+            <span class="body text-[13pt]  md:ml-10 block mt-0.5">Erima Australia</span>
+          </p>
+        </div>
+        
+        <!-- Deliverables -->
+        <div>
+          <p>
+            <span class="body-bold text-[13pt]  md:ml-10">What was delivered</span><br>
+            <span class="body text-[13pt]  md:ml-10 block mt-[3px]">Social Media Graphics </span>
+            <span class="body text-[13pt]  md:ml-10 block mt-[3px]">Launch Campaign Assets</span>
+            <span class="body text-[13pt]  md:ml-10 block mt-[3px]">Catalogue</span>
+          </p>
+        </div>
+        
+      
+        
+        </div>
       </div>
     </div>
-  </footer>
-  
-  <!-- Scripts -->
-  <script>
-    // Scroll-to-bottom for Contact links
+  </section>
+
+
+   <section id="project-gallery" class="max-w-[1920px] mx-auto w-full md:px-20 px-4 fade-in">
+
+
+    <div class="project-image-container aspect-[7/6] sm:aspect-auto overflow-hidden">
+      <img src="images/erima-img1.jpg" alt="Gallery Image 3" class=" object-cover w-full h-full rounded-[5px]" />
+    </div>
+  </div>
+</section>
+
+<section id="project-gallery" class="max-w-[1920px] mx-auto w-full md:px-20 px-4 mt-20 fade-in">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- Text Column (1/3 width) -->
+    <div class="md:col-span-1" style="font-family: 'Geist', sans-serif;">
+      <h1 class="body-bold text-[13pt] md:mt-0 mt-5">
+        Results
+      </h1>
+      <p class="body text-[13pt] mt-5">
+        Braves Cricket led the Abu Dhabi T10 in social media engagement and featured prominently during the 2023 Zimbabwe T10,
+        which reached over 400 million global viewers. The branding helped position Braves as a standout franchise during the league’s rapid international expansion.
+      </p>
+    </div>
+    <!-- Image Column (2/3 width) -->
+    <div class="md:col-span-2">
+      <div class="overflow-hidden">
+        <img
+          src="images/erima-img2.jpg"
+          alt="Erima Feature"
+          class="object-cover w-full h-full  rounded-[5px]"
+        />
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<section id="project-gallery" class="max-w-[1920px] mx-auto w-full md:px-20 px-4  fade-in">
+
+
+    <div class="project-image-container  sm:aspect-auto overflow-hidden md:mt-20 mt-3">
+      <img src="images/erima-img5.jpg" alt="Gallery Image 3" class=" object-cover w-full h-full rounded-[5px]" />
+    </div>
+  </div>
+</section>
+
+<section id="project-gallery" class="max-w-[1920px] mx-auto w-full md:px-20 px-4 mt-20 fade-in">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- Image Column (2/3 width) -->
+    <div class="md:col-span-2">
+      <div class="overflow-hidden">
+        <img
+          src="images/erima-img4.jpg"
+          alt="Erima Feature"
+          class="object-cover w-full h-full rounded-[5px]"
+        />
+      </div>
+    </div>
+    <!-- Text Column (1/3 width) -->
+    <div class="md:col-span-1" style="font-family: 'Geist', sans-serif;">
+      <h1 class="body-bold text-[13pt] md:mt-0 mt-5">
+        Results
+      </h1>
+      <p class="body text-[13pt] mt-5">
+        Braves Cricket led the Abu Dhabi T10 in social media engagement and featured prominently during the 2023 Zimbabwe T10,
+        which reached over 400 million global viewers. The branding helped position Braves as a standout franchise during the league’s rapid international expansion.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+
+<div class="h-16 md:h-20"></div>
+</main>
+<footer
+id="contact"
+class="w-full bg-[#141414] text-[#FAFAFA] mt-20 md:mt-32 px-4 md:px-10 font-[400]"
+style="font-family: 'Liter', sans-serif;">
+<!-- Top bar -->
+<div class="flex justify-between items-center !text-[13pt] md:!text-[13pt]">
+  <!-- © + Privacy: stacked on mobile, row on md+ -->
+  <div class="flex flex-col !text-[#9d9c9c] space-y-2 md:flex-row md:space-x-8 md:space-y-0">
+    <span>© 2025</span>
+    <a href="privacy-policy"
+       class="transition-colors text-#9d9c9c duration-200 hover:text-[#FAFAFA]">
+      Privacy Policy
+    </a>
+  </div>
+  <!-- Up-arrow -->
+  <button
+    onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    class="border border-[#9d9c9c] border-1 !text-[#9d9c9c] rounded-full md:w-11 md:h-11 w-10 h-10 -mt-4 md:mt-0 flex items-center justify-center
+           transition-colors duration-200 hover:bg-[#F9F9F9]  hover:!text-[#141414]"
+    aria-label="Scroll to top"
+  >↑</button>
+</div>
+<!-- Main footer area: variable height -->
+<div class="relative w-full h-[410px] md:h-[700px]">
+  <!-- Separator + “Contact” label -->
+  <div class="absolute bottom-[180px] md:bottom-[225px] w-full left-0">
+    <hr class="border-[#b3cec0] border-b-1" />
+    <div class="!text-[13pt] mt-[12px]">Contact</div>
+  </div>
+  <!-- Email & phone: always stacked -->
+  <div
+    class="absolute
+           bottom-[75px] md:bottom-[136px]   /* vertical position */   
+           left-0 md:left-auto md:right-0   /* left on mobile, right on md+ */
+           flex flex-col md:-space-y-[7px] -space-y-[0px]          /* stack with gap */
+           w-full md:w-auto                 /* full width on mobile, auto on md+ */
+           md:!text-[38px]    /* font-size switch */
+           text-left md:text-right          /* left-align on mobile, right-align on md+ */
+           items-start md:items-end         /* flex alignment */">
+    <a href="mailto:hello@jakepearce.com.au"
+       class="email-phone transition-colors duration-200 hover:text-[#b3cec0]">
+      hello@jakepearce.com.au
+    </a>
+    <span class="email-phone transition-colors duration-200">
+      +61 422 911 799
+    </span>
+    <div class="hidden md:flex space-x-3 mt-4 absolute top-[120px] right-0">
+      <a href="https://instagram.com/jake.r.pearce" target="_blank" rel="noopener noreferrer">
+        <img src="images/instagram-black.svg" alt="Instagram" class="w-7 h-7 filter invert"/>
+      </a>
+      <a href="https://behance.net/jake.r.pearce" target="_blank" rel="noopener noreferrer">
+        <img src="images/behance.svg" alt="Behance" class="w-7 h-7 filter invert"/>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="mobile-social">
+  <a href="https://instagram.com/jake.r.pearce"
+     target="_blank" rel="noopener noreferrer">
+    <img src="images/instagram-black.svg" alt="Instagram" class="w-7 h-7"/>
+  </a>
+  <a href="https://behance.net/jake.r.pearce"
+     target="_blank" rel="noopener noreferrer">
+    <img src="images/behance.svg" alt="Behance" class="w-7 h-7"/>
+  </a>
+</div>
+</footer>
+<!-- ===== Scripts ===== -->
+<script>
+  // Scroll-to-bottom for Contact links
+  document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href="#contact"]').forEach(link => {
-      link.addEventListener('click', event => {
-        event.preventDefault();
+      link.addEventListener('click', e => {
+        e.preventDefault();
         window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
       });
     });
-    
-    // Mobile nav toggle
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileNavOverlay = document.getElementById('mobileNavOverlay');
-    const closeMenuBtn = document.getElementById('closeMenuBtn');
-    
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileNavOverlay.classList.remove('hidden');
-      mobileNavOverlay.setAttribute('aria-hidden', 'false');
-      mobileMenuBtn.textContent = '×';
+  });
+  
+
+
+
+  // Mobile menu toggle with improved hamburger icon
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('mobileMenuBtn');
+    const icon = btn.querySelector('.hamburger-icon');
+    const overlay = document.getElementById('mobileNavOverlay');
+    let isOpen = false;
+    // Initialize tooltip if it wasn't created above
+    if (!document.getElementById('project-tooltip')) {
+      const tooltip = document.createElement('div');
+      tooltip.id = 'project-tooltip';
+      document.body.appendChild(tooltip);
+    }
+    btn.addEventListener('click', () => {
+      isOpen = !isOpen;
+      if (isOpen) {
+        // Open menu
+        
+        overlay.style.display = 'flex';
+        setTimeout(() => {
+          overlay.classList.add('visible');
+        }, 10);
+        icon.classList.add('open');
+        document.body.classList.add('nav-open');
+      } else {
+        // Close menu
+        overlay.classList.remove('visible');
+        setTimeout(() => {
+          overlay.style.display = 'none';
+        }, 400); // Match transition duration
+        icon.classList.remove('open');
+        document.body.classList.remove('nav-open');
+      }
     });
-    closeMenuBtn.addEventListener('click', () => {
-      mobileNavOverlay.classList.add('hidden');
-      mobileNavOverlay.setAttribute('aria-hidden', 'true');
-      mobileMenuBtn.textContent = '=';
-    });
-    
-    // Intersection Observer for fade-in effect
-    document.addEventListener("DOMContentLoaded", function() {
-      const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0)";
-            obs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
-      
-      document.querySelectorAll('.fade-in').forEach(el => {
-        observer.observe(el);
+  });
+  // Intersection Observer for fade-in
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "translateY(0)";
+          observer.unobserve(entry.target);
+        }
       });
-    });
-  </script>
+    }, {
+      root: null,
+  rootMargin: "0px 0px -150px 0px",
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  });
+  // Alt-image injection
+  document.addEventListner("DOMContentLoaded", () => {
+if (window.innerWidth <= 650) return; // Skip on mobile
+
+function tryAltSrc(img, candidates) {
+  if (!candidates.length) return;
+  img.src = candidates.shift();
+  img.onerror = () => tryAltSrc(img, candidates);
+}
+
+document.querySelectorAll('.project-image-container').forEach(container => {
+  const img = container.querySelector('img');
+  if (!img) return;
+  const src = img.src;
+  const dot = src.lastIndexOf('.');
+  if (dot === -1) return;
+  const base = src.slice(0, dot), ext = src.slice(dot);
+  const alts = (ext.match(/jpe?g/i) ? [base+'-alt.gif', base+'-alt.png', base+'-alt'+ext] : [base+'-alt'+ext]);
+  const altImg = document.createElement('img');
+  altImg.alt = img.alt + ' alt';
+  altImg.className = img.className;
+  Object.assign(altImg.style, {
+    position:'absolute', top:0, left:0, width:'100%', height:'100%', objectFit:'cover', zIndex:1
+  });
+  container.style.position = 'relative';
+  container.appendChild(altImg);
+  img.style.position = 'relative'; 
+  img.style.zIndex = 2; 
+  img.style.transition = 'opacity 0.4s ease';
+  tryAltSrc(altImg, alts);
+  container.addEventListener('mouseenter', () => img.style.opacity = 0);
+  container.addEventListener('mouseleave', () => img.style.opacity = 1);
+});
+});
+  // Smooth-scroll for Work link
+  document.addEventListener("DOMContentLoaded", () => {
+    const workLink = document.querySelector('a.nav-button[href="/"]');
+    if (workLink && window.location.pathname.endsWith('/')) {
+      workLink.addEventListener('click', e => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+  });
+  document.addEventListener('DOMContentLoaded', () => {
+if (window.innerWidth <= 650) {
+  const grid = document.querySelector('.projects-grid-2');
+  const bravesProject = grid.children[2]; // assuming Braves is 3rd project
+  if (grid && bravesProject) {
+    grid.insertBefore(bravesProject, grid.firstChild);
+  }
+}
+});
+
+</script>
 </body>
 </html>
