@@ -28,7 +28,7 @@
       font-family: 'Geist', sans-serif;
       font-weight: 370;
       overflow-x: hidden;
-      color: #141414;
+      color: #424242;
       background-color: #F9F9F9;
       letter-spacing: -0.015em;
       line-height: 1.22;
@@ -36,43 +36,35 @@
     /* ===== Typography & components ===== */
     .body {
   font-family: 'Geist', sans-serif;
-  font-weight: 370;
-  color: #141414;
+  font-weight: 420;
+  color: #383838;
   background-color: #F9F9F9;
-  line-height: 1.6;
-  letter-spacing: -0.015em;
-  word-spacing: 0.02em;
+  line-height: 1.55;
+  letter-spacing: -0.018em;
+  word-spacing: 0.01em; 
     }
     .body-bold {
   font-family: 'Geist', sans-serif;
-  font-weight: 490;
-  color: #141414;
+  font-weight: 580;
+  color: #383838;
   background-color: #F9F9F9;
   line-height: 1.22;
   letter-spacing: -0.015em;
-  word-spacing: 0.00em;
+  word-spacing: 0.01em;
     }
 .hero-text {
   font-family: 'Geist', sans-serif;
-  font-variation-settings: 'wght' 370;
-  color: #141414;
-  line-height: 1.25;
-  letter-spacing: -0.015em;
-  word-spacing: -0.01em;
-}
-.year {
-  font-family: 'Geist', sans-serif;
-  font-variation-settings: 'wght' 370;
-  color: #878787;
+  font-variation-settings: 'wght' 720;
+  color: #383838;
   line-height: 1.2;
-  letter-spacing: -0.015em;
-  word-spacing: -0.01em;
+  letter-spacing: -0.02em;
+  word-spacing: 0.01em;
 }
 
 .fluid-timeline-text {
   font-family: 'Geist', sans-serif;
   font-variation-settings: 'wght' 370;
-  color: #141414;
+  color: #383838;
   font-size: 32px;
   line-height: 1.25;
   letter-spacing: -0.015em;
@@ -92,6 +84,36 @@ header {
   padding-top: 15pt;
   padding-bottom: 15pt;
 }
+/* 1) default: mobile (≤649px) → single column */
+#project-info .info-grid {
+  display: block;
+}
+
+/* 2) 650px–999px → 3 columns; heading-body spans cols 1–2, meta in col 3 */
+@media (min-width: 745px) and (max-width: 1750px) {
+  #project-info .info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  #project-info .heading-body {
+    grid-column: 1 / span 2;
+  }
+  #project-info .meta {
+    grid-column: 3;
+  }
+}
+
+/* 3) ≥1000px → 2 columns; auto equal split */
+@media (min-width: 1750px) {
+  #project-info .info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  /* at this point each child auto occupies one column */
+}
+
+
+
 
 header::after {
   content: "";
@@ -105,21 +127,16 @@ header::after {
   pointer-events: none;
 }
 
-/* Desktop (≥768px): tighter padding */
-@media (min-width: 768px) {
+/* Desktop (≥745px): tighter padding */
+@media (min-width: 745px) {
   header {
     padding: 1pt;
   }
 }
 
-
-
-
-
- 
     #project-tooltip {
       position: fixed; pointer-events: none;
-      background-color: #2B2B2D; color: #F9F9F9;
+      background-color: #383838; color: #F9F9F9;
       padding: 4px 8px; border-radius: 4px;
       font-size: 11pt; z-index: 1000;
       display: none; white-space: nowrap;
@@ -136,12 +153,20 @@ header::after {
       align-items: center; justify-content: center;
       z-index: 51;
     }
-    @media (max-width: 650px) {
+    @media (max-width: 767px) {
       #mobileMenuBtn {
         display: flex;
       }
     }
     .hamburger-icon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+html {
+  background-color: #F9F9F9; /* same as main */
+}
+.hamburger-icon {
   position: relative;
   width: 24px;
   height: 24px;
@@ -155,7 +180,7 @@ html {
   top: 40%;
   width: 130%;
   height: 2.5px;
-  background-color: #2B2B2D;
+  background-color: #383838;
   transform-origin: center center;
   transition: transform 0.3s ease;
 }
@@ -170,8 +195,7 @@ html {
 }
 .hamburger-icon.open span:nth-child(2) {
   transform: rotate(-45deg);
-}
-    /* ===== Mobile Nav Overlay ===== */
+}/* ===== Mobile Nav Overlay ===== */
     #mobileNavOverlay {
       position: fixed; top: 56px; left: 0; right: 0; bottom: 0;
       z-index: 40; background-color: #F9F9F9;
@@ -183,7 +207,14 @@ html {
       opacity: 1; transform: translateY(0);
     }
     .nav-button {
-      font-size: 13pt; color: #2B2B2D; text-decoration: none; letter-spacing: -0.015em;
+      font-size: 13pt;
+      color: #383838;
+      font-family: 'Geist', sans-serif;
+      font-weight: 420;
+      background-color: #F9F9F9;
+      line-height: 1.45;
+      letter-spacing: -0.018em;
+      word-spacing: 0.01em; 
     }
     .nav-button:hover {
       color: #D3D3D3;
@@ -274,9 +305,9 @@ html {
     
     .email-phone {
   /* default (mobile) */
-  font-size: 20pt;
+  font-size: 19pt;
 }
-@media (min-width: 650px) {
+@media (min-width: 745px) {
   /* desktop (or whatever px you prefer) */
   .email-phone {
     font-size: 38px;
@@ -304,7 +335,7 @@ footer {
   padding: 20px;
 }
 /* 3) For mobile, use shorter footer */
-@media (max-width: 650px) {
+@media (max-width: 745px) {
   main {
     margin-bottom: 450px;
   }
@@ -326,7 +357,7 @@ body.nav-open {
 .mobile-social {
   display: none;
 }
-@media (max-width: 650px) {
+@media (max-width: 745px) {
   footer {
     /* ensure footer is flex-column */
     display: flex;
@@ -340,7 +371,7 @@ body.nav-open {
     margin-bottom: 40px;   /* 25px above bottom */
   }
 }
-@media (max-width: 650px) {
+@media (max-width: 745px) {
   .mobile-social img {
     /* invert black ↔ white */
     filter: invert(1);
@@ -350,6 +381,7 @@ body.nav-open {
   </style>
   <link rel="icon" href="images/logo-04.svg" type="image/svg+xml">
 </head>
+
 <body>
   <main>
   <!-- Project tooltip -->
@@ -358,7 +390,7 @@ body.nav-open {
   <header class="fade-in fixed top-0 left-0 right-0 z-50 bg-[#f8f8f8]">
     <div id="navContainer" class="flex justify-between items-center w-full backdrop-blur-md py-0 md:py-0 px-4 md:px-2">
       <!-- Header Title -->
-      <a href="/" class="header-title -ml-[8px] !text-[18pt] md:!text-[13pt] md:ml-[26px]">
+      <a href="/" class="nav-button -ml-[8px] !text-[18pt] md:!text-[13pt] md:ml-[26px]">
         Jake Pearce
       </a>
   
@@ -370,7 +402,7 @@ body.nav-open {
           <li><a href="#contact" class="nav-button transition-colors duration-200">Contact</a></li>
         </ul>
       </nav>
-      <!-- Mobile Menu Button (now hidden except ≤650px) -->
+      <!-- Mobile Menu Button (now hidden except ≤745px) --> 
       <button id="mobileMenuBtn" aria-label="Open Menu">
         <div class="hamburger-icon">
           <span></span>
@@ -379,6 +411,7 @@ body.nav-open {
       </button>
     </div>
   </header>
+  
   <!-- ===== Mobile Overlay ===== -->
 <div id="mobileNavOverlay"
 class="fixed inset-0 z-40 bg-[#F9F9F9] flex flex-col px-4 md:px-10
@@ -417,81 +450,101 @@ aria-hidden="true">
 </div>
   </div>
   <!-- Combined Project Title, Description, and Info Section -->
-  <section id="project-info" class="max-w-[1920px] mx-auto w-full md:px-20 px-4 mt-32 md:mt-28 fade-in">
-    <div class="flex flex-col md:flex-row md:space-x-8 items-start">
-      <!-- Left Column: Title and Description -->
-      <div class="md:w-1/2 -mt-2 md:-mt-0">
-        <h1 class="hero-text  !text-[24pt] md:!text-[24pt] lg:!text-[30pt] mb-10 md:mb-5 md:mr-8">
-          Braves Cricket needed a bold, high-impact visual system to stand out in global T10 leagues and unify their presence across teams, platforms, and continents.
+  <section id="project-info" class="max-w-[1920px] mx-auto w-full md:px-10 2xl:px-20 px-4 mt-28 min-[745px]:mt-28 mb-0 min-[745px]:mb-20 fade-in">
+    <div class="info-grid">
+      <!-- Heading + body -->
+      <div class="heading-body">
+        <h1 class="hero-text !text-[24pt] min-[750px]:!text-[22pt] min-[1099px]:!text-[30pt] mb-[26px] min-[745px]:mb-[26px] -mt-4 min-[745px]:-mt-0 min-[745px]:mr-8">
+          Braves Cricket required a bold visual identity to stand out in the global T10 cricket league and unify its presence across teams and continents.
         </h1>
-        <p class="body text-[13pt] mb-10 md:mb-20 mt-9 md:mr-8">
+        <p class="body text-[13pt] md:text-[13pt] mb-8 min-[745px]:mb-0 min-[745px]:mr-16 mr-[6em]">
           Following a change in ownership, the franchise was preparing for major international exposure. My role focused on bringing the new brand to life through uniforms, a team bus wrap, and social media graphics that delivered consistency and energy across every touchpoint.        </p>
+        </p>
       </div>
-      <!-- Right Column -->
-      <div class=" mb-20 md:mb-0 space-y-[28px]">
-        
+  
+      <!-- Client / Team / Delivered -->
+      <div class="meta space-y-4 mb-12 min-[745px]:mb-0">
         <!-- Client -->
         <div>
           <p>
-            <span class="body-bold text-[13pt]  md:ml-10">Client</span><br>
-            <span class="body text-[13pt]  md:ml-10 block mt-0.5">Braves Cricket</span>
+            <span class="body-bold text-[13pt] md:text-[13pt] min-[745px]:ml-4">Client</span><br>
+            <span class="body text-[13pt] md:text-[13pt] block mt-1 min-[745px]:ml-4 mb-[26px] min-[745px]:mb-[26px]">Braves Cricket</span>
           </p>
         </div>
+        
         <!-- Team -->
         <div>
           <p>
-            <span class="body-bold text-[13pt]  md:ml-10">Team</span><br>
-            <span class="body text-[13pt]  md:ml-10 block mt-0.5">Corban Keating, DD</span>
-            <span class="body text-[13pt]  md:ml-10 block mt-0.5">Jake Pearce, GD</span>
+            <span class="body-bold text-[13pt] md:text-[13pt] min-[745px]:ml-4">Team</span><br>
+            <span class="body text-[13pt] md:text-[13pt] block mt-1 min-[745px]:ml-4">Corban Keating, SD</span>
+            <span class="body text-[13pt] md:text-[13pt] block mt-1 min-[745px]:ml-4 mb-[26px] min-[745px]:mb-[26px]">Jake Pearce, JGD</span>
           </p>
         </div>
+
         <!-- Deliverables -->
         <div>
           <p>
-            <span class="body-bold text-[13pt]  md:ml-10">What I delivered</span><br>
-            <span class="body text-[13pt]  md:ml-10 block mt-[3px]">Uniform Design</span>
-            <span class="body text-[13pt]  md:ml-10 block mt-[3px]">Bus Wrap</span>
-            <span class="body text-[13pt]  md:ml-10 block mt-[3px]">Social Media Graphics</span>
+            <span class="body-bold text-[13pt] md:text-[13pt] min-[745px]:ml-4">What we delivered</span><br>
+            <span class="body text-[13pt] md:text-[13pt] block mt-1 min-[745px]:ml-4">Uniform Design</span>
+            <span class="body text-[13pt] md:text-[13pt] block mt-1 min-[745px]:ml-4">Bus Wrap</span>
+            <span class="body text-[13pt] md:text-[13pt] block mt-1 min-[745px]:ml-4">Social Media Graphics</span>
           </p>
         </div>
-        
-      
-        
-        </div>
+      </section>
+    </div>
+  
+
       </div>
     </div>
-  </section>
+  </div>
+</section>
+    
+    </div>
 
   <!-- Project Gallery: First Two Side-by-Side, Rest Stacked -->
-  <section id="project-gallery" class="max-w-[1920px] mx-auto w-full md:px-20 px-4 fade-in">
+  <section id="project-gallery" class="max-w-[1920px] mx-auto w-full md:px-0 px-4 fade-in">
     <div class="space-y-5">
       <!-- Stacked Vertically -->
-      <div class="overflow-hidden md:-mt-0 -mt-8">
-        <img src="images/braves-4.jpg" alt="Gallery Image 3" class=" object-cover w-full h-full rounded-[5px]" />
+      <div class="overflow-hidden ">
+        <!-- mobile only -->
+        <img
+          src="images/players-(Project-Thumbnails)-mobile.jpg"
+          alt="Gallery Image 3"
+          class="block md:hidden object-cover w-full h-full rounded-sm"
+        />
+        <!-- desktop/tablet -->
+        <img
+          src="images/braves-4.jpg"
+          alt="Gallery Image 3"
+          class="hidden md:block object-cover w-full h-full rounded-sm"
+        />
       </div>
     </div>
   </section>
 
-  <section id="project-info" class="max-w-[1920px] mx-auto w-full md:px-20 px-4 mt-12 md:mt-20 fade-in">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+  
+
+  <section id="project-info" class="max-w-[1920px] mx-auto w-full md:px-10 2xl:px-20 px-4 mt-14 md:mt-20 mb-2 md:mb-10 fade-in">
+    <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-8">
       <!-- Text Column (occupies 1/3 columns) -->
-      <div class="order-last md:order-first md:col-span-1" style="font-family: 'Geist', sans-serif;">
-        <h1 class="body-bold text-[13pt]  mt-6 md:mt-0">
+      <div class="order-last md:order-first md:col-span-1  " style="font-family: 'Geist', sans-serif;">
+        <h1 class="body-bold text-[13pt] md:text-[13pt]  mt-2 md:mt-0  min-[745px]:mr-4 mr-[6em]">
           Production-Ready Apparel Templates
         </h1>
-        <p class="body text-[13pt]  mt-5 ">
-          Detailed on-field kits, training gear, and merchandise are designed for Braves Cricket, using manufacturer templates to ensure accurate, print‑ready files for Abu Dhabi and Zim Afro T10 teams.
+        <p class="body text-[13pt] md:text-[13pt]  mt-5  min-[745px]:mr-4 mr-[6em]">
+          Detailed on-field kits, training gear, and merchandise were designed for Braves Cricket, using manufacturer templates to ensure accurate, print‑ready files.
         </p>
+        
       </div>
       <!-- Image Column (occupies 2/3 columns) -->
-      <div class="md:col-span-2 md:mt-0 -mt-8">
+      <div class="lg:col-span-2 md:col-span-1 md:mt-0 -mt-8">
         <div class="space-y-5">
-          <div class="flex flex-col lg:flex-row md:gap-7 gap-4">
+          <div class="flex flex-col lg:flex-row gap-4">
             <div class="project-image-container flex-1">
-              <img src="images/braves-5.jpg" alt="Gallery Image 1" class=" w-full rounded-[5px]" />
+              <img src="images/pattern-1.jpg" alt="Gallery Image 1" class=" w-full rounded-sm" />
             </div>
             <div class="project-image-container flex-1">
-              <img src="images/braves-1.jpg" alt="Gallery Image 2" class=" w-full rounded-[5px]" />
+              <img src="images/pattern-2.jpg" alt="Gallery Image 2" class="hidden lg:block w-full rounded-sm" />
             </div>
           </div>
         </div>
@@ -499,110 +552,137 @@ aria-hidden="true">
     </div>
   </section>
   
-  <div class="w-full lg:w-4/5 fade-in sm:aspect-auto overflow-hidden">
-    <img src="images/braves-14.jpg" alt="Gallery Image 3" class=" object-cover w-full h-full mt-20 md:mt-12 mb-0 md:mb-0 rounded-[5px]"  />
+  <!-- swap container -->
+<div class="flex flex-col-reverse md:flex-col">
+  <!-- braves-14 -->
+  <div class="w-full lg:w-4/5 fade-in sm:aspect-auto overflow-hidden -mt-7 md:mt-0 mb-10 md:mb-12">
+    <img
+      src="images/braves-14.jpg"
+      alt="Gallery Image 3"
+      class="object-cover w-full h-full mt-20 md:mt-12 mb-0 md:mb-0 rounded-sm"
+    />
   </div>
 
-  <section id="project-info" class="max-w-[1920px] mx-auto w-full md:px-20 px-4 mt-5 md:mt-16 fade-in">
+  <!-- braves-2 -->
+  <section id="project-info" class="max-w-[1920px] mx-auto w-full md:px-0 px-4 mt-12 md:mt-22 mb-0  fade-in">
     <div class="project-image-container aspect-[1/1] sm:aspect-auto overflow-hidden">
-      <img src="images/braves-2.jpg" alt="Gallery Image 3" class=" object-cover w-full h-full rounded-[5px]" />
+      <img
+        src="images/jersey2.jpg"
+        alt="Gallery Image 3"
+        class="object-cover w-full h-full rounded-sm"
+      />
     </div>
   </section>
-  <section id="project-info" class="max-w-[1920px] mx-auto w-full md:px-20 px-4 mt-4 md:mt-20 fade-in">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+</div>
+  <section id="project-info" class="max-w-[1920px] mx-auto w-full md:px-10 2xl:px-20 px-4 mt-4 md:mt-8 fade-in">
+    <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-8">
       <!-- Image Column (occupies 2/3 columns) -->
-      <div class="md:col-span-2">
+      <div class="lg:col-span-2 md:col-span-1">
         <div class="space-y-5">
           <div class="flex flex-col lg:flex-row md:gap-7 gap-4">
             <div class="project-image-container flex-1">
-              <img src="images/braves-11.jpg" alt="Gallery Image 1" class=" w-full rounded-[5px]" />
+              <img src="images/braves-13.jpg" alt="Gallery Image 1" class=" w-full rounded-sm" />
             </div>
             <div class="project-image-container flex-1">
-              <img src="images/braves-13.jpg" alt="Gallery Image 2" class=" w-full rounded-[5px]" />
+              <img src="images/braves-11.jpg" alt="Gallery Image 2" class="hidden lg:block w-full rounded-sm" />
             </div>
           </div>
         </div>
       </div>
       <!-- Text Column (occupies 1/3 columns) -->
       <div class="md:col-span-1" style="font-family: 'Geist', sans-serif; ">
-        <h1 class="body-bold text-[13pt]  md:mt-0 mt-5">
+        
+        <h1 class="body-bold text-[13pt] md:text-[13pt]  mt-2 md:mt-0  min-[745px]:ml-4 ml-0">
           Results
         </h1>
-        <p class="body text-[13pt]  mt-5">
+        <p class="body text-[13pt] md:text-[13pt]  mt-5  min-[745px]:mr-0 mr-[6em] min-[745px]:ml-4 ml-0">
           Braves Cricket led the Abu Dhabi T10 in social media engagement and featured prominently during the 2023 Zimbabwe T10, 
           which reached over 400 million global viewers. The branding helped position Braves as a standout franchise during the league’s rapid international expansion.
         </p>
+
+
+
       </div>
     </div>
   </section>
-  <div class="h-16 md:h-20"></div>
+  <div class="h-20 md:h-20"></div>
 </main>
 <footer
-  id="contact"
-  class="w-full bg-[#336d50] text-[#FAFAFA] mt-20 md:mt-32 px-4 md:px-10 font-[400]"
-  style="font-family: 'Liter', sans-serif;">
-  <!-- Top bar -->
-  <div class="flex justify-between items-center !text-[13pt] md:!text-[13pt]">
-    <!-- © + Privacy: stacked on mobile, row on md+ -->
-    <div class="flex flex-col !text-[#b3cec0] space-y-2 md:flex-row md:space-x-8 md:space-y-0">
-      <span>© 2025</span>
-      <a href="privacy-policy"
-         class="transition-colors text-#b3cec0 duration-200 hover:text-[#FAFAFA]">
-        Privacy Policy
-      </a>
-    </div>
-    <!-- Up-arrow -->
-    <button
-      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
-      class="border border-[#b3cec0] border-1 !text-[#b3cec0] rounded-full md:w-11 md:h-11 w-10 h-10 -mt-4 md:mt-0 flex items-center justify-center
-             transition-colors duration-200 hover:bg-[#F9F9F9]  hover:!text-[#336d50]"
-      aria-label="Scroll to top"
-    >↑</button>
-  </div>
-  <!-- Main footer area: variable height -->
-  <div class="relative w-full h-[410px] md:h-[700px]">
-    <!-- Separator + “Contact” label -->
-    <div class="absolute bottom-[180px] md:bottom-[225px] w-full left-0">
-      <hr class="border-[#b3cec0] border-b-1" />
-      <div class="!text-[13pt] mt-[12px]">Contact</div>
-    </div>
-    <!-- Email & phone: always stacked -->
-    <div
-      class="absolute
-             bottom-[75px] md:bottom-[136px]   /* vertical position */   
-             left-0 md:left-auto md:right-0   /* left on mobile, right on md+ */
-             flex flex-col md:-space-y-[7px] -space-y-[0px]          /* stack with gap */
-             w-full md:w-auto                 /* full width on mobile, auto on md+ */
-             md:!text-[38px]    /* font-size switch */
-             text-left md:text-right          /* left-align on mobile, right-align on md+ */
-             items-start md:items-end         /* flex alignment */">
-      <a href="mailto:hello@jakepearce.com.au"
-         class="email-phone transition-colors duration-200 hover:text-[#b3cec0]">
-        hello@jakepearce.com.au
-      </a>
-      <span class="email-phone transition-colors duration-200">
-        +61 422 911 799
-      </span>
-      <div class="hidden md:flex space-x-3 mt-4 absolute top-[120px] right-0">
-        <a href="https://instagram.com/jake.r.pearce" target="_blank" rel="noopener noreferrer">
-          <img src="images/instagram-black.svg" alt="Instagram" class="w-7 h-7 filter invert"/>
-        </a>
-        <a href="https://behance.net/jake.r.pearce" target="_blank" rel="noopener noreferrer">
-          <img src="images/behance.svg" alt="Behance" class="w-7 h-7 filter invert"/>
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="mobile-social">
-    <a href="https://instagram.com/jake.r.pearce"
-       target="_blank" rel="noopener noreferrer">
-      <img src="images/instagram-black.svg" alt="Instagram" class="w-7 h-7"/>
-    </a>
-    <a href="https://behance.net/jake.r.pearce"
-       target="_blank" rel="noopener noreferrer">
-      <img src="images/behance.svg" alt="Behance" class="w-7 h-7"/>
+id="contact"
+class="w-full bg-[#000000] text-[#FAFAFA]px-4 md:px-10 font-[400]"
+style="font-family: 'Geist', sans-serif;">
+<!-- Top bar -->
+<div class="flex justify-between items-center !text-[13pt] md:!text-[13pt]">
+  <!-- © + Privacy: stacked on mobile, row on md+ -->
+  <div class="flex flex-col !text-[#818183] space-y-2 md:flex-row md:space-x-8 md:space-y-0 mt-4 md:mt-0">
+    <span>© 2025</span>
+    <a href="privacy-policy"
+       class="transition-colors text-#818183 duration-200 hover:text-[#FAFAFA] ">
+      Privacy Policy
     </a>
   </div>
+  <!-- Up-arrow -->
+  <button
+    onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    class="border border-[#818183] border-[1pt] !text-[#818183] rounded-full md:w-11 md:h-11 w-9 h-9 -mt-1 md:mt-4 flex items-center justify-center
+           transition-colors duration-200 hover:bg-[#F9F9F9]  hover:!text-[#000000]"
+    aria-label="Scroll to top"
+  >↑</button>
+</div>
+<!-- Main footer area: variable height -->
+<div class="relative w-full h-[410px] md:h-[700px]">
+  <!-- Separator + “Contact” label -->
+  <div class="absolute bottom-[180px] md:bottom-[200px] w-full left-0">
+    <hr class="border-[#5a5a5b] border-1" />
+    <div class="!text-[13pt] md:!text-[13pt] mt-[20px]">Contact</div>
+  </div>
+  <!-- Email & phone: always stacked -->
+  <div
+    class="absolute
+           bottom-[75px] md:bottom-[115px]   /* vertical position */   
+           left-0 md:left-auto md:right-0   /* left on mobile, right on md+ */
+           flex flex-col md:-space-y-[7px] -space-y-[0px]          /* stack with gap */
+           w-full md:w-auto                 /* full width on mobile, auto on md+ */
+           md:!text-[38px]    /* font-size switch */
+           text-left md:text-right          /* left-align on mobile, right-align on md+ */
+           items-start md:items-end         /* flex alignment */">
+    <a href="mailto:hello@jakepearce.com.au"
+       class="email-phone transition-colors duration-200 hover:text-[#9d9c9c]">
+      hello@jakepearce.com.au
+    </a>
+    <a href="tel:+61 422 911 799"
+    class="email-phone transition-colors duration-200 hover:text-[#9d9c9c]">
+      +61 422 911 799
+    </a>
+    <div class="hidden md:flex space-x-3 mt-4 absolute top-[120px] right-0">
+      <a href="https://instagram.com/jake.r.pearce" target="_blank" rel="noopener noreferrer">
+        <img
+          src="images/instagram-black.svg"
+          alt="Instagram"
+          class="w-7 h-7 filter invert transition-opacity duration-200 hover:opacity-60"
+        />
+      </a>
+      <a href="https://behance.net/jake.r.pearce" target="_blank" rel="noopener noreferrer">
+        <img
+          src="images/behance.svg"
+          alt="Behance"
+          class="w-7 h-7 filter invert transition-opacity duration-200 hover:opacity-60"
+        />
+      </a>
+    </div>
+    
+  </div>
+</div>
+<div class="mobile-social">
+  <a href="https://instagram.com/jake.r.pearce"
+     target="_blank" rel="noopener noreferrer">
+    <img src="images/instagram-black.svg" alt="Instagram" class="w-7 h-7"/>
+  </a>
+  <a href="https://behance.net/jake.r.pearce"
+     target="_blank" rel="noopener noreferrer">
+    <img src="images/behance.svg" alt="Behance" class="w-7 h-7"/>
+  </a>
+</div>
 </footer>
   <!-- ===== Scripts ===== -->
   <script>
@@ -724,5 +804,10 @@ aria-hidden="true">
 });
 
   </script>
+  <!-- Subtle Dev Ribbon — bottom-right -->
+<div id="devNotice" class="fixed bottom-4 right-4 z-[60] bg-[#141414]/80 text-white text-[12px] px-3 py-[6px] rounded-full flex items-center gap-2 shadow-md">
+  <span>Portfolio in development</span>
+  <button onclick="this.parentElement.remove()" aria-label="Close" class="text-white text-[13px] leading-none font-bold hover:text-gray-300">&times;</button>
+</div>
 </body>
 </html>

@@ -28,40 +28,45 @@
       font-family: 'Geist', sans-serif;
       font-weight: 370;
       overflow-x: hidden;
-      color: #141414;
+      color: #383838;
       background-color: #F9F9F9;
       letter-spacing: -0.015em;
-      line-height: 1.22;
-      
+      line-height: 1.15;
     }
     /* ===== Typography & components ===== */
-.body {
+    .body {
   font-family: 'Geist', sans-serif;
-  font-weight: 370;
-  overflow-x: hidden;
-  color: #141414;
+  font-weight: 420;
+  color: #383838;
   background-color: #F9F9F9;
-  letter-spacing: -0.015em;
+  line-height: 1.45;
+  letter-spacing: -0.018em;
+  word-spacing: 0.01em; 
+    }
+    .body-bold {
+  font-family: 'Geist', sans-serif;
+  font-weight: 490;
+  color: #383838;
+  background-color: #F9F9F9;
   line-height: 1.22;
-  word-spacing: 0.00em;
+  letter-spacing: -0.015em; 
     }
 .hero-text {
   font-family: 'Geist', sans-serif;
-  font-variation-settings: 'wght' 370;
-  color: #141414;
-  letter-spacing: -0.015em;
+  font-variation-settings: 'wght' 720;
+  color: #383838;
   line-height: 1.2;
-  word-spacing: -0.01em;
+  letter-spacing: -0.02em;
+  word-spacing: 0.01em;
 }
 
 .fluid-timeline-text {
   font-family: 'Geist', sans-serif;
   font-variation-settings: 'wght' 370;
-  color: #141414;
+  color: #383838;
   font-size: 32px;
-  letter-spacing: -0.015em;
   line-height: 1.25;
-  word-spacing: 0.00em;
+  letter-spacing: -0.015em; 
 }
 
 /* ===== Header & Toggle ===== */
@@ -77,6 +82,36 @@ header {
   padding-top: 15pt;
   padding-bottom: 15pt;
 }
+/* 1) default: mobile (≤649px) → single column */
+#project-info .info-grid {
+  display: block;
+}
+
+/* 2) 650px–999px → 3 columns; heading-body spans cols 1–2, meta in col 3 */
+@media (min-width: 768px) and (max-width: 1450px) {
+  #project-info .info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  #project-info .heading-body {
+    grid-column: 1 / span 2;
+  }
+  #project-info .meta {
+    grid-column: 3;
+  }
+}
+
+/* 3) ≥1000px → 2 columns; auto equal split */
+@media (min-width: 1449px) {
+  #project-info .info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  /* at this point each child auto occupies one column */
+}
+
+
+
 
 header::after {
   content: "";
@@ -97,17 +132,6 @@ header::after {
   }
 }
 
-/* Larger screens: reduce padding and show line */
-@media (min-width: 768px) {
-  header {
-    padding: 1pt;
-  }
-
-  header::after {
-    background-color: #e4e4e9;
-  }
-}
-    
     #project-tooltip {
       position: fixed; pointer-events: none;
       background-color: #2B2B2D; color: #F9F9F9;
@@ -127,12 +151,20 @@ header::after {
       align-items: center; justify-content: center;
       z-index: 51;
     }
-    @media (max-width: 650px) {
+    @media (max-width: 767px) {
       #mobileMenuBtn {
         display: flex;
       }
     }
     .hamburger-icon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+html {
+  background-color: #F9F9F9; /* same as main */
+}
+.hamburger-icon {
   position: relative;
   width: 24px;
   height: 24px;
@@ -161,8 +193,7 @@ html {
 }
 .hamburger-icon.open span:nth-child(2) {
   transform: rotate(-45deg);
-}
-    /* ===== Mobile Nav Overlay ===== */
+}/* ===== Mobile Nav Overlay ===== */
     #mobileNavOverlay {
       position: fixed; top: 56px; left: 0; right: 0; bottom: 0;
       z-index: 40; background-color: #F9F9F9;
@@ -174,7 +205,14 @@ html {
       opacity: 1; transform: translateY(0);
     }
     .nav-button {
-      font-size: 13; color: #2B2B2D; text-decoration: none; letter-spacing: -0.015em;
+      font-size: 13pt;
+      color: #383838;
+      font-family: 'Geist', sans-serif;
+      font-weight: 420;
+      background-color: #F9F9F9;
+      line-height: 1.45;
+      letter-spacing: -0.018em;
+      word-spacing: 0.01em; 
     }
     .nav-button:hover {
       color: #D3D3D3;
@@ -199,20 +237,7 @@ html {
       transform-origin: center;
       overflow: hidden;
     }
-/* override all project-image-container to square on small screens */
-.project-image-container {
-  aspect-ratio: 1 / 1;
-  width: 100%;
-  overflow: hidden;
-  border-radius: inherit;
-}
 
-/* restore your original 16:10 ratio once ≥650px */
-@media (min-width: 650px) {
-  .project-image-container {
-    aspect-ratio: 16 / 10;
-  }
-}
 
     .project-image-container:hover {
       cursor: default;
@@ -278,7 +303,7 @@ html {
     
     .email-phone {
   /* default (mobile) */
-  font-size: 20pt;
+  font-size: 19pt;
 }
 @media (min-width: 650px) {
   /* desktop (or whatever px you prefer) */
@@ -354,6 +379,7 @@ body.nav-open {
   </style>
   <link rel="icon" href="images/logo-04.svg" type="image/svg+xml">
 </head>
+
 <body>
   <main>
   <!-- Project tooltip -->
@@ -362,7 +388,7 @@ body.nav-open {
   <header class="fade-in fixed top-0 left-0 right-0 z-50 bg-[#f8f8f8]">
     <div id="navContainer" class="flex justify-between items-center w-full backdrop-blur-md py-0 md:py-0 px-4 md:px-2">
       <!-- Header Title -->
-      <a href="/" class="header-title -ml-[8px] !text-[18pt] md:!text-[13pt] md:ml-[26px]">
+      <a href="/" class="nav-button -ml-[8px] !text-[13pt] md:!text-[13pt] md:ml-[26px]">
         Jake Pearce
       </a>
   
@@ -374,7 +400,7 @@ body.nav-open {
           <li><a href="#contact" class="nav-button transition-colors duration-200">Contact</a></li>
         </ul>
       </nav>
-      <!-- Mobile Menu Button (now hidden except ≤650px) -->
+      <!-- Mobile Menu Button (now hidden except ≤768px) -->
       <button id="mobileMenuBtn" aria-label="Open Menu">
         <div class="hamburger-icon">
           <span></span>
@@ -383,6 +409,7 @@ body.nav-open {
       </button>
     </div>
   </header>
+  
   <!-- ===== Mobile Overlay ===== -->
 <div id="mobileNavOverlay"
 class="fixed inset-0 z-40 bg-[#F9F9F9] flex flex-col px-4 md:px-10
@@ -420,116 +447,114 @@ aria-hidden="true">
 </div>
 </div>
   </div>
+  
   <!-- ===== Hero Section ===== -->
   <section
-    id="hero" class="max-w-[1920px] mx-auto w-full md:px-10 px-4 mt-24 md:mt-36 fade-in">
-    <!-- Intro Header (Full Width) -->
-    <div class="mb-12">
-      <h1 class="hero-text !text-[24pt] md:!text-[22pt] lg:!text-[30pt] mb-5">Privacy Policy</h1>
-      <p class="!text-[13pt]  md:!text-[13pt] mb-4">Effective Date: 20/02/2025</p>
-      <p class="!text-[13pt]  md:!text-[13pt] mb-4">
+    id="hero" class="max-w-[1000px] mx-auto w-full min-[768px]:px-20 px-4 mt-32 min-[768px]:mt-28 fade-in">
+    <div class="mb-5">
+      <h1 class="hero-text !text-[24pt] min-[750px]:!text-[22pt] min-[1099px]:!text-[30pt] mb-[26px] min-[768px]:mb-[26px]">Privacy Policy</h1>
+      <p class="body text-[13pt] md:text-[13pt] mb-4">Effective Date: 20/02/2025</p>
+      <p class="body text-[13pt] md:text-[13pt] mb-4">
         This Privacy Policy describes how Jake Pearce ("we", "us", or "our") collects, uses, and discloses your personal information in accordance with the Australian Privacy Principles (APPs) contained in the Privacy Act 1988 (Cth). This policy applies to our website and any related services.
       </p>
     </div>
   
-    <!-- Numbered Policy Sections in Two Columns -->
-<div class="grid grid-cols-1 md:grid-cols-2 md:gap-20 gap-10">
-  <!-- Left Column: Sections 1–4 -->
-  <div class="space-y-6 md:space-y-10">
-    <h2 class="hero-text !text-[20pt] md:!text-[13pt] lg:!text-[22pt]">1. Information We Collect</h2>
-    <p class="!text-[13pt] md:!text-[13pt] !mt-4 md-!mb-0 !mb-12">
+<div class="grid grid-cols-1 md:grid-cols-1 md:gap-5 gap-5">
+  <div class="space-y-6 md:space-y-0">
+    <h2 class="body text-[13pt] md:text-[13pt]">Information We Collect</h2>
+    <p class="body text-[13pt] md:text-[13pt] !mt-4 md:!mb-0 !mb-6">
       We may collect personal information that you voluntarily provide when you contact us, subscribe to our newsletter, or use our services. This may include your name, email address, phone number, and any other information you choose to provide.
     </p>
 
-    <h2 class="hero-text !text-[20pt] md:!text-[16pt] lg:!text-[22pt]">2. How We Use Your Information</h2>
-    <p class="!text-[13pt] md:!text-[13pt] !mt-4 ">
+    <h2 class="body text-[13pt] md:text-[13pt]">How We Use Your Information</h2>
+    <p class="body text-[13pt] md:text-[13pt] !mt-4 md:!mb-0 !mb-6">
       We use your personal information for the following purposes:
     </p>
-    <ul class="list-disc list-inside !text-[13pt] md:!text-[13pt] !mt-2 !mb-0 !mb-12">
+    <ul class="list-disc list-inside body text-[13pt] md:text-[13pt] !mt-2 md:!mb-0 !mb-6">
       <li>To communicate with you regarding your inquiries or feedback.</li>
       <li>To provide you with updates and information about our services.</li>
       <li>To improve our website and overall services.</li>
     </ul>
 
-    <h2 class="hero-text !text-[20pt] md:!text-[16pt] lg:!text-[22pt]">3. How We Protect Your Information</h2>
-    <p class="!text-[13pt] md:!text-[13pt] !mt-4 !mb-0 !mb-12">
+    <h2 class="body text-[13pt] md:text-[13pt] !mt-4">How We Protect Your Information</h2>
+    <p class="body text-[13pt] md:text-[13pt] !mt-4 md:!mb-0 !mb-6">
       We implement reasonable security measures to protect your personal information from unauthorized access, disclosure, alteration, or destruction. However, no method of transmission over the Internet or electronic storage is 100% secure.
     </p>
 
-    <h2 class="hero-text !text-[20pt] md:!text-[16pt] lg:!text-[22pt]">4. Cookies and Tracking Technologies</h2>
-    <p class="!text-[13pt] md:!text-[13pt] !mt-4 !mb-0 !mb-2">
+    <h2 class="body text-[13pt] md:text-[13pt] !mt-4">Cookies and Tracking Technologies</h2>
+    <p class="body text-[13pt] md:text-[13pt] !mt-4 md:!mb-0 !mb-6">
       We may use cookies and similar tracking technologies to enhance your experience on our website. You can control the use of cookies through your browser settings.
     </p>
   </div>
 
-  <!-- Right Column: Sections 5–9 -->
-  <div class="space-y-6 md:space-y-10 ">
-    <h2 class="hero-text !text-[20pt] md:!text-[16pt] lg:!text-[22pt] ">5. Disclosure to Third Parties</h2>
-    <p class="!text-[13pt] md:!text-[13pt] !mt-4 !mb-0 !mb-12">
+  <div class="space-y-6 md:space-y-0">
+    <h2 class="body text-[13pt] md:text-[13pt]">Disclosure to Third Parties</h2>
+    <p class="body text-[13pt] md:text-[13pt] !mt-4 md:!mb-0 !mb-6">
       We do not sell or rent your personal information to third parties. We may share your information with trusted service providers who assist us in operating our website, as required by law, or with your consent.
     </p>
 
-    <h2 class="hero-text !text-[20pt] md:!text-[16pt] lg:!text-[22pt]">6. International Data Transfers</h2>
-    <p class="!text-[13pt] md:!text-[13pt] !mt-4 !mb-0 !mb-12">
+    <h2 class="body text-[13pt] md:text-[13pt]">International Data Transfers</h2>
+    <p class="body text-[13pt] md:text-[13pt] !mt-4 md:!mb-0 !mb-6">
       If we transfer your information outside of Australia, we will ensure that it is protected in accordance with this Privacy Policy and relevant data protection laws.
     </p>
 
-    <h2 class="hero-text !text-[20pt] md:!text-[16pt] lg:!text-[22pt]">7. Your Rights</h2>
-    <p class="!text-[13pt] md:!text-[13pt] !mt-4 !mb-0 !mb-12">
+    <h2 class="body text-[13pt] md:text-[13pt]">Your Rights</h2>
+    <p class="body text-[13pt] md:text-[13pt] !mt-4 md:!mb-0 !mb-6">
       You have the right to access, correct, or delete your personal information. If you have any questions or concerns about our privacy practices, please contact us using the details provided below.
     </p>
 
-    <h2 class="hero-text !text-[20pt] md:!text-[16pt] lg:!text-[22pt]">8. Changes to This Privacy Policy</h2>
-    <p class="!text-[13t] md:!text-[13pt] !mt-4 !mb-0 !mb-12">
+    <h2 class="body text-[13pt] md:text-[13pt]">Changes to This Privacy Policy</h2>
+    <p class="body text-[13pt] md:text-[13pt] !mt-4 md:!mb-0 !mb-6">
       We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated effective date.
     </p>
 
-    <h2 class="hero-text !text-[20pt] md:!text-[16pt] lg:!text-[22pt]">9. Contact Us</h2>
-    <p class="!text-[13pt] md:!text-[13pt] !mt-4">
+    <h2 class="body text-[13pt] md:text-[13pt]">Contact Us</h2>
+    <p class="body text-[13pt] md:text-[13pt] !mt-4 md:!mb-0 !mb-2">
       If you have any questions or concerns about this Privacy Policy, please contact us at:
     </p>
-    <p class="!text-[13pt] md:!text-[13pt] !mt-2">
+    <p class="body text-[13pt] md:text-[13pt] !mt-2 md:!mb-0 !mb-6">
       <a href="mailto:hello@jakepearce.com.au" class="text-blue-600 hover:underline">hello@jakepearce.com.au</a>
     </p>
   </div>
 </div>
 
+
   </section>
-  <div class="md:h-[140px] h-[60px]"></div>
+  <div class="h-10 md:h-28"></div>
 </main>
 <footer
 id="contact"
-class="w-full bg-[#141414] text-[#FAFAFA] mt-20 md:mt-32 px-4 md:px-10 font-[400]"
-style="font-family: 'Liter', sans-serif;">
+class="w-full bg-[#000000] text-[#FAFAFA]px-4 md:px-10 font-[400]"
+style="font-family: 'Geist', sans-serif;">
 <!-- Top bar -->
 <div class="flex justify-between items-center !text-[13pt] md:!text-[13pt]">
   <!-- © + Privacy: stacked on mobile, row on md+ -->
-  <div class="flex flex-col !text-[#9d9c9c] space-y-2 md:flex-row md:space-x-8 md:space-y-0">
+  <div class="flex flex-col !text-[#818183] space-y-2 md:flex-row md:space-x-8 md:space-y-0 mt-4 md:mt-0">
     <span>© 2025</span>
     <a href="privacy-policy"
-       class="transition-colors text-#9d9c9c duration-200 hover:text-[#FAFAFA]">
+       class="transition-colors text-#818183 duration-200 hover:text-[#FAFAFA] ">
       Privacy Policy
     </a>
   </div>
   <!-- Up-arrow -->
   <button
     onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
-    class="border border-[#9d9c9c] border-1 !text-[#9d9c9c] rounded-full md:w-11 md:h-11 w-10 h-10 -mt-4 md:mt-0 flex items-center justify-center
-           transition-colors duration-200 hover:bg-[#F9F9F9]  hover:!text-[#141414]"
+    class="border border-[#818183] border-[1pt] !text-[#818183] rounded-full md:w-11 md:h-11 w-10 h-10 -mt-1 md:mt-4 flex items-center justify-center
+           transition-colors duration-200 hover:bg-[#F9F9F9]  hover:!text-[#000000]"
     aria-label="Scroll to top"
   >↑</button>
 </div>
 <!-- Main footer area: variable height -->
 <div class="relative w-full h-[410px] md:h-[700px]">
   <!-- Separator + “Contact” label -->
-  <div class="absolute bottom-[180px] md:bottom-[225px] w-full left-0">
-    <hr class="border-[#b3cec0] border-b-1" />
-    <div class="!text-[13pt] mt-[12px]">Contact</div>
+  <div class="absolute bottom-[180px] md:bottom-[200px] w-full left-0">
+    <hr class="border-[#5a5a5b] border-1" />
+    <div class="!text-[13pt] mt-[20px]">Contact</div>
   </div>
   <!-- Email & phone: always stacked -->
   <div
     class="absolute
-           bottom-[75px] md:bottom-[136px]   /* vertical position */   
+           bottom-[75px] md:bottom-[115px]   /* vertical position */   
            left-0 md:left-auto md:right-0   /* left on mobile, right on md+ */
            flex flex-col md:-space-y-[7px] -space-y-[0px]          /* stack with gap */
            w-full md:w-auto                 /* full width on mobile, auto on md+ */
@@ -537,20 +562,30 @@ style="font-family: 'Liter', sans-serif;">
            text-left md:text-right          /* left-align on mobile, right-align on md+ */
            items-start md:items-end         /* flex alignment */">
     <a href="mailto:hello@jakepearce.com.au"
-       class="email-phone transition-colors duration-200 hover:text-[#b3cec0]">
+       class="email-phone transition-colors duration-200 hover:text-[#9d9c9c]">
       hello@jakepearce.com.au
     </a>
-    <span class="email-phone transition-colors duration-200">
+    <a href="tel:+61 422 911 799"
+    class="email-phone transition-colors duration-200 hover:text-[#9d9c9c]">
       +61 422 911 799
-    </span>
+    </a>
     <div class="hidden md:flex space-x-3 mt-4 absolute top-[120px] right-0">
       <a href="https://instagram.com/jake.r.pearce" target="_blank" rel="noopener noreferrer">
-        <img src="images/instagram-black.svg" alt="Instagram" class="w-7 h-7 filter invert"/>
+        <img
+          src="images/instagram-black.svg"
+          alt="Instagram"
+          class="w-7 h-7 filter invert transition-opacity duration-200 hover:opacity-60"
+        />
       </a>
       <a href="https://behance.net/jake.r.pearce" target="_blank" rel="noopener noreferrer">
-        <img src="images/behance.svg" alt="Behance" class="w-7 h-7 filter invert"/>
+        <img
+          src="images/behance.svg"
+          alt="Behance"
+          class="w-7 h-7 filter invert transition-opacity duration-200 hover:opacity-60"
+        />
       </a>
     </div>
+    
   </div>
 </div>
 <div class="mobile-social">
@@ -731,5 +766,10 @@ style="font-family: 'Liter', sans-serif;">
 });
 
   </script>
+  <!-- Subtle Dev Ribbon — bottom-right -->
+<div id="devNotice" class="fixed bottom-4 right-4 z-[60] bg-[#141414]/80 text-white text-[12px] px-3 py-[6px] rounded-full flex items-center gap-2 shadow-md">
+  <span>Portfolio in development</span>
+  <button onclick="this.parentElement.remove()" aria-label="Close" class="text-white text-[13px] leading-none font-bold hover:text-gray-300">&times;</button>
+</div>
 </body>
 </html>

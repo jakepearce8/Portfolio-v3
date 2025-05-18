@@ -33,40 +33,39 @@
       font-family: 'Geist', sans-serif;
       font-weight: 370;
       overflow-x: hidden;
-      color: #141414;
+      color: #424242;
       background-color: #F9F9F9;
       letter-spacing: -0.015em;
       line-height: 1.22;
-      
     }
     /* ===== Typography & components ===== */
 .body {
   font-family: 'Geist', sans-serif;
-  font-weight: 370;
-  overflow-x: hidden;
-  color: #141414;
+  font-weight: 420;
+  color: #383838;
   background-color: #F9F9F9;
-  letter-spacing: -0.015em;
-  line-height: 1.22;
-  word-spacing: 0.00em;
+  line-height: 1.55;
+  letter-spacing: -0.018em;
+  word-spacing: 0.01em; 
     }
-.hero-text {
+    
+    .hero-text {
   font-family: 'Geist', sans-serif;
-  font-variation-settings: 'wght' 370;
-  color: #141414;
-  letter-spacing: -0.015em;
+  font-variation-settings: 'wght' 390;
+  color: #383838;
   line-height: 1.2;
-  word-spacing: -0.01em;
+  letter-spacing: -0.035em;
+  word-spacing: 0.01em;
 }
 
 .fluid-timeline-text {
   font-family: 'Geist', sans-serif;
-  font-variation-settings: 'wght' 370;
+  font-variation-settings: 'wght' 390;
   color: #141414;
   font-size: 32px;
-  letter-spacing: -0.015em;
-  line-height: 1.25;
-  word-spacing: 0.00em;
+  letter-spacing: -0.035em;
+  line-height: 1.2;
+  word-spacing: 0.01em;
 }
 
 /* ===== Header & Toggle ===== */
@@ -95,8 +94,8 @@ header::after {
   pointer-events: none;
 }
 
-/* Desktop (≥768px): tighter padding */
-@media (min-width: 768px) {
+/* Desktop (≥745px): tighter padding */
+@media (min-width: 745px) {
   header {
     padding: 1pt;
   }
@@ -110,18 +109,18 @@ header::after {
       display: none; white-space: nowrap;
     }
     
-    /* Hide hamburger by default, show only on mobile ≤650px */
+    /* Hide hamburger by default, show only on mobile ≤745px */
     #mobileMenuBtn {
       font-size: 10px;
       background: transparent; border: none;
       cursor: pointer; touch-action: manipulation;
-      line-height: 1; padding: 0; margin: 0;  padding-right: 8pt;
+      line-height: 1; padding: 0; margin: 0;  padding-right: 8pt; padding-top: 2pt;
       width: 40px; height: 40px;
       display: none;
       align-items: center; justify-content: center;
       z-index: 51;
     }
-    @media (max-width: 650px) {
+    @media (max-width: 745px) {
       #mobileMenuBtn {
         display: flex;
       }
@@ -176,7 +175,14 @@ html {
       opacity: 1; transform: translateY(0);
     }
     .nav-button {
-      font-size: 13pt; color: #2B2B2D; text-decoration: none; letter-spacing: -0.015em;
+      font-size: 13pt;
+      color: #383838;
+      font-family: 'Geist', sans-serif;
+      font-weight: 420;
+      background-color: #F9F9F9;
+      line-height: 1.45;
+      letter-spacing: -0.018em;
+      word-spacing: 0.01em; 
     }
     .nav-button:hover {
       color: #D3D3D3;
@@ -209,8 +215,8 @@ html {
   border-radius: inherit;
 }
 
-/* restore your original 16:10 ratio once ≥650px */
-@media (min-width: 650px) {
+/* restore your original 16:10 ratio once 745px */
+@media (min-width: 745px) {
   .project-image-container {
     aspect-ratio: 16 / 10;
   }
@@ -225,7 +231,7 @@ html {
       row-gap: 48px;
       column-gap: 28px;
     }
-    @media (min-width: 992px) {
+    @media (min-width: 745px) {
       .projects-grid {
         grid-template-columns: 1fr 2fr;
         grid-template-rows: auto auto;
@@ -250,7 +256,7 @@ html {
       row-gap: 48px;
       column-gap: 28px;
     }
-    @media (min-width: 992px) {
+    @media (min-width: 745px) {
       .projects-grid-2 {
         grid-template-columns: 2fr 1fr;
         grid-template-rows: auto auto;
@@ -269,12 +275,12 @@ html {
         flex-grow:1; overflow:hidden;
       }
     }
-    @media (min-width: 651px) {
+    @media (min-width: 745px) {
       .desktop     { display: block !important; }
       .desktop-flex{ display: flex  !important; }
       .mobile      { display: none  !important; }
     }
-    @media (max-width: 650px) {
+    @media (max-width: 745px) {
       .header-nav  { display: none !important; }
       }
     
@@ -282,7 +288,7 @@ html {
   /* default (mobile) */
   font-size: 20pt;
 }
-@media (min-width: 650px) {
+@media (min-width: 745px) {
   /* desktop (or whatever px you prefer) */
   .email-phone {
     font-size: 38px;
@@ -310,7 +316,7 @@ footer {
   padding: 20px;
 }
 /* 3) For mobile, use shorter footer */
-@media (max-width: 650px) {
+@media (max-width: 745px) {
   main {
     margin-bottom: 450px;
   }
@@ -332,7 +338,7 @@ body.nav-open {
 .mobile-social {
   display: none;
 }
-@media (max-width: 650px) {
+@media (max-width: 745px) {
   footer {
     /* ensure footer is flex-column */
     display: flex;
@@ -346,7 +352,7 @@ body.nav-open {
     margin-bottom: 40px;   /* 25px above bottom */
   }
 }
-@media (max-width: 650px) {
+@media (max-width: 745px) {
   .mobile-social img {
     /* invert black ↔ white */
     filter: invert(1);
@@ -365,7 +371,7 @@ body.nav-open {
   <header class="fade-in fixed top-0 left-0 right-0 z-50 bg-[#f8f8f8]">
     <div id="navContainer" class="flex justify-between items-center w-full backdrop-blur-md py-0 md:py-0 px-4 md:px-2">
       <!-- Header Title -->
-      <a href="/" class="header-title -ml-[8px] !text-[18pt] md:!text-[13pt] md:ml-[26px]">
+      <a href="/" class="nav-button -ml-[8px] !text-[18pt] md:!text-[13pt] md:ml-[26px]">
         Jake Pearce
       </a>
   
@@ -377,7 +383,7 @@ body.nav-open {
           <li><a href="#contact" class="nav-button transition-colors duration-200">Contact</a></li>
         </ul>
       </nav>
-      <!-- Mobile Menu Button (now hidden except ≤650px) -->
+      <!-- Mobile Menu Button (now hidden except ≤745pxx) -->
       <button id="mobileMenuBtn" aria-label="Open Menu">
         <div class="hamburger-icon">
           <span></span>
@@ -426,7 +432,7 @@ aria-hidden="true">
   <!-- ===== Hero Section ===== -->
   <section
     id="hero"
-    class="max-w-[1920px] mx-auto w-full px-4 md:px-20 py-12 md:mt-24 lg:mt-24 bg-[#F9F9F9] fade-in">
+    class="max-w-[1920px] mx-auto w-full px-4 md:px-10 py-12 md:mt-24 lg:mt-24 bg-[#F9F9F9] fade-in">
     <div class="flex flex-col-reverse md:flex-row md:items-end gap-12">
       <div class="w-full md:w-1/2 lg:w-2/3">
       <!-- Mobile only text -->
@@ -439,31 +445,31 @@ aria-hidden="true">
       </p>
       <!-- Desktop only text -->
       <p class="hero-text hidden md:block
-      !text-[24pt] md:!text-[22pt] lg:!text-[26pt] 2xl:!text-[30pt]
+      !text-[22pt] md:!text-[22pt] lg:!text-[26pt] 2xl:!text-[30pt] 
         mb-4 md:mb-0 mt-2 md:mt-0
       ">
         Hey!<br>
-        I'm Jake Pearce, an independent creative <br class="hidden lg:block">
-        focused on building bold and exciting brands. <br class="hidden lg:block">
+         I’m Jake, an independent brand designer <br class="hidden xl:block">
+        who turns bold ideas into exciting brands. <br class="hidden xl:block">
       </p>
       </div>
       <div class="w-full md:w-1/2 lg:w-1/3 flex justify-start md:justify-end mt-8 md:mt-0">
         <img
           src="images/me-1-06.jpg"
           alt="Jake Pearce"
-          class="w-[180px] max-w-full md:w-52 lg:w-54 xl:w-64 h-auto object-cover mt-10 md:mt-0 rounded-[5px]"
+          class="w-[180px] max-w-full md:w-52 2xl:w-54 xl:w-64 h-auto object-cover mt-10 md:mt-0 rounded-sm"
         /> 
       </div>
     </div>
   </section>
   <!-- ===== Recent Projects ===== -->
-  <div class="max-w-[1920px] mx-auto px-4 md:px-20 z-20 bg-[#F9F9F9] fade-in">
-    <hr class="w-full border-[#DCDCE2]" />
-    <h3 class="mt-3 md:mt-4 mb-10 md:mb-12  !text-[13pt] ">Recent Projects</h3>
+  <div class="max-w-[1920px] mx-auto px-4 md:px-10 z-20 bg-[#F9F9F9] fade-in">
+    <hr class="w-full mb-10 md:mb-12 border-[#DCDCE2]" />
+    
   </div>
   <section
     id="work"
-    class="max-w-[1920px] mx-auto z-40 w-full px-4 md:px-20 bg-[#F9F9F9] fade-in">
+    class="max-w-[1920px] mx-auto z-40 w-full px-4 md:px-10 bg-[#F9F9F9] fade-in">
     <div class="projects-grid-2">
       <div class="project bg-[#F9F9F9] flex flex-col fade-in order-2 md:order-1">
         <div class="project-image-container">
@@ -471,52 +477,52 @@ aria-hidden="true">
             <img
               src="images/erima.jpg"
               alt="Erima Australia"
-              class="w-full h-full object-cover rounded-[5px]"
+              class="w-full h-full object-cover rounded-sm"
             />
           </a>
         </div>
         <div class="mt-4 flex flex-col items-start">
-          <a href="erima-australia" class="block !text-[13pt]">
+          <a href="erima-australia" class="block body !text-[13pt]">
             Erima Australia
           </a>
-          <a href="erima-australia" class="text-[#8e8e8e] block !text-[13pt]">
+          <a href="erima-australia" class="text-[#8e8e8e]/90 body block !text-[13pt]">
             Visual Identity
           </a>
         </div>
       </div>
       <div class="project bg-[#F9F9F9] flex flex-col fade-in order-3 md:order-1">
         <div class="project-image-container">
-          <img src="images/mmt1.png" alt="$MMT" class="w-full h-full object-cover rounded-[5px]" />
+          <img src="images/mmt1.png" alt="$MMT" class="w-full h-full object-cover rounded-sm" />
         </div>
         <div class="mt-4 flex flex-col items-start">
-          <div class="!text-[13pt] ">Music Metaverse Token</div>
-          <div class="text-[#8e8e8e] !text-[13pt]  ">Visual Identity</div>
+          <div class="!text-[13pt] body ">Music Metaverse Token</div>
+          <div class="text-[#8e8e8e]/90 body !text-[13pt]  ">Visual Identity</div>
         </div>
       </div>
       <div class="project bg-[#F9F9F9] flex flex-col fade-in order-1 md:order-2">
         <div class="project-image-container">
           <a href="braves-cricket" class="w-full h-full block">
-            <img src="images/players-(Project-Thumbnails).jpg" alt="Braves Cricket" class="w-full h-full object-cover rounded-[5px]" />
+            <img src="images/players-(Project-Thumbnails).jpg" alt="Braves Cricket" class="w-full h-full object-cover rounded-sm" />
           </a>
         </div>
         <div class="mt-4 flex flex-col items-start">
-          <a href="braves-cricket" class=" block !text-[13pt] ">
+          <a href="braves-cricket" class=" block body !text-[13pt] ">
             Braves Cricket
           </a>
-          <a href="braves-cricket" class="text-[#8e8e8e] block !text-[13pt]  ">
+          <a href="braves-cricket" class="!text-[#8e8e8e]/90 body block !text-[13pt]  ">
             Visual Identity
           </a>
         </div>
       </div>
     </div>
   </section>
-  <div class="max-w-[1920px] mx-auto px-4 md:px-20  mt-9 mb-6 z-20 bg-[#F9F9F9] fade-in">
+  <div class="max-w-[1920px] mx-auto px-4 md:px-10  mt-9 mb-6 z-20 bg-[#F9F9F9] fade-in">
     <hr class="w-full border-[#D3D3D3]" />
   </div>
 <!-- ===== Statement Section ===== -->
 <section
   id="experience-and-left"
-  class="max-w-[1920px] mx-auto w-full py-8 lg:py-14 px-4 md:px-20 bg-[#F9F9F9] fade-in">
+  class="max-w-[1920px] mx-auto w-full py-8 lg:py-14 px-4 md:px-10 2xl:px-20 bg-[#F9F9F9] fade-in">
   <div class="flex flex-col lg:flex-row gap-0 md:gap-8 items-start">
     <!-- Left column (photo & bio) -->
 <div class="flex flex-col items-right lg:w-1/3 order-2 lg:order-1">
@@ -525,13 +531,13 @@ aria-hidden="true">
     alt="Andrew Novaro"
     class="w-[120px] h-[120px] md:w-[160px] md:h-[160px] object-cover rounded-full"/>
   <div class="mt-6 text-left flex flex-col">
-    <p class="!text-[13pt] ">
+    <p class="!text-[13pt] body ">
       Andrew Novaro
     
-    <p class="text-[#8e8e8e] text-[13pt] ">
+    <p class="text-[#8e8e8e]/90 body text-[13pt] ">
       Managing Director
    
-    <p class="text-[#8e8e8e] text-[13pt] ">
+    <p class="text-[#8e8e8e]/90 body text-[13pt] ">
       Renaissance Sport <br> Australia 
     </p> 
   </div>
@@ -539,13 +545,13 @@ aria-hidden="true">
     <!-- Right column (quote) -->
     <div class="lg:w-2/3 order-1 lg:order-2">
       <!-- Short quote for sm & md -->
-      <p class="fluid-timeline-text block lg:hidden mb-14 md:mb-0 !text-[19pt] md:!text-[27pt]">
+      <p class="fluid-timeline-text block md:hidden mb-14 md:mb-0 !text-[20pt] md:!text-[22pt]">
         "Jake's creativity, attention to detail, and ability to bring ideas to life  
         consistently exceed our expectations.<br><br>
         I would highly recommend Jake to anyone looking for a talented and reliable graphic designer."
       </p>
       <!-- Full quote for lg+ -->
-      <p class="fluid-timeline-text hidden lg:block !text-[23pt] 2xl:!text-[27pt]">
+      <p class=" fluid-timeline-text hidden md:block md:!text-[22pt] lg:!text-[20pt] 2xl:!text-[24pt]">
         "We've been working with Jake for a few months now, and it has been an absolute pleasure.  
         His creativity, attention to detail, and ability to bring ideas to life consistently  
         exceed our expectations. <br><br>Whether it's a full branding package, product launch, or a quick  
@@ -556,41 +562,41 @@ aria-hidden="true">
   </div>
 </section>
   <!-- ===== Personal Projects ===== -->
-  <div class="max-w-[1920px] mx-auto px-4 md:px-20 mt-6 md:mt-2 z-20 bg-[#F9F9F9] fade-in">
-    <hr class="w-full border-[#D3D3D3]" />
-    <h3 class="mt-4 mb-12  !text-[13pt] ">Past Projects</h3>
+  <div class="max-w-[1920px] mx-auto px-4 md:px-10 mt-6 md:mt-2 z-20 bg-[#F9F9F9] fade-in">
+    <hr class="w-full border-[#D3D3D3] mt-4 mb-12" />
+    
   </div>
-  <section id="work" class="max-w-[1920px] mx-auto z-40 w-full px-4 md:px-20 bg-[#F9F9F9] fade-in">
+  <section id="work" class="max-w-[1920px] mx-auto z-40 w-full px-4 md:px-10 bg-[#F9F9F9] fade-in">
     <div class="projects-grid">
       <div class="project bg-[#F9F9F9] flex flex-col fade-in">
         <div class="project-image-container">
-          <img src="images/stackd.jpg" alt="Stackd" class="w-full h-full object-cover rounded-[5px]" />
+          <img src="images/stackd.jpg" alt="Stackd" class="w-full h-full object-cover rounded-sm" />
         </div>
         <div class="mt-4 flex flex-col items-start">
-          <div class=" !text-[13pt] ">Stackd</div>
-          <div class="text-[#8e8e8e] !text-[13pt]  ">Publication</div>
+          <div class=" !text-[13pt] body ">Stackd</div>
+          <div class="text-[#8e8e8e]/90 !text-[13pt]  body ">Publication</div>
         </div>
       </div>
       <div class="project bg-[#F9F9F9] flex flex-col fade-in">
         <div class="project-image-container">
-          <img src="images/Snazzy-19-(Project-Thumbnails).jpg" alt="Snazzy Snack Co." class="w-full h-full object-cover rounded-[5px]" />
+          <img src="images/Snazzy-19-(Project-Thumbnails).jpg" alt="Snazzy Snack Co." class="w-full h-full object-cover rounded-sm" />
         </div>
         <div class="mt-4 flex flex-col items-start">
-          <div class=" !text-[13pt] ">Snazzy Snack Co.</div>
-          <div class="text-[#8e8e8e] !text-[13pt]  ">Visual Identity</div>
+          <div class=" !text-[13pt] body ">Snazzy Snack Co.</div>
+          <div class="text-[#8e8e8e]/90 !text-[13pt] body ">Visual Identity</div>
         </div>
       </div>
       <div class="project bg-[#F9F9F9] flex flex-col fade-in order-1 md:order-2">
         <div class="project-image-container">
           <a href="bmp-sports" class="w-full h-full block">
-            <img src="images/bmp-image-1.jpg" alt="BMP Sports" class="w-full h-full object-cover rounded-[5px]" />
+            <img src="images/bmp-image-1.jpg" alt="BMP Sports" class="w-full h-full object-cover rounded-sm" />
           </a>
         </div>
         <div class="mt-4 flex flex-col items-start">
-          <a href="bmp-sports" class=" block !text-[13pt] ">
+          <a href="bmp-sports" class=" block body !text-[13pt] ">
             BMP Sports
           </a>
-          <a href="bmp-sports" class="text-[#8e8e8e] block !text-[13pt]  ">
+          <a href="bmp-sports" class="text-[#8e8e8e]/90 block body !text-[13pt]  ">
             Visual Identity
           </a>
         </div>
@@ -602,37 +608,37 @@ aria-hidden="true">
 </main>
 <footer
 id="contact"
-class="w-full bg-[#141414] text-[#FAFAFA] mt-20 md:mt-32 px-4 md:px-10 font-[400]"
-style="font-family: 'Liter', sans-serif;">
+class="w-full bg-[#000000] text-[#FAFAFA]px-4 md:px-10 font-[400]"
+style="font-family: 'Geist', sans-serif;">
 <!-- Top bar -->
 <div class="flex justify-between items-center !text-[13pt] md:!text-[13pt]">
   <!-- © + Privacy: stacked on mobile, row on md+ -->
-  <div class="flex flex-col !text-[#9d9c9c] space-y-2 md:flex-row md:space-x-8 md:space-y-0">
+  <div class="flex flex-col !text-[#818183] space-y-2 md:flex-row md:space-x-8 md:space-y-0 mt-4 md:mt-0">
     <span>© 2025</span>
     <a href="privacy-policy"
-       class="transition-colors text-#9d9c9c duration-200 hover:text-[#FAFAFA]">
+       class="transition-colors text-#818183 duration-200 hover:text-[#FAFAFA] ">
       Privacy Policy
     </a>
   </div>
   <!-- Up-arrow -->
   <button
     onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
-    class="border border-[#9d9c9c] border-1 !text-[#9d9c9c] rounded-full md:w-11 md:h-11 w-10 h-10 -mt-4 md:mt-0 flex items-center justify-center
-           transition-colors duration-200 hover:bg-[#F9F9F9]  hover:!text-[#141414]"
+    class="border border-[#818183] border-[1pt] !text-[#818183] rounded-full md:w-11 md:h-11 w-10 h-10 -mt-1 md:mt-4 flex items-center justify-center
+           transition-colors duration-200 hover:bg-[#F9F9F9]  hover:!text-[#000000]"
     aria-label="Scroll to top"
   >↑</button>
 </div>
 <!-- Main footer area: variable height -->
 <div class="relative w-full h-[410px] md:h-[700px]">
   <!-- Separator + “Contact” label -->
-  <div class="absolute bottom-[180px] md:bottom-[225px] w-full left-0">
-    <hr class="border-[#b3cec0] border-b-1" />
-    <div class="!text-[13pt] mt-[12px]">Contact</div>
+  <div class="absolute bottom-[180px] md:bottom-[200px] w-full left-0">
+    <hr class="border-[#5a5a5b] border-1" />
+    <div class="!text-[13pt] mt-[20px]">Contact</div>
   </div>
   <!-- Email & phone: always stacked -->
   <div
     class="absolute
-           bottom-[75px] md:bottom-[136px]   /* vertical position */   
+           bottom-[75px] md:bottom-[115px]   /* vertical position */   
            left-0 md:left-auto md:right-0   /* left on mobile, right on md+ */
            flex flex-col md:-space-y-[7px] -space-y-[0px]          /* stack with gap */
            w-full md:w-auto                 /* full width on mobile, auto on md+ */
@@ -640,20 +646,30 @@ style="font-family: 'Liter', sans-serif;">
            text-left md:text-right          /* left-align on mobile, right-align on md+ */
            items-start md:items-end         /* flex alignment */">
     <a href="mailto:hello@jakepearce.com.au"
-       class="email-phone transition-colors duration-200 hover:text-[#b3cec0]">
+       class="email-phone transition-colors duration-200 hover:text-[#9d9c9c]">
       hello@jakepearce.com.au
     </a>
-    <span class="email-phone transition-colors duration-200">
+    <a href="tel:+61 422 911 799"
+    class="email-phone transition-colors duration-200 hover:text-[#9d9c9c]">
       +61 422 911 799
-    </span>
+    </a>
     <div class="hidden md:flex space-x-3 mt-4 absolute top-[120px] right-0">
       <a href="https://instagram.com/jake.r.pearce" target="_blank" rel="noopener noreferrer">
-        <img src="images/instagram-black.svg" alt="Instagram" class="w-7 h-7 filter invert"/>
+        <img
+          src="images/instagram-black.svg"
+          alt="Instagram"
+          class="w-7 h-7 filter invert transition-opacity duration-200 hover:opacity-60"
+        />
       </a>
       <a href="https://behance.net/jake.r.pearce" target="_blank" rel="noopener noreferrer">
-        <img src="images/behance.svg" alt="Behance" class="w-7 h-7 filter invert"/>
+        <img
+          src="images/behance.svg"
+          alt="Behance"
+          class="w-7 h-7 filter invert transition-opacity duration-200 hover:opacity-60"
+        />
       </a>
     </div>
+    
   </div>
 </div>
 <div class="mobile-social">
@@ -682,7 +698,7 @@ style="font-family: 'Liter', sans-serif;">
     
     // Tooltip for project images
     document.addEventListener('DOMContentLoaded', () => {
-      if (window.innerWidth <= 650) return; // Disable tooltip on mobile
+      if (window.innerWidth <= 745) return; // Disable tooltip on mobile
       const tooltip = document.createElement('div');
       tooltip.id = 'project-tooltip';
       document.body.appendChild(tooltip);
@@ -703,7 +719,7 @@ style="font-family: 'Liter', sans-serif;">
     });
     
     document.addEventListener('DOMContentLoaded', () => {
-  const MOBILE_BREAKPOINT = 650;
+  const MOBILE_BREAKPOINT = 745;
 
   function swapImages() {
     const isMobile = window.innerWidth <= MOBILE_BREAKPOINT;
@@ -789,7 +805,7 @@ style="font-family: 'Liter', sans-serif;">
 });
     // Alt-image injection
     document.addEventListener("DOMContentLoaded", () => {
-  if (window.innerWidth <= 650) return; // Skip on mobile
+  if (window.innerWidth <= 745) return; // Skip on mobile
 
   function tryAltSrc(img, candidates) {
     if (!candidates.length) return;
@@ -832,7 +848,7 @@ style="font-family: 'Liter', sans-serif;">
       }
     });
     document.addEventListener('DOMContentLoaded', () => {
-  if (window.innerWidth <= 650) {
+  if (window.innerWidth <= 745) {
     const grid = document.querySelector('.projects-grid-2');
     const bravesProject = grid.children[2]; // assuming Braves is 3rd project
     if (grid && bravesProject) {
@@ -842,5 +858,10 @@ style="font-family: 'Liter', sans-serif;">
 });
 
   </script>
+  <!-- Subtle Dev Ribbon — bottom-right -->
+<div id="devNotice" class="fixed bottom-4 right-4 z-[60] bg-[#141414]/80 text-white text-[12px] px-3 py-[6px] rounded-full flex items-center gap-2 shadow-md">
+  <span>Portfolio in development</span>
+  <button onclick="this.parentElement.remove()" aria-label="Close" class="text-white text-[13px] leading-none font-bold hover:text-gray-300">&times;</button>
+</div>
 </body>
 </html>
