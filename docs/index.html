@@ -492,23 +492,7 @@ body.nav-open {
 }
 
 
-/* 1) Always collapse every .service-content by default */
-.service .service-content {
-  max-height: 0;
-  overflow: hidden; /* make sure hidden */
-}
-
-/* 2) If a service has the “open” class, expand its content */
-.service.open .service-content {
-  max-height: 256px; /* adjust if you need more or less vertical space */
-}
-
-/* 3) On desktop (≥768px), hovering any .service temporarily expands it */
-@media (min-width: 768px) {
-  .service:hover .service-content {
-    max-height: 256px;
-  }
-}
+ 
 @media (max-width: 745px) {
   footer {
     /* ditch the fixed-height, internal-scrolling */
@@ -522,24 +506,7 @@ body.nav-open {
     margin-bottom: 0 !important;
   }
 }
-@media (max-width: 745px) {
-  /* 1) hide the arrows */
-  .service-header span {
-    display: none;
-  }
-
-  /* 2) expand all panels */
-  .service-content {
-    max-height: none !important;
-    overflow: visible !important;
-  }
-
-  /* 3) optionally disable the animation on mobile */
-  .service-content,
-  .service-content * {
-    transition: none !important;
-  }
-}
+ 
 
   </style>
   <link rel="icon" href="images/logo-new-circle-02.svg" type="image/svg+xml">
@@ -763,18 +730,17 @@ aria-hidden="true">
   </div>
  
 <section id="services" class="fade-in max-web mx-auto px-4 md:px-8 lg:px-8 mb-10">
-  <div class="service border-b border-[#d3d3d3] mt-6 md:mt-6 mb-4 "></div> 
-    <h2 class="body-text-1 text-[14pt] md:text-[12pt] mb-12 md:mb-10"> 
-  Services
-</h2>
-  <div>
-    <!-- 01 Brand Identity -->
-    <div class="service border-b border-gray-300 group">
-      <div class="service-header grid grid-cols-[auto,1fr,auto] items-center py-4 cursor-pointer"> 
-        <div class="h1 !text-[26pt] md:!text-[36pt] text-black  ">Brand Identity</div>
-        <span class="ml-auto inline-block text-[20pt] font-black transform transition-transform duration-200 group-hover:rotate-180">&#x2335;</span>
-      </div>
-      <div class="service-content max-h-0 overflow-hidden transition-all duration-700 group-hover:max-h-[500px]">
+  <div class="service border-b border-[#d3d3d3] mt-6 md:mt-6 mb-4"></div> 
+  <h2 class="body-text-1 text-[14pt] md:text-[12pt] mb-12 md:mb-10">Services</h2>
+
+  <div id="services-accordion">
+    <!-- 01 Brand Identity (open by default) -->
+    <div class="service border-b border-gray-300" data-service>
+      <button class="service-header grid grid-cols-[auto,1fr,auto] items-center py-4 w-full text-left cursor-pointer" data-toggle aria-expanded="true">
+        <div class="h1 !text-[26pt] md:!text-[36pt] text-[#000000]" data-label>Brand Identity</div>
+        <span class="ml-auto inline-block text-[20pt] font-black transform transition-transform duration-200" data-chevron>&#x2335;</span>
+      </button>
+      <div class="service-content max-h-0 overflow-hidden transition-all duration-700" data-content>
         <div class="grid grid-cols-[auto,1fr]">
           <div></div>
           <ul class="body-text-1 !text-[12pt] md:!text-[12pt] ml-1 py-3 list-none mb-5 space-y-1.5">
@@ -789,12 +755,12 @@ aria-hidden="true">
     </div>
 
     <!-- 02 Content Design -->
-    <div class="service border-b border-gray-300 group">
-      <div class="service-header grid grid-cols-[auto,1fr,auto] items-center py-4 cursor-pointer">
-        <div class="h1 !text-[26pt] md:!text-[36pt] text-black  ">Content Design</div>
-        <span class="ml-auto inline-block text-[20pt] font-black transform transition-transform duration-200 group-hover:rotate-180">&#x2335;</span>
-      </div>
-      <div class="service-content max-h-0 overflow-hidden transition-all duration-700 group-hover:max-h-[500px]">
+    <div class="service border-b border-gray-300" data-service>
+      <button class="service-header grid grid-cols-[auto,1fr,auto] items-center py-4 w-full text-left cursor-pointer" data-toggle aria-expanded="false">
+        <div class="h1 !text-[26pt] md:!text-[36pt] text-[#000000]/50" data-label>Content Design</div>
+        <span class="ml-auto inline-block text-[20pt] font-black transform transition-transform duration-200" data-chevron>&#x2335;</span>
+      </button>
+      <div class="service-content max-h-0 overflow-hidden transition-all duration-700" data-content>
         <div class="grid grid-cols-[auto,1fr]">
           <div></div>
           <ul class="body-text-1 !text-[12pt] md:!text-[12pt] ml-1 py-3 list-none mb-5 space-y-1.5">
@@ -808,12 +774,12 @@ aria-hidden="true">
     </div>
 
     <!-- 03 Presentation Design -->
-    <div class="service border-b border-gray-300 group">
-      <div class="service-header grid grid-cols-[auto,1fr,auto] items-center py-4 cursor-pointer">
-        <div class="h1 !text-[26pt] md:!text-[36pt] text-black  ">Presentation Design</div>
-        <span class="ml-auto inline-block text-[20pt] font-black transform transition-transform duration-200 group-hover:rotate-180">&#x2335;</span>
-      </div>
-      <div class="service-content max-h-0 overflow-hidden transition-all duration-700 group-hover:max-h-[500px]">
+    <div class="service border-b border-gray-300" data-service>
+      <button class="service-header grid grid-cols-[auto,1fr,auto] items-center py-4 w-full text-left cursor-pointer" data-toggle aria-expanded="false">
+        <div class="h1 !text-[26pt] md:!text-[36pt] text-[#000000]/50" data-label>Presentation Design</div>
+        <span class="ml-auto inline-block text-[20pt] font-black transform transition-transform duration-200" data-chevron>&#x2335;</span>
+      </button>
+      <div class="service-content max-h-0 overflow-hidden transition-all duration-700" data-content>
         <div class="grid grid-cols-[auto,1fr]">
           <div></div>
           <ul class="body-text-1 !text-[12pt] md:!text-[12pt] ml-1 py-3 list-none mb-5 space-y-1.5">
@@ -826,12 +792,12 @@ aria-hidden="true">
     </div>
 
     <!-- 04 Digital Design -->
-    <div class="service border-b border-gray-300 group">
-      <div class="service-header grid grid-cols-[auto,1fr,auto] items-center py-4 cursor-pointer">
-        <div class="h1 !text-[26pt] md:!text-[36pt] text-black  ">Digital Design</div>
-        <span class="ml-auto inline-block text-[20pt] font-black transform transition-transform duration-200 group-hover:rotate-180">&#x2335;</span>
-      </div>
-      <div class="service-content max-h-0 overflow-hidden transition-all duration-700 group-hover:max-h-[500px]">
+    <div class="service border-b border-gray-300" data-service>
+      <button class="service-header grid grid-cols-[auto,1fr,auto] items-center py-4 w-full text-left cursor-pointer" data-toggle aria-expanded="false">
+        <div class="h1 !text-[26pt] md:!text-[36pt] text-[#000000]/50" data-label>Digital Design</div>
+        <span class="ml-auto inline-block text-[20pt] font-black transform transition-transform duration-200" data-chevron>&#x2335;</span>
+      </button>
+      <div class="service-content max-h-0 overflow-hidden transition-all duration-700" data-content>
         <div class="grid grid-cols-[auto,1fr]">
           <div></div>
           <ul class="body-text-1 !text-[12pt] md:!text-[12pt] ml-1 py-3 list-none mb-5 space-y-1.5">
@@ -845,12 +811,12 @@ aria-hidden="true">
     </div>
 
     <!-- 05 Print & Production -->
-    <div class="service border-b border-gray-300 group">
-      <div class="service-header grid grid-cols-[auto,1fr,auto] items-center py-4 cursor-pointer">
-        <div class="h1 !text-[26pt] md:!text-[36pt] text-black  ">Print &amp; Production</div>
-        <span class="ml-auto inline-block text-[20pt] font-black transform transition-transform duration-200 group-hover:rotate-180">&#x2335;</span>
-      </div>
-      <div class="service-content max-h-0 overflow-hidden transition-all duration-700 group-hover:max-h-[500px]">
+    <div class="service border-b border-gray-300" data-service>
+      <button class="service-header grid grid-cols-[auto,1fr,auto] items-center py-4 w-full text-left cursor-pointer" data-toggle aria-expanded="false">
+        <div class="h1 !text-[26pt] md:!text-[36pt] text-[#000000]/50" data-label>Print &amp; Production</div>
+        <span class="ml-auto inline-block text-[20pt] font-black transform transition-transform duration-200" data-chevron>&#x2335;</span>
+      </button>
+      <div class="service-content max-h-0 overflow-hidden transition-all duration-700" data-content>
         <div class="grid grid-cols-[auto,1fr]">
           <div></div>
           <ul class="body-text-1 !text-[12pt] md:!text-[12pt] ml-1 py-3 list-none mb-5 space-y-1.5">
@@ -864,12 +830,12 @@ aria-hidden="true">
     </div>
 
     <!-- 06 Creative Support -->
-    <div class="service border-b border-gray-300 group">
-      <div class="service-header grid grid-cols-[auto,1fr,auto] items-center py-4 cursor-pointer">
-        <div class="h1 !text-[26pt] md:!text-[36pt] text-black  ">Creative Support</div>
-        <span class="ml-auto inline-block text-[20pt] font-black transform transition-transform duration-200 group-hover:rotate-180">&#x2335;</span>
-      </div>
-      <div class="service-content max-h-0 overflow-hidden transition-all duration-700 group-hover:max-h-[500px]">
+    <div class="service border-b border-gray-300" data-service>
+      <button class="service-header grid grid-cols-[auto,1fr,auto] items-center py-4 w-full text-left cursor-pointer" data-toggle aria-expanded="false">
+        <div class="h1 !text-[26pt] md:!text-[36pt] text-[#000000]/50" data-label>Creative Support</div>
+        <span class="ml-auto inline-block text-[20pt] font-black transform transition-transform duration-200" data-chevron>&#x2335;</span>
+      </button>
+      <div class="service-content max-h-0 overflow-hidden transition-all duration-700" data-content>
         <div class="grid grid-cols-[auto,1fr]">
           <div></div>
           <ul class="body-text-1 !text-[12pt] md:!text-[12pt] ml-1 py-3 list-none mb-5 space-y-1.5">
@@ -882,28 +848,73 @@ aria-hidden="true">
       </div>
     </div>
   </div>
-</section>  
+</section>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const services = document.querySelectorAll('.service');
+document.addEventListener('DOMContentLoaded', function () {
+  const services = Array.from(document.querySelectorAll('#services-accordion [data-service]'));
 
-    // On mobile (< 768px), open "Brand Identity" by default:
-    if (window.innerWidth < 768 && services.length) {
-      services[0].classList.add('open');
+  function closeAll() {
+    services.forEach(svc => {
+      const btn = svc.querySelector('[data-toggle]');
+      const content = svc.querySelector('[data-content]');
+      const label = svc.querySelector('[data-label]');
+      const chev = svc.querySelector('[data-chevron]');
+      btn.setAttribute('aria-expanded', 'false');
+      content.style.maxHeight = '0px';
+      if (chev) {
+        chev.classList.remove('rotate-180');
+        chev.classList.remove('text-[#000000]');
+        chev.classList.add('text-[#000000]/50');
+      }
+      if (label) {
+        label.classList.remove('text-[#000000]');
+        label.classList.add('text-[#000000]/50');
+      }
+    });
+  }
+
+  function openService(svc) {
+    const btn = svc.querySelector('[data-toggle]');
+    const content = svc.querySelector('[data-content]');
+    const label = svc.querySelector('[data-label]');
+    const chev = svc.querySelector('[data-chevron]');
+    btn.setAttribute('aria-expanded', 'true');
+    content.style.maxHeight = content.scrollHeight + 'px';
+    if (chev) {
+      chev.classList.add('rotate-180');
+      chev.classList.remove('text-[#000000]/50');
+      chev.classList.add('text-[#000000]');
     }
+    if (label) {
+      label.classList.remove('text-[#000000]/50');
+      label.classList.add('text-[#000000]');
+    }
+  }
 
-    // Attach click to each header so that only one is open at a time
-    services.forEach(service => {
-      const header = service.querySelector('.service-header');
-      header.addEventListener('click', () => {
-        // Collapse all:
-        services.forEach(s => s.classList.remove('open'));
-        // Open just this one:
-        service.classList.add('open');
-      });
+  // Attach click handlers
+  services.forEach(svc => {
+    const btn = svc.querySelector('[data-toggle]');
+    const content = svc.querySelector('[data-content]');
+
+    const setHeight = () => {
+      if (btn.getAttribute('aria-expanded') === 'true') {
+        content.style.maxHeight = content.scrollHeight + 'px';
+      }
+    };
+    window.addEventListener('resize', setHeight);
+
+    btn.addEventListener('click', () => {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      closeAll();
+      if (!isOpen) openService(svc); // only one open at a time
     });
   });
+
+  // Initialise: open the first service (Brand Identity) on ALL screen sizes
+  closeAll();
+  if (services[0]) openService(services[0]);
+});
 </script>
 <div class="fade-in max-web mx-auto px-4 md:px-8 lg:px-8 mb-10 md:mb-16 md:mt-0 -mt-2 body-text-1 text-[#2b2b2b] !text-[12pt] md:!text-[12pt]">
             I create thoughtful, on-brand design assets that are ready to launch <br class="hidden lg:block">
