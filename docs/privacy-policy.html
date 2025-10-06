@@ -721,38 +721,56 @@ hello@jakepearce.com.au      </p>
   style="font-family:'Geist',sans-serif"
 >
   <div class="max-web mx-auto w-full px-4 md:px-8 lg:px-8 ">
-     
-    <div class="grid grid-cols-1 md:grid-cols-3 
-            gap-y-8 gap-x-8 
-            md:gap-y-10 md:gap-x-8">
+    <div
+      class="grid grid-cols-1 md:grid-cols-3 gap-y-8 gap-x-8 md:gap-y-10 md:gap-x-8"
+    >
       <!-- links -->
-      <div class="md:mt-0 mt-4 md:-mb-20 -mb-4 body-text-1 flex flex-col justify-left gap-y-2 text-[13pt] md:text-[10pt] order-4 md:order-none">
-        
-        <a href="/" id="Home" 
-           class="block text-[#686868] text-[11pt] md:text-[10pt] hover:text-[#000000] whitespace-nowrap">
+      <div
+        class="md:mt-0 mt-4 md:-mb-20 -mb-4 body-text-1 flex flex-col justify-left gap-y-2 text-[13pt] md:text-[10pt] order-4 md:order-none relative"
+      >
+        <a
+          href="/"
+          id="Home"
+          class="block text-[#686868] text-[11pt] md:text-[10pt] hover:text-[#000000] whitespace-nowrap"
+        >
           <span class="inline">→ </span>Home
         </a>
-        <a href="work" id="Work" 
-           class="block text-[#686868] text-[11pt] md:text-[10pt] hover:text-[#000000] whitespace-nowrap">
+        <a
+          href="work"
+          id="Work"
+          class="block text-[#686868] text-[11pt] md:text-[10pt] hover:text-[#000000] whitespace-nowrap"
+        >
           <span class="inline">→ </span>Work
         </a>
-        
-        <a href="archive" id="archive"
-           class="block text-[#686868] text-[11pt] md:text-[10pt] hover:text-[#000000] whitespace-nowrap">
+        <a
+          href="archive"
+          id="archive"
+          class="block text-[#686868] text-[11pt] md:text-[10pt] hover:text-[#000000] whitespace-nowrap"
+        >
           <span class="inline">→ </span>Archive
         </a>
-        
-        <a href="privacy-policy" id="privacy policy"
-           class="block text-[#686868] text-[11pt] md:text-[10pt] hover:text-[#000000] whitespace-nowrap">
+        <a
+          href="privacy-policy"
+          id="privacy policy"
+          class="block text-[#686868] text-[11pt] md:text-[10pt] hover:text-[#000000] whitespace-nowrap"
+        >
           <span class="inline">→ </span>Privacy Policy
         </a>
+
+        <!-- AGDA logo (mobile only, below nav links) -->
+        <div class="flex justify-start mt-4 mb-2 md:hidden">
+          <img
+            src="images/AGDA_result.avif"
+            alt="Agda Logo"
+            class="h-[30px] object-contain"
+          />
+        </div>
       </div>
 
       <!-- mobile-only copyright under nav -->
       <div class="order-5 text-[11pt] md:text-[10pt] text-[#686868] md:hidden">
         © 2025
       </div>
-      
 
       <!-- chat prompt -->
       <div
@@ -763,20 +781,22 @@ hello@jakepearce.com.au      </p>
 
       <!-- acknowledgement -->
       <div
-        class="body-text-1 text-[#686868] text-[11pt] md:text-[10pt] flex flex-col md:mb-0 -mb-4  md:mt-7  justify-end order-4 md:order-none "
+        class="body-text-1 text-[#686868] text-[11pt] md:text-[10pt] flex flex-col md:mb-0 -mb-4 md:mt-7 justify-end order-4 md:order-none"
       >
         I acknowledge the Wurundjeri people as the traditional custodians of this land, pay respect to elders past, present and emerging, and honour their enduring connection to country.
       </div>
 
       <!-- contact details -->
-      <div class="mt-2 md:mt-22 md:col-span-2 space-y-[6px] order-2 md:order-none">
+      <div
+        class="mt-2 md:mt-22 md:col-span-2 space-y-[6px] order-2 md:order-none"
+      >
         <div class="border-b border-1 border-[#686868]"></div>
 
         <div class="copy-target">
           <a
             href="#"
             data-copy="hello@jakepearce.com.au"
-            class="email text-[#686868] block md:text-[32pt]  text-[20pt] hover:text-[#000000]"
+            class="email text-[#686868] block md:text-[32pt] text-[20pt] hover:text-[#000000]"
           >
             hello@jakepearce.com.au
           </a>
@@ -786,38 +806,42 @@ hello@jakepearce.com.au      </p>
           <a
             href="#"
             data-copy="+614229117799"
-            class="email text-[#686868] block md:text-[32pt]  text-[20pt] hover:text-[#000000]"
+            class="email text-[#686868] block md:text-[32pt] text-[20pt] hover:text-[#000000]"
           >
             +61 422 911 799
           </a>
         </div>
-        <div class="border-b border-1 border-[#686868] "></div>
+        <div class="border-b border-1 border-[#686868]"></div>
 
-        
+        <div class="flex items-center">
+          <!-- AGDA logo (desktop only) -->
+          <div class="flex justify-start md:mt-12 mt-0 hidden md:flex">
+            <img
+              src="images/AGDA_result.avif"
+              alt="Agda Logo"
+              class="h-[38px] object-contain"
+            />
+          </div>
 
-        <div class="flex items-center ">
-          <!-- 1) Back to top goes here -->
-          
-          <div class="flex justify-start md:mt-12 mt-0">
-          <img src="images/AGDA_result.avif" alt="Agda Logo" style=" height: 38px; object-fit: contain;" />
-        </div>
-
-          <!-- 2) Everything else in its own flex, pushed right by ml-auto -->
-          <div class="ml-auto body-text-1 flex flex-wrap gap-x-2 gap-y-2
-                       text-[13pt] md:text-[10pt]">
-           
-            <a href="https://www.linkedin.com/in/jake-pearce-076b772b5/"
-               class="block text-[#686868] text-[11pt] md:text-[10pt]
-                      hover:text-[#000000] whitespace-nowrap md:mt-20 mt-0 hidden md:block">
+          <!-- right-side social links -->
+          <div
+            class="ml-auto body-text-1 flex flex-wrap gap-x-2 gap-y-2 text-[13pt] md:text-[10pt]"
+          >
+            <a
+              href="https://www.linkedin.com/in/jake-pearce-076b772b5/"
+              class="block text-[#686868] text-[11pt] md:text-[10pt] hover:text-[#000000] whitespace-nowrap md:mt-20 mt-0 hidden md:block"
+            >
               <span class="inline">→ </span>LinkedIn
             </a>
-            <a href="https://instagram.com/jake.r.pearce"
-               class="block text-[#686868] text-[11pt] md:text-[10pt]
-                      hover:text-[#000000] whitespace-nowrap md:mt-20 mt-0 hidden md:block">
+            <a
+              href="https://instagram.com/jake.r.pearce"
+              class="block text-[#686868] text-[11pt] md:text-[10pt] hover:text-[#000000] whitespace-nowrap md:mt-20 mt-0 hidden md:block"
+            >
               <span class="inline">→ </span>Instagram
             </a>
-            <a   class="block text-[#686868] text-[11pt] md:text-[10pt]
-                                whitespace-nowrap md:mt-20 mt-0 hidden md:block">
+            <a
+              class="block text-[#686868] text-[11pt] md:text-[10pt] whitespace-nowrap md:mt-20 mt-0 hidden md:block"
+            >
               <span class="inline">© 2025</span>
             </a>
           </div>
