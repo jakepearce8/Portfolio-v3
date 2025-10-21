@@ -1230,6 +1230,78 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 
+  <!-- Motion.dev -->
+  <script type="module">
+    import { animate, inView, scroll } from "https://cdn.jsdelivr.net/npm/motion@11.11.17/+esm";
+
+    // Animate fade-in elements on scroll
+    document.querySelectorAll('.fade-in').forEach((element) => {
+      inView(element, ({ target }) => {
+        animate(target,
+          { opacity: [0, 1], transform: ['translateY(10px)', 'translateY(0)'] },
+          { duration: 0.6, easing: [0.22, 1, 0.36, 1] }
+        );
+      }, { amount: 0.2 });
+    });
+
+    // Animate project cards
+    document.querySelectorAll('.project').forEach((project, index) => {
+      inView(project, ({ target }) => {
+        animate(target,
+          { opacity: [0, 1], transform: ['translateY(20px)', 'translateY(0)'] },
+          { duration: 0.7, delay: index * 0.1, easing: [0.22, 1, 0.36, 1] }
+        );
+      }, { amount: 0.2 });
+    });
+
+    // Smooth hover animations for project images
+    document.querySelectorAll('.project-image-container').forEach((container) => {
+      const img = container.querySelector('img, video');
+      if (!img) return;
+
+      container.addEventListener('mouseenter', () => {
+        animate(img, { scale: 1.05 }, { duration: 0.5, easing: [0.22, 1, 0.36, 1] });
+      });
+
+      container.addEventListener('mouseleave', () => {
+        animate(img, { scale: 1 }, { duration: 0.5, easing: [0.22, 1, 0.36, 1] });
+      });
+    });
+
+    // Parallax effect for hero section
+    scroll(
+      animate('.h1', {
+        transform: ['translateY(0px)', 'translateY(-30px)']
+      }),
+      { target: document.querySelector('#hero'), offset: ['start start', 'end start'] }
+    );
+
+    // Animate service accordion items
+    document.querySelectorAll('[data-service]').forEach((service) => {
+      const toggle = service.querySelector('[data-toggle]');
+      const content = service.querySelector('[data-content]');
+
+      toggle.addEventListener('click', () => {
+        const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+        if (isExpanded) {
+          animate(content, { height: [0, content.scrollHeight] }, { duration: 0.4, easing: 'ease-out' });
+        }
+      });
+    });
+
+    // Smooth scroll animations for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        const href = anchor.getAttribute('href');
+        if (href === '#contact') {
+          e.preventDefault();
+          animate(document.documentElement, { scrollTop: document.body.scrollHeight }, { duration: 1, easing: [0.22, 1, 0.36, 1] });
+        }
+      });
+    });
+
+  </script>
+
   <!-- ===== Scripts ===== -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
